@@ -43,7 +43,7 @@ const NAV = [
       {
         href: '/analysis',
         icon: 'ti-brain',
-        label: 'AI Workspace',
+        label: 'Analysis',
       },
       {
         href: '/drafting',
@@ -64,7 +64,7 @@ const NAV = [
       {
         href: '/analytics',
         icon: 'ti-chart-bar',
-        label: 'Analytics',
+        label: ' AI-Analytics',
       },
       {
         href: '/financial',
