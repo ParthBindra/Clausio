@@ -1,215 +1,310 @@
 'use client'
-// ─────────────────────────────────────────────────
-//  src/components/hearings/AddHearingModal.tsx
-//
-//  Modal for adding a new hearing entry.
-//
-//  More detailed than the inline form — includes:
-//  • Judge name + court hall
-//  • Opposing counsel admission field
-//  • Next hearing date
-//  • Full orders list with responsible party + deadline
-//
-//  USED IN: src/app/hearings/page.tsx
-// ─────────────────────────────────────────────────
 
 import { useState } from 'react'
 
-interface Order {
-  id:          number
-  description: string
-  responsible: 'Respondent' | 'Petitioner' | 'Lawyer' | 'Court'
-  deadline:    string
+interface Props {
+  onClose: () => void
 }
 
-interface Props { onClose: () => void }
+const hearingStages = [
+  'First Appearance',
+  'Interim Application',
+  'Written Statement',
+  'Evidence',
+  'Cross Examination',
+  'Arguments',
+  'Judgment',
+]
 
 export default function AddHearingModal({ onClose }: Props) {
-  const [orders,    setOrders]    = useState<Order[]>([
-    { id: 1, description: 'Respondent: File reply to interim application', responsible: 'Respondent', deadline: '2024-06-24' },
-  ])
-  const [newOrder,  setNewOrder]  = useState('')
-  const [newResp,   setNewResp]   = useState<Order['responsible']>('Respondent')
+  const [hearingDate, setHearingDate] = useState('')
+  const [stage, setStage] = useState('Interim Application')
+  const [whatHappened, setWhatHappened] = useState('')
+  const [judgeObservation, setJudgeObservation] = useState('')
+  const [nextHearingDate, setNextHearingDate] = useState('')
 
-  function addOrder() {
-    if (!newOrder.trim()) return
-    setOrders(prev => [...prev, { id: Date.now(), description: newOrder, responsible: newResp, deadline: '' }])
-    setNewOrder('')
-  }
+  function saveHearing() {
+    console.log({
+      hearingDate,
+      stage,
+      whatHappened,
+      judgeObservation,
+      nextHearingDate,
+    })
 
-  function removeOrder(id: number) {
-    setOrders(prev => prev.filter(o => o.id !== id))
+    onClose()
   }
 
   return (
-    // Dark overlay — click outside closes
     <div
-      style={{
-        position: 'fixed', inset: 0, zIndex: 50,
-        background: 'rgba(0,0,0,0.45)',
-        display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16,
-      }}
       onClick={onClose}
+      style={{
+        position: 'fixed',
+        inset: 0,
+        background: 'rgba(15,23,42,0.45)',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 999,
+        padding: 24,
+      }}
     >
       <div
+        onClick={(e) => e.stopPropagation()}
         style={{
-          width: '100%', maxWidth: 560, maxHeight: '90vh',
-          background: '#fff', borderRadius: 12,
-          boxShadow: '0 20px 60px rgba(0,0,0,0.25)',
-          display: 'flex', flexDirection: 'column', overflow: 'hidden',
+          width: '100%',
+          maxWidth: 700,
+          background: '#ffffff',
+          borderRadius: 16,
+          overflow: 'hidden',
+          boxShadow: '0 20px 60px rgba(0,0,0,.25)',
         }}
-        onClick={e => e.stopPropagation()}
       >
         {/* Header */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '14px 18px', borderBottom: '1px solid #e2e8f0', flexShrink: 0 }}>
-          <i className="ti ti-plus" style={{ fontSize: 15, color: '#1e3a8a' }} />
-          <span style={{ fontSize: 14, fontWeight: 600, color: '#0f172a', flex: 1 }}>Add new hearing entry</span>
+
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: '20px 24px',
+            borderBottom: '1px solid #e2e8f0',
+          }}
+        >
+          <div>
+            <h2
+              style={{
+                margin: 0,
+                fontSize: 22,
+                fontWeight: 700,
+                color: '#0f172a',
+              }}
+            >
+              Record Hearing
+            </h2>
+
+            <p
+              style={{
+                marginTop: 5,
+                marginBottom: 0,
+                color: '#64748b',
+                fontSize: 13,
+              }}
+            >
+              Add today's hearing notes
+            </p>
+          </div>
+
           <button
             onClick={onClose}
-            aria-label="Close"
-            style={{ width: 26, height: 26, borderRadius: 6, background: '#f1f5f9', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, color: '#64748b' }}
-          >✕</button>
+            style={{
+              width: 36,
+              height: 36,
+              borderRadius: 8,
+              border: 'none',
+              background: '#f1f5f9',
+              cursor: 'pointer',
+              fontSize: 18,
+            }}
+          >
+            ✕
+          </button>
         </div>
 
         {/* Body */}
-        <div style={{ overflowY: 'auto', padding: '18px', flex: 1 }}>
 
-          {/* Case info banner */}
-          <div style={{ background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: 8, padding: '8px 11px', marginBottom: 14, fontSize: 11, color: '#1e40af', display: 'flex', gap: 8, alignItems: 'center' }}>
-            <i className="ti ti-folder" style={{ fontSize: 13 }} />
-            Priya v. Rohit Sharma · FC/2847/2023 · Family Court Bandra
-          </div>
+        <div
+          style={{
+            padding: 24,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 22,
+          }}
+        >
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 18,
+            }}
+          >
+            <Field label="Hearing Date" required>
+              <input
+                type="date"
+                value={hearingDate}
+                onChange={(e) => setHearingDate(e.target.value)}
+                style={inputStyle}
+              />
+            </Field>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 9 }}>
-            <F label="Hearing date" required><input type="date" defaultValue="2024-06-13" /></F>
-            <F label="Stage" required>
-              <select>
-                {['Filing','Admission','Service of Summons','Interim Application','Written Statement','Evidence','Arguments','Judgment'].map(s => (
-                  <option key={s} selected={s === 'Interim Application'}>{s}</option>
+            <Field label="Stage" required>
+              <select
+                value={stage}
+                onChange={(e) => setStage(e.target.value)}
+                style={inputStyle}
+              >
+                {hearingStages.map((item) => (
+                  <option key={item}>{item}</option>
                 ))}
               </select>
-            </F>
-            <F label="Judge name"><input type="text" defaultValue="Hon. Justice R. Sharma" /></F>
-            <F label="Court hall"><input type="text" defaultValue="Hall No. 7" /></F>
+            </Field>
           </div>
 
-          <F label="What happened" required>
+          <Field label="What happened today?" required>
             <textarea
-              placeholder="Describe exactly what happened — judge's comments, what was argued, outcome..."
-              style={{ height: 80 }}
+              rows={6}
+              value={whatHappened}
+              onChange={(e) => setWhatHappened(e.target.value)}
+              placeholder="Describe the hearing, arguments made, submissions, observations and overall outcome..."
+              style={{
+                ...inputStyle,
+                resize: 'vertical',
+                minHeight: 140,
+              }}
             />
-          </F>
-          <F label="Judge's exact observation">
-            <input type="text" placeholder="Any specific observation or warning from the judge..." />
-          </F>
-          <F label="Opposing counsel's admission">
-            <input type="text" placeholder="Any admission made by opposite side's advocate (important for record)..." />
-          </F>
+          </Field>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 9 }}>
-            <F label="Next hearing objective"><input type="text" placeholder="What to achieve next time?" /></F>
-            <F label="Next hearing date"><input type="date" /></F>
-          </div>
+          <Field label="Judge's Observation">
+            <textarea
+              rows={4}
+              value={judgeObservation}
+              onChange={(e) => setJudgeObservation(e.target.value)}
+              placeholder="Mention any important observations or warnings given by the Judge..."
+              style={{
+                ...inputStyle,
+                resize: 'vertical',
+                minHeight: 110,
+              }}
+            />
+          </Field>
 
-          {/* Orders */}
-          <div style={{ marginTop: 4 }}>
-            <p style={{ fontSize: 11, fontWeight: 600, color: '#374151', marginBottom: 6 }}>
-              Orders / tasks set at this hearing
-            </p>
-
-            {orders.map(o => (
-              <div
-                key={o.id}
-                style={{
-                  display: 'flex', alignItems: 'center', gap: 7,
-                  padding: '6px 8px', background: '#f8fafc',
-                  border: '1px solid #e2e8f0', borderRadius: 6, marginBottom: 4, fontSize: 11,
-                }}
-              >
-                <i className="ti ti-circle" style={{ fontSize: 11, color: '#64748b', flexShrink: 0 }} />
-                <span style={{ flex: 1, color: '#374151' }}>{o.description}</span>
-                <span style={{ fontSize: 10, color: '#64748b', whiteSpace: 'nowrap' }}>{o.responsible}</span>
-                <button
-                  onClick={() => removeOrder(o.id)}
-                  aria-label="Remove order"
-                  style={{ width: 18, height: 18, borderRadius: 4, background: '#fef2f2', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, color: '#dc2626', flexShrink: 0 }}
-                >
-                  ×
-                </button>
-              </div>
-            ))}
-
-            {/* Add new order */}
-            <div style={{ display: 'flex', gap: 5, marginTop: 5 }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr',
+              gap: 18,
+            }}
+          >
+            <Field label="Next Hearing Date">
               <input
-                type="text"
-                value={newOrder}
-                onChange={e => setNewOrder(e.target.value)}
-                onKeyDown={e => { if (e.key === 'Enter') addOrder() }}
-                placeholder="Add order / task from this hearing..."
-                style={{ flex: 1, padding: '5px 8px', border: '1px solid #e2e8f0', borderRadius: 6, fontSize: 11, fontFamily: 'inherit', outline: 'none' }}
+                type="date"
+                value={nextHearingDate}
+                onChange={(e) => setNextHearingDate(e.target.value)}
+                style={inputStyle}
               />
-              <select
-                value={newResp}
-                onChange={e => setNewResp(e.target.value as Order['responsible'])}
-                style={{ padding: '5px 7px', border: '1px solid #e2e8f0', borderRadius: 6, fontSize: 11, fontFamily: 'inherit', outline: 'none' }}
-              >
-                <option>Respondent</option>
-                <option>Petitioner</option>
-                <option>Lawyer</option>
-                <option>Court</option>
-              </select>
-              <button
-                onClick={addOrder}
-                style={{ padding: '5px 10px', borderRadius: 6, background: '#eff6ff', border: '1px solid #bfdbfe', color: '#1e40af', fontSize: 11, cursor: 'pointer', fontFamily: 'inherit', whiteSpace: 'nowrap' }}
-              >
-                + Add
-              </button>
-            </div>
+            </Field>
           </div>
+                    {/* Footer */}
 
-        </div>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'flex-end',
+              gap: 12,
+              marginTop: 8,
+              borderTop: '1px solid #e2e8f0',
+              paddingTop: 22,
+            }}
+          >
+            <button
+              onClick={onClose}
+              style={{
+                padding: '11px 22px',
+                borderRadius: 10,
+                border: '1px solid #cbd5e1',
+                background: '#ffffff',
+                color: '#475569',
+                cursor: 'pointer',
+                fontWeight: 600,
+                fontSize: 14,
+              }}
+            >
+              Cancel
+            </button>
 
-        {/* Footer */}
-        <div style={{ padding: '12px 18px', borderTop: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', gap: 7, flexShrink: 0 }}>
-          <Btn onClick={onClose}>Cancel</Btn>
-          <Btn icon="ti-device-floppy">Save draft</Btn>
-          <Btn icon="ti-circle-check" primary onClick={onClose}>Save hearing record</Btn>
+            <button
+              onClick={saveHearing}
+              style={{
+                padding: '11px 24px',
+                borderRadius: 10,
+                border: 'none',
+                background: '#2563eb',
+                color: '#ffffff',
+                cursor: 'pointer',
+                fontWeight: 600,
+                fontSize: 14,
+                boxShadow: '0 8px 20px rgba(37,99,235,.25)',
+              }}
+            >
+              Save Hearing
+            </button>
+          </div>
         </div>
       </div>
     </div>
   )
 }
 
-// ── Helpers ───────────────────────────────────────
+/* ----------------------------------------- */
+/* Reusable Field Component */
+/* ----------------------------------------- */
 
-function F({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
+function Field({
+  label,
+  required,
+  children,
+}: {
+  label: string
+  required?: boolean
+  children: React.ReactNode
+}) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 3, marginBottom: 9 }}>
-      <label style={{ fontSize: 11, fontWeight: 500, color: '#374151' }}>
-        {label}{required && <span style={{ color: '#ef4444', marginLeft: 2 }}>*</span>}
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 8,
+      }}
+    >
+      <label
+        style={{
+          fontSize: 13,
+          fontWeight: 600,
+          color: '#334155',
+        }}
+      >
+        {label}
+
+        {required && (
+          <span
+            style={{
+              color: '#dc2626',
+              marginLeft: 4,
+            }}
+          >
+            *
+          </span>
+        )}
       </label>
+
       {children}
     </div>
   )
 }
 
-function Btn({ icon, primary, onClick, children }: { icon?: string; primary?: boolean; onClick?: () => void; children: React.ReactNode }) {
-  return (
-    <button
-      onClick={onClick}
-      style={{
-        display: 'inline-flex', alignItems: 'center', gap: 5,
-        padding: '7px 14px', borderRadius: 7, fontSize: 12, fontWeight: 500,
-        cursor: 'pointer', fontFamily: 'inherit',
-        border: primary ? '1px solid #1e3a8a' : '1px solid #e2e8f0',
-        background: primary ? '#1e3a8a' : '#f8fafc',
-        color: primary ? '#fff' : '#374151',
-        marginLeft: primary ? 'auto' : undefined,
-      }}
-    >
-      {icon && <i className={`ti ${icon}`} style={{ fontSize: 12 }} />}
-      {children}
-    </button>
-  )
+/* ----------------------------------------- */
+/* Shared Input Style */
+/* ----------------------------------------- */
+
+const inputStyle: React.CSSProperties = {
+  width: '100%',
+  padding: '12px 14px',
+  borderRadius: 10,
+  border: '1px solid #d1d5db',
+  fontSize: 14,
+  fontFamily: 'inherit',
+  color: '#0f172a',
+  background: '#ffffff',
+  outline: 'none',
+  boxSizing: 'border-box',
 }

@@ -1,146 +1,375 @@
 'use client'
-// ─────────────────────────────────────────────────
-//  src/app/hearings/page.tsx
-//
-//  SCREEN 3 — Hearing Diary
-//  URL: /hearings
-//
-//  What this page has:
-//  • Header toolbar with case badge + 4 action buttons
-//  • Red overdue alert bar (when deadlines are missed)
-//  • Two-column layout:
-//    LEFT  → HearingForm   (record today's hearing)
-//    RIGHT → HearingHistory (vertical timeline of past hearings)
-//  • Add Hearing modal (detailed form with orders)
-//
-//  Components used:
-//  • HearingForm    → src/components/hearings/HearingForm.tsx
-//  • HearingHistory → src/components/hearings/HearingHistory.tsx
-//  • AddHearingModal → src/components/hearings/AddHearingModal.tsx
-// ─────────────────────────────────────────────────
 
-import { useState }       from 'react'
-import HearingForm        from '@/components/hearings/HearingForm'
-import HearingHistory     from '@/components/hearings/HearingHistory'
-import AddHearingModal    from '@/components/hearings/AddHearingModal'
+import { useState } from 'react'
+
+import HearingForm from '@/components/hearings/HearingForm'
+import HearingHistory from '@/components/hearings/HearingHistory'
+import AddHearingModal from '@/components/hearings/AddHearingModal'
+import HearingTabs from '@/components/hearings/HearingTabs'
+import DeadlineBanner from '@/components/hearings/DeadlineBanner'
 
 export default function HearingsPage() {
   const [showAddModal, setShowAddModal] = useState(false)
 
+  const [activeTab, setActiveTab] = useState('Hearing Diary')
+
   return (
-    <div style={{ height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-
-      {/* ── BREADCRUMB ── */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '4px 14px', background: '#fff', borderBottom: '1px solid #e2e8f0', fontSize: 10, color: '#94a3b8', flexShrink: 0 }}>
-        <span style={{ cursor: 'pointer' }}>Cases</span>
-        <span style={{ color: '#cbd5e1' }}>›</span>
-        <span style={{ cursor: 'pointer' }}>Priya v. Rohit Sharma</span>
-        <span style={{ color: '#cbd5e1' }}>›</span>
-        <span style={{ color: '#0f172a', fontWeight: 500 }}>Hearing diary</span>
-      </div>
-
-      {/* ── TOOLBAR ── */}
+    <>
       <div
         style={{
-          display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap',
-          padding: '9px 14px', background: '#fff',
-          borderBottom: '1px solid #e2e8f0', flexShrink: 0,
+          height: '100%',
+          background: '#f8fafc',
+          overflowY: 'auto',
+          padding: 24,
         }}
       >
-        <span style={{ fontSize: 14, fontWeight: 600, color: '#0f172a' }}>Hearing diary</span>
+        {/* ================= HEADER ================= */}
 
-        {/* Case badge */}
-        <span style={{ fontSize: 10, color: '#1e40af', background: '#eff6ff', padding: '3px 8px', borderRadius: 20 }}>
-          Priya v. Rohit Sharma · FC/2847/2023
-        </span>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginBottom: 20,
+          }}
+        >
+          {/* Left */}
 
-        <div style={{ marginLeft: 'auto', display: 'flex', gap: 5 }}>
-          <ToolBtn icon="ti-alert-triangle" label="2 overdue" danger />
-          <ToolBtn icon="ti-download"       label="Download diary" />
-          <ToolBtn icon="ti-message"        label="Client update" />
-          <ToolBtn icon="ti-plus"           label="Add hearing" primary onClick={() => setShowAddModal(true)} />
-        </div>
-      </div>
+          <div>
+            <h1
+              style={{
+                margin: 0,
+                fontSize: 28,
+                fontWeight: 700,
+                color: '#0f172a',
+              }}
+            >
+              Hearings
+            </h1>
 
-      {/* ── OVERDUE ALERT BAR ── */}
-      {/* Shows when there are overdue deadlines — catches lawyer's attention immediately */}
-      <OverdueAlert />
+            <p
+              style={{
+                marginTop: 6,
+                fontSize: 14,
+                color: '#64748b',
+              }}
+            >
+              Hearing diary, preparation and witness intelligence
+            </p>
+          </div>
 
-      {/* ── TWO COLUMN CONTENT ── */}
-      <div style={{ flex: 1, overflow: 'hidden' }}>
-        <div style={{ height: '100%', overflowY: 'auto', padding: '12px 14px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, minHeight: '100%' }}>
+          {/* Right */}
 
-            {/* LEFT — Record today's hearing */}
-            <HearingForm />
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 14,
+            }}
+          >
+            <div
+              style={{
+                padding: '10px 18px',
+                borderRadius: 999,
+                background: '#eff6ff',
+                color: '#2563eb',
+                fontWeight: 600,
+                fontSize: 14,
+              }}
+            >
+              Family & Matrimonial
+            </div>
 
-            {/* RIGHT — Past hearing timeline */}
-            <HearingHistory />
-
+            <button
+              onClick={() => setShowAddModal(true)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
+                padding: '11px 18px',
+                border: 'none',
+                borderRadius: 10,
+                cursor: 'pointer',
+                background: '#2563eb',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: 14,
+              }}
+            >
+              <i className="ti ti-plus" />
+              Add Hearing
+            </button>
           </div>
         </div>
+
+        {/* ================= TABS ================= */}
+
+        <HearingTabs
+          activeTab={activeTab}
+          onChange={setActiveTab}
+        />
+
+        {/* ================= DEADLINE ================= */}
+
+        <div
+          style={{
+            marginTop: 20,
+          }}
+        >
+          <DeadlineBanner />
+        </div>
+
+        {/* ================= PAGE CONTENT ================= */}
+
+        <div
+          style={{
+            marginTop: 24,
+          }}
+        >
+                    {/* ================= HEARING DIARY ================= */}
+
+          {activeTab === 'Hearing Diary' && (
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '42% 58%',
+                gap: 24,
+              }}
+            >
+              <HearingForm />
+
+              <HearingHistory />
+            </div>
+          )}
+
+          {/* ================= PREP BRIEF ================= */}
+
+          {activeTab === 'Prep Brief' && (
+            <div
+              style={{
+                background: '#fff',
+                border: '1px solid #e2e8f0',
+                borderRadius: 16,
+                padding: 30,
+              }}
+            >
+              <h2
+                style={{
+                  margin: 0,
+                  fontSize: 22,
+                  color: '#0f172a',
+                  marginBottom: 12,
+                }}
+              >
+                Hearing Preparation Brief
+              </h2>
+
+              <p
+                style={{
+                  color: '#64748b',
+                  marginBottom: 24,
+                }}
+              >
+                AI generated preparation notes before the next hearing.
+              </p>
+
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: 20,
+                }}
+              >
+                <div
+                  style={{
+                    background: '#eff6ff',
+                    border: '1px solid #bfdbfe',
+                    borderRadius: 12,
+                    padding: 20,
+                  }}
+                >
+                  <h3 style={{ marginTop: 0 }}>Today's Objective</h3>
+
+                  <p>
+                    Secure interim maintenance order and oppose adjournment.
+                  </p>
+                </div>
+
+                <div
+                  style={{
+                    background: '#fefce8',
+                    border: '1px solid #fde68a',
+                    borderRadius: 12,
+                    padding: 20,
+                  }}
+                >
+                  <h3 style={{ marginTop: 0 }}>Judge Notes</h3>
+
+                  <p>
+                    Previous warning issued to respondent regarding delay.
+                  </p>
+                </div>
+
+                <div
+                  style={{
+                    background: '#ecfdf5',
+                    border: '1px solid #86efac',
+                    borderRadius: 12,
+                    padding: 20,
+                  }}
+                >
+                  <h3 style={{ marginTop: 0 }}>Arguments</h3>
+
+                  <ul>
+                    <li>Repeated non-compliance.</li>
+                    <li>Financial hardship of petitioner.</li>
+                    <li>Delay tactics by respondent.</li>
+                  </ul>
+                </div>
+
+                <div
+                  style={{
+                    background: '#fef2f2',
+                    border: '1px solid #fecaca',
+                    borderRadius: 12,
+                    padding: 20,
+                  }}
+                >
+                  <h3 style={{ marginTop: 0 }}>Documents Required</h3>
+
+                  <ul>
+                    <li>Updated Income Affidavit</li>
+                    <li>Medical Bills</li>
+                    <li>Bank Statements</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ================= WITNESS INTELLIGENCE ================= */}
+
+          {activeTab === 'Witness Intelligence' && (
+            <div
+              style={{
+                background: '#fff',
+                border: '1px solid #e2e8f0',
+                borderRadius: 16,
+                padding: 30,
+              }}
+            >
+              <h2
+                style={{
+                  margin: 0,
+                  fontSize: 22,
+                  color: '#0f172a',
+                  marginBottom: 12,
+                }}
+              >
+                Witness Intelligence
+              </h2>
+
+              <p
+                style={{
+                  color: '#64748b',
+                  marginBottom: 24,
+                }}
+              >
+                AI analysis of witness credibility and cross examination.
+              </p>
+
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: 20,
+                }}
+              >
+                <div
+                  style={{
+                    background: '#fff',
+                    border: '1px solid #e2e8f0',
+                    borderRadius: 12,
+                    padding: 20,
+                  }}
+                >
+                  <h3>Primary Witness</h3>
+
+                  <p>
+                    Mother of petitioner
+                  </p>
+
+                  <p
+                    style={{
+                      color: '#16a34a',
+                      fontWeight: 600,
+                    }}
+                  >
+                    Credibility Score: 92%
+                  </p>
+                </div>
+
+                <div
+                  style={{
+                    background: '#fff',
+                    border: '1px solid #e2e8f0',
+                    borderRadius: 12,
+                    padding: 20,
+                  }}
+                >
+                  <h3>Risk Factors</h3>
+
+                  <ul>
+                    <li>Memory inconsistencies</li>
+                    <li>Financial questions expected</li>
+                    <li>Timeline clarification required</li>
+                  </ul>
+                </div>
+
+                <div
+                  style={{
+                    background: '#eff6ff',
+                    border: '1px solid #bfdbfe',
+                    borderRadius: 12,
+                    padding: 20,
+                  }}
+                >
+                  <h3>Cross Examination Questions</h3>
+
+                  <ul>
+                    <li>Income proof?</li>
+                    <li>Medical expenditure proof?</li>
+                    <li>Communication records?</li>
+                  </ul>
+                </div>
+
+                <div
+                  style={{
+                    background: '#ecfdf5',
+                    border: '1px solid #86efac',
+                    borderRadius: 12,
+                    padding: 20,
+                  }}
+                >
+                  <h3>AI Recommendation</h3>
+
+                  <p>
+                    Prepare documentary evidence before oral examination.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+        </div>
       </div>
 
-      {/* ── ADD HEARING MODAL ── */}
       {showAddModal && (
-        <AddHearingModal onClose={() => setShowAddModal(false)} />
+        <AddHearingModal
+          onClose={() => setShowAddModal(false)}
+        />
       )}
-
-    </div>
+    </>
   )
 }
-
-// ── HELPER COMPONENTS ─────────────────────────────
-
-function ToolBtn({
-  icon, label, primary, danger, onClick,
-}: {
-  icon: string; label: string; primary?: boolean; danger?: boolean; onClick?: () => void
-}) {
-  return (
-    <button
-      onClick={onClick}
-      style={{
-        display: 'inline-flex', alignItems: 'center', gap: 5,
-        padding: '5px 10px', borderRadius: 7, fontSize: 11,
-        fontWeight: 500, cursor: 'pointer', fontFamily: 'inherit',
-        border:  primary ? '1px solid #1e3a8a' : danger ? '1px solid #fca5a5' : '1px solid #e2e8f0',
-        background: primary ? '#1e3a8a' : danger ? '#fef2f2' : '#f8fafc',
-        color:   primary ? '#fff' : danger ? '#dc2626' : '#64748b',
-        whiteSpace: 'nowrap',
-      }}
-    >
-      <i className={`ti ${icon}`} style={{ fontSize: 12 }} />
-      {label}
-    </button>
-  )
-}
-
-function OverdueAlert() {
-  return (
-    <div
-      style={{
-        display: 'flex', alignItems: 'center', gap: 8,
-        background: '#fef2f2', borderBottom: '1px solid #fca5a5',
-        borderLeft: '3px solid #dc2626',
-        padding: '7px 14px', fontSize: 11, color: '#7f1d1d', flexShrink: 0,
-      }}
-    >
-      <i className="ti ti-alert-triangle" style={{ color: '#dc2626', fontSize: 14, flexShrink: 0 }} />
-      <span style={{ fontWeight: 500 }}>2 overdue deadlines —</span>
-      <span style={{ color: '#475569' }}>
-        respondent reply (due 27 May) and petitioner affidavit (due 1 Jun) are both past due. Judge warned of ex-parte proceedings.
-      </span>
-      <button
-        style={{
-          marginLeft: 'auto', padding: '3px 8px', borderRadius: 5,
-          border: '1px solid #fca5a5', background: '#fff',
-          color: '#dc2626', fontSize: 10, cursor: 'pointer',
-          fontWeight: 600, fontFamily: 'inherit', whiteSpace: 'nowrap',
-        }}
-      >
-        Resolve →
-      </button>
-    </div>
-  )
-}
+        

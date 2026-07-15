@@ -1,205 +1,268 @@
-// ─────────────────────────────────────────────────
-//  src/components/hearings/HearingHistory.tsx
-//
-//  RIGHT PANEL — Vertical timeline of all past hearings.
-//
-//  Each entry shows:
-//  • Date + Stage + TODAY/badge
-//  • Court location
-//  • What happened
-//  • Orders made (with status: OVERDUE/Done/Due date)
-//
-//  Bottom: Download Diary + Send Client Update buttons
-//
-//  USED IN: src/app/hearings/page.tsx
-// ─────────────────────────────────────────────────
+'use client'
 
-interface HearingOrder {
-  text:       string
-  status:     'overdue' | 'done' | 'due'
-  dueLabel:   string
-  icon:       string
-  iconColor:  string
+interface Hearing {
+  id: number
+  date: string
+  stage: string
+  description: string
+  latest?: boolean
 }
 
-interface HearingEntry {
-  date:    string
-  stage:   string
-  court:   string
-  what:    string
-  dotClr:  string
-  badge?:  { text: string; bg: string; color: string }
-  orders:  HearingOrder[]
-}
-
-// All hearing entries — will come from API later
-const HEARINGS: HearingEntry[] = [
+const hearings: Hearing[] = [
   {
-    date:   '13 Jun 2024',
-    stage:  'Interim Application',
-    court:  'Family Court Bandra · Hall No. 7 · Judge R. Sharma',
-    what:   'Judge expressed displeasure at non-compliance. Respondent granted final opportunity to file reply. Judge warned of ex-parte proceedings.',
-    dotClr: '#f59e0b',
-    badge:  { text: 'TODAY', bg: '#fef3c7', color: '#92400e' },
-    orders: [
-      { text: 'Respondent: File reply to interim application', status: 'due',  dueLabel: 'Due 24 Jun', icon: 'ti-circle-check', iconColor: '#f59e0b' },
-    ],
+    id: 1,
+    date: '17 Jun 2024',
+    stage: 'Interim Application',
+    latest: true,
+    description:
+      'Judge expressed strong displeasure over repeated delays. Final opportunity granted to Respondent.',
   },
   {
-    date:   '6 May 2024',
-    stage:  'Interim Application',
-    court:  'Family Court Bandra · Hall No. 7 · Judge R. Sharma',
-    what:   '3-week deadline set for respondent to file reply to interim maintenance application.',
-    dotClr: '#ef4444',
-    orders: [
-      { text: 'Respondent: File reply to interim application', status: 'overdue', dueLabel: 'Overdue — 27 May', icon: 'ti-alert-circle', iconColor: '#ef4444' },
-      { text: 'Petitioner: File affidavit of assets',         status: 'overdue', dueLabel: 'Overdue — 1 Jun',  icon: 'ti-alert-circle', iconColor: '#ef4444' },
-    ],
+    id: 2,
+    date: '6 May 2024',
+    stage: 'Interim Application',
+    description:
+      'Respondent requested additional time for filing reply. Matter adjourned.',
   },
   {
-    date:   '4 Mar 2024',
-    stage:  'Written Statement',
-    court:  'Family Court Bandra · Hall No. 7 · Judge R. Sharma',
-    what:   'Respondent filed written statement. Denied all allegations and relationship with Kavya Nair. Replication ordered within 30 days.',
-    dotClr: '#3b82f6',
-    orders: [
-      { text: 'Petitioner: File replication within 30 days', status: 'done', dueLabel: 'Done — 1 Apr', icon: 'ti-circle-check', iconColor: '#10b981' },
-    ],
+    id: 3,
+    date: '4 Mar 2024',
+    stage: 'Written Statement',
+    description:
+      'Written Statement filed. Replication directed within 30 days.',
   },
   {
-    date:   '15 Jan 2024',
-    stage:  'First Appearance',
-    court:  'Family Court Bandra · Hall No. 7 · Judge R. Sharma',
-    what:   'Both parties present. Written statement ordered within 45 days. No interim relief at this stage.',
-    dotClr: '#10b981',
-    orders: [
-      { text: 'Respondent: File written statement within 45 days', status: 'done', dueLabel: 'Done — 4 Mar', icon: 'ti-circle-check', iconColor: '#10b981' },
-    ],
-  },
-  {
-    date:   '14 Dec 2023',
-    stage:  'Filing & Admission',
-    court:  'Family Court Bandra · Hall No. 7 · Judge R. Sharma',
-    what:   'Case admitted. Notice issued to respondent. First appearance date fixed for 15 Jan 2024.',
-    dotClr: '#10b981',
-    orders: [
-      { text: 'Respondent served notice via process server', status: 'done', dueLabel: 'Done — 28 Dec', icon: 'ti-circle-check', iconColor: '#10b981' },
-    ],
+    id: 4,
+    date: '16 Jan 2024',
+    stage: 'First Appearance',
+    description:
+      'Both parties appeared before the Court. Notice confirmed.',
   },
 ]
 
-// Status badge colours
-const STATUS_STYLES = {
-  overdue: { bg: '#fef2f2', color: '#991b1b' },
-  done:    { bg: '#f0fdf4', color: '#15803d' },
-  due:     { bg: '#fef3c7', color: '#92400e' },
-}
-
 export default function HearingHistory() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+    <div
+      style={{
+        background: '#ffffff',
+        border: '1px solid #e2e8f0',
+        borderRadius: 16,
+        padding: 24,
+        boxShadow: '0 2px 8px rgba(15,23,42,.04)',
+      }}
+    >
+      {/* Header */}
 
-      <p style={{ fontSize: 10, fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 8 }}>
-        Hearing history
-      </p>
-
-      {/* Vertical timeline */}
-      <div style={{ paddingLeft: 4 }}>
-        {HEARINGS.map((h, i) => (
-          <div
-            key={i}
-            style={{ display: 'flex', alignItems: 'flex-start', gap: 10, paddingBottom: 12 }}
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: 24,
+        }}
+      >
+        <div>
+          <h2
+            style={{
+              margin: 0,
+              fontSize: 22,
+              fontWeight: 700,
+              color: '#0f172a',
+            }}
           >
-            {/* Dot + connector line */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
-              <div style={{ width: 10, height: 10, borderRadius: '50%', background: h.dotClr }} />
-              {/* Connector line — hidden for last item */}
-              {i < HEARINGS.length - 1 && (
-                <div style={{ width: 1, background: '#e2e8f0', flex: 1, minHeight: 20, marginTop: 3 }} />
+            Hearing History
+          </h2>
+
+          <p
+            style={{
+              marginTop: 6,
+              color: '#64748b',
+              fontSize: 14,
+            }}
+          >
+            Previous hearing records
+          </p>
+        </div>
+      </div>
+
+      <div
+        style={{
+          position: 'relative',
+        }}
+      >
+        {hearings.map((hearing, index) => (
+          <div
+            key={hearing.id}
+            style={{
+              display: 'flex',
+              alignItems: 'flex-start',
+              marginBottom: 28,
+            }}
+          >
+            {/* Timeline */}
+
+            <div
+              style={{
+                width: 40,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                flexShrink: 0,
+              }}
+            >
+              <div
+                style={{
+                  width: 14,
+                  height: 14,
+                  borderRadius: '50%',
+                  background: hearing.latest
+                    ? '#2563eb'
+                    : '#cbd5e1',
+                  border: '3px solid #ffffff',
+                  boxShadow: '0 0 0 2px #2563eb',
+                  zIndex: 2,
+                }}
+              />
+
+              {index !== hearings.length - 1 && (
+                <div
+                  style={{
+                    width: 2,
+                    flex: 1,
+                    minHeight: 95,
+                    background: '#e2e8f0',
+                    marginTop: 6,
+                  }}
+                />
               )}
             </div>
 
-            {/* Content */}
-            <div style={{ flex: 1, paddingBottom: 4 }}>
+            {/* Card */}
 
-              {/* Date + Stage + TODAY badge */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap', fontSize: 12, fontWeight: 600, color: '#0f172a' }}>
-                {h.date} — {h.stage}
-                {h.badge && (
-                  <span
+            <div
+              style={{
+                flex: 1,
+                background: '#f8fafc',
+                border: '1px solid #e2e8f0',
+                borderRadius: 12,
+                padding: 18,
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  marginBottom: 10,
+                }}
+              >
+                <div>
+                  <div
                     style={{
-                      fontSize: 9, padding: '1px 5px', borderRadius: 6,
-                      fontWeight: 600, background: h.badge.bg, color: h.badge.color,
+                      fontWeight: 700,
+                      fontSize: 16,
+                      color: '#0f172a',
                     }}
                   >
-                    {h.badge.text}
+                    {hearing.date}
+                  </div>
+
+                  <div
+                    style={{
+                      marginTop: 4,
+                      color: '#2563eb',
+                      fontWeight: 600,
+                      fontSize: 14,
+                    }}
+                  >
+                    {hearing.stage}
+                  </div>
+                </div>
+
+                {hearing.latest && (
+                  <span
+                    style={{
+                      background: '#dbeafe',
+                      color: '#1d4ed8',
+                      padding: '6px 12px',
+                      borderRadius: 20,
+                      fontSize: 12,
+                      fontWeight: 700,
+                    }}
+                  >
+                    LATEST
                   </span>
                 )}
               </div>
 
-              {/* Court */}
-              <div style={{ fontSize: 10, color: '#64748b', marginTop: 2 }}>
-                {h.court}
-              </div>
-
-              {/* What happened */}
-              <div style={{ fontSize: 11, color: '#374151', marginTop: 4, lineHeight: 1.5 }}>
-                {h.what}
-              </div>
-
-              {/* Orders */}
-              {h.orders.map((o, j) => (
-                <div
-                  key={j}
-                  style={{
-                    display: 'flex', alignItems: 'center', gap: 6,
-                    padding: '5px 8px', background: '#f8fafc',
-                    border: '1px solid #e2e8f0', borderRadius: 6,
-                    marginTop: 5, fontSize: 10, color: '#374151',
-                  }}
-                >
-                  <i className={`ti ${o.icon}`} style={{ fontSize: 11, color: o.iconColor, flexShrink: 0 }} />
-                  <span style={{ flex: 1 }}>{o.text}</span>
-                  <span
-                    style={{
-                      fontSize: 9, padding: '1px 5px', borderRadius: 5,
-                      fontWeight: 600, whiteSpace: 'nowrap',
-                      background: STATUS_STYLES[o.status].bg,
-                      color:      STATUS_STYLES[o.status].color,
-                    }}
-                  >
-                    {o.dueLabel}
-                  </span>
-                </div>
-              ))}
-            </div>
+              <p
+                style={{
+                  margin: 0,
+                  lineHeight: 1.7,
+                  color: '#475569',
+                  fontSize: 14,
+                }}
+              >
+                {hearing.description}
+              </p>
+                          </div>
           </div>
         ))}
       </div>
 
-      {/* Bottom action buttons */}
-      <div style={{ display: 'flex', gap: 6, marginTop: 6 }}>
-        <BottomBtn icon="ti-download">Download diary PDF</BottomBtn>
-        <BottomBtn icon="ti-message" primary>Send client update</BottomBtn>
+      {/* Bottom Summary */}
+
+      <div
+        style={{
+          marginTop: 10,
+          paddingTop: 20,
+          borderTop: '1px solid #e2e8f0',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: 12,
+        }}
+      >
+        <div>
+          <div
+            style={{
+              fontSize: 14,
+              fontWeight: 600,
+              color: '#0f172a',
+            }}
+          >
+            Total Hearings
+          </div>
+
+          <div
+            style={{
+              marginTop: 4,
+              fontSize: 28,
+              fontWeight: 700,
+              color: '#2563eb',
+            }}
+          >
+            {hearings.length}
+          </div>
+        </div>
+
+        <button
+          style={{
+            padding: '12px 22px',
+            borderRadius: 10,
+            border: 'none',
+            background: '#2563eb',
+            color: '#ffffff',
+            cursor: 'pointer',
+            fontWeight: 600,
+            fontSize: 14,
+            boxShadow: '0 8px 20px rgba(37,99,235,.25)',
+          }}
+        >
+          View Complete Diary
+        </button>
       </div>
     </div>
-  )
-}
-
-function BottomBtn({ icon, primary, children }: { icon: string; primary?: boolean; children: React.ReactNode }) {
-  return (
-    <button
-      style={{
-        flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
-        padding: '7px 0', borderRadius: 7, fontSize: 11, fontWeight: 500,
-        cursor: 'pointer', fontFamily: 'inherit',
-        border: primary ? '1px solid #1e3a8a' : '1px solid #e2e8f0',
-        background: primary ? '#1e3a8a' : '#f8fafc',
-        color: primary ? '#fff' : '#64748b',
-      }}
-    >
-      <i className={`ti ${icon}`} style={{ fontSize: 12 }} />
-      {children}
-    </button>
   )
 }
