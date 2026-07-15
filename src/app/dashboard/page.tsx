@@ -9,6 +9,7 @@ import MetricsRow     from '@/components/dashboard/MetricsRow'
 import QuickActions   from '@/components/dashboard/QuickActions'
 import HearingDiary   from '@/components/dashboard/HearingDiary'
 import AIInsights     from '@/components/dashboard/AIInsights'
+import DraftsTab      from '@/components/drafts/DraftsTab'
 
 const TABS = ['Overview','Documents','Timeline','Hearings','AI analysis','Drafts','Research','Evidence','Witnesses','Tasks','Billing','History']
 
@@ -85,54 +86,62 @@ export default function DashboardPage() {
 
           {/* Scrollable content */}
           <div style={{ flex: 1, overflowY: 'auto', padding: '10px 12px' }}>
-            <MetricsRow />
-            <QuickActions />
+            {activeTab === 'Overview' && (
+              <>
+                <MetricsRow />
+                <QuickActions />
 
-            {/* Two columns */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 7, marginBottom: 7 }}>
-              <HearingDiary />
+                {/* Two columns */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 7, marginBottom: 7 }}>
+                  <HearingDiary />
 
-              {/* Activity feed */}
-              <div style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 9, padding: '9px 11px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 11, fontWeight: 600, color: '#0f172a', marginBottom: 6 }}>
-                  <i className="ti ti-activity" style={{ fontSize: 12, color: '#94a3b8' }} />
-                  Activity feed
-                  <span style={{ marginLeft: 'auto', fontSize: 9, color: '#3b82f6', cursor: 'pointer', fontWeight: 500 }}>View all</span>
-                </div>
-                {ACTIVITY.map((a, i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 6, padding: '4px 0', borderBottom: i < ACTIVITY.length - 1 ? '1px solid #f1f5f9' : 'none' }}>
-                    <div style={{ width: 6, height: 6, borderRadius: '50%', background: a.dot, flexShrink: 0, marginTop: 3 }} />
-                    <div>
-                      <div style={{ fontSize: 10, color: '#0f172a' }}>{a.text}</div>
-                      <div style={{ fontSize: 9, color: '#94a3b8', marginTop: 1 }}>{a.sub}</div>
+                  {/* Activity feed */}
+                  <div style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 9, padding: '9px 11px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 11, fontWeight: 600, color: '#0f172a', marginBottom: 6 }}>
+                      <i className="ti ti-activity" style={{ fontSize: 12, color: '#94a3b8' }} />
+                      Activity feed
+                      <span style={{ marginLeft: 'auto', fontSize: 9, color: '#3b82f6', cursor: 'pointer', fontWeight: 500 }}>View all</span>
                     </div>
+                    {ACTIVITY.map((a, i) => (
+                      <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 6, padding: '4px 0', borderBottom: i < ACTIVITY.length - 1 ? '1px solid #f1f5f9' : 'none' }}>
+                        <div style={{ width: 6, height: 6, borderRadius: '50%', background: a.dot, flexShrink: 0, marginTop: 3 }} />
+                        <div>
+                          <div style={{ fontSize: 10, color: '#0f172a' }}>{a.text}</div>
+                          <div style={{ fontSize: 9, color: '#94a3b8', marginTop: 1 }}>{a.sub}</div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
+                </div>
 
-            {/* Analytics */}
-            <div style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 9, padding: '9px 11px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 11, fontWeight: 600, color: '#0f172a', marginBottom: 8 }}>
-                <i className="ti ti-chart-pie" style={{ fontSize: 12, color: '#94a3b8' }} />
-                Practice analytics
-                <span style={{ marginLeft: 'auto', fontSize: 9, color: '#3b82f6', cursor: 'pointer', fontWeight: 500 }}>Full report →</span>
-              </div>
-              <div style={{ display: 'flex', border: '1px solid #e2e8f0', borderRadius: 6, overflow: 'hidden' }}>
-                {[
-                  { val: '82%',  lbl: 'Success rate',  trend: '↑ vs last qtr', clr: '#10b981' },
-                  { val: '12.5L',lbl: 'Revenue (Rs)',   trend: '↑ 18% MoM',     clr: '#10b981' },
-                  { val: '78%',  lbl: 'AI usage',       trend: '↑ 12pts',       clr: '#7c3aed' },
-                  { val: '154',  lbl: 'Active cases',   trend: '→ Stable',      clr: '#f59e0b' },
-                ].map((seg, i) => (
-                  <div key={i} style={{ flex: 1, padding: '7px 8px', textAlign: 'center', borderRight: i < 3 ? '1px solid #e2e8f0' : 'none' }}>
-                    <div style={{ fontSize: 16, fontWeight: 600, color: '#0f172a' }}>{seg.val}</div>
-                    <div style={{ fontSize: 9, color: '#64748b', marginTop: 1 }}>{seg.lbl}</div>
-                    <div style={{ fontSize: 9, fontWeight: 600, color: seg.clr, marginTop: 2 }}>{seg.trend}</div>
+                {/* Analytics */}
+                <div style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 9, padding: '9px 11px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 11, fontWeight: 600, color: '#0f172a', marginBottom: 8 }}>
+                    <i className="ti ti-chart-pie" style={{ fontSize: 12, color: '#94a3b8' }} />
+                    Practice analytics
+                    <span style={{ marginLeft: 'auto', fontSize: 9, color: '#3b82f6', cursor: 'pointer', fontWeight: 500 }}>Full report →</span>
                   </div>
-                ))}
-              </div>
-            </div>
+                  <div style={{ display: 'flex', border: '1px solid #e2e8f0', borderRadius: 6, overflow: 'hidden' }}>
+                    {[
+                      { val: '82%',  lbl: 'Success rate',  trend: '↑ vs last qtr', clr: '#10b981' },
+                      { val: '12.5L',lbl: 'Revenue (Rs)',   trend: '↑ 18% MoM',     clr: '#10b981' },
+                      { val: '78%',  lbl: 'AI usage',       trend: '↑ 12pts',       clr: '#7c3aed' },
+                      { val: '154',  lbl: 'Active cases',   trend: '→ Stable',      clr: '#f59e0b' },
+                    ].map((seg, i) => (
+                      <div key={i} style={{ flex: 1, padding: '7px 8px', textAlign: 'center', borderRight: i < 3 ? '1px solid #e2e8f0' : 'none' }}>
+                        <div style={{ fontSize: 16, fontWeight: 600, color: '#0f172a' }}>{seg.val}</div>
+                        <div style={{ fontSize: 9, color: '#64748b', marginTop: 1 }}>{seg.lbl}</div>
+                        <div style={{ fontSize: 9, fontWeight: 600, color: seg.clr, marginTop: 2 }}>{seg.trend}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
+
+            {activeTab === 'Drafts' && (
+              <DraftsTab />
+            )}
           </div>
         </div>
 
