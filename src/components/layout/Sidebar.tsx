@@ -7,7 +7,7 @@ const NAV = [
   { group: 'Core', items: [
     { href: '/dashboard', icon: 'ti-layout-dashboard', label: 'Dashboard'    },
     { href: '/cases',     icon: 'ti-folder',           label: 'Cases'        },
-    { href: '/analysis',  icon: 'ti-brain',            label: 'AI workspace' },
+    { href: '/AIanalysis',  icon: 'ti-brain',            label: 'AI workspace' },
     { href: '/drafting',  icon: 'ti-pencil',           label: 'Drafting'     },
   ]},
   { group: 'Operations', items: [
