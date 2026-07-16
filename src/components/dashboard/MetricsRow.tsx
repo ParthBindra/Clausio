@@ -8,12 +8,15 @@ const METRICS = [
 
 export default function MetricsRow() {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 6, marginBottom: 8 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 16 }}>
       {METRICS.map((m, i) => (
-        <div key={i} style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 8, padding: '8px 10px', borderTop: `3px solid ${m.top}` }}>
-          <div style={{ fontSize: 22, fontWeight: 600, color: '#0f172a', lineHeight: 1 }}>{m.value}</div>
-          <div style={{ fontSize: 9, color: '#64748b', marginTop: 2 }}>{m.label}</div>
-          <div style={{ fontSize: 9, fontWeight: 600, color: m.tClr, marginTop: 5 }}>{m.trend}</div>
+        <div key={i} className="glass-card" style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ fontSize: 13, color: '#64748b', fontWeight: 600, letterSpacing: '0.2px' }}>{m.label}</div>
+            <div style={{ width: 8, height: 8, borderRadius: '50%', background: m.top, opacity: 0.8, boxShadow: `0 0 8px ${m.top}80` }} />
+          </div>
+          <div style={{ fontSize: 28, fontWeight: 700, color: '#0f172a', letterSpacing: '-0.5px', marginTop: 8 }}>{m.value}</div>
+          <div style={{ fontSize: 12, fontWeight: 600, color: m.tClr, marginTop: 4 }}>{m.trend}</div>
         </div>
       ))}
     </div>

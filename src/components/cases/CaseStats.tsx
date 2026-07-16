@@ -37,133 +37,36 @@ const stats = [
 
 export default function CaseStats() {
   return (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(4,1fr)',
-        gap: 20,
-        marginTop: 28,
-      }}
-    >
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 12, marginTop: 20 }}>
       {stats.map((stat) => (
-        <StatCard
-          key={stat.title}
-          {...stat}
-        />
+        <StatCard key={stat.title} {...stat} />
       ))}
     </div>
   )
 }
 
-function StatCard({
-  title,
-  value,
-  change,
-  icon,
-  color,
-  background,
-}: {
-  title: string
-  value: string
-  change: string
-  icon: string
-  color: string
-  background: string
-}) {
+function StatCard({ title, value, change, icon, color, background }: { title: string, value: string, change: string, icon: string, color: string, background: string }) {
   return (
-    <div
-      style={{
-        background: '#fff',
-        border: '1px solid #e2e8f0',
-        borderRadius: 20,
-        padding: 24,
-        boxShadow: '0 8px 24px rgba(15,23,42,.05)',
-        transition: '.25s',
-        cursor: 'pointer',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
-        <div
-          style={{
-            width: 54,
-            height: 54,
-            borderRadius: 14,
-            background,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <i
-            className={icon}
-            style={{
-              color,
-              fontSize: 24,
-            }}
-          />
+    <div className="glass-card" style={{ padding: 16, transition: '.25s', cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: 4 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ width: 36, height: 36, borderRadius: 10, background: background, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <i className={icon} style={{ color, fontSize: 18 }} />
         </div>
-
-        <span
-          style={{
-            fontSize: 13,
-            fontWeight: 600,
-            color,
-          }}
-        >
+        <span style={{ fontSize: 11, fontWeight: 700, color, background: `${color}15`, padding: '2px 6px', borderRadius: 6 }}>
           {change}
         </span>
       </div>
 
-      <h2
-        style={{
-          margin: '20px 0 6px',
-          fontSize: 34,
-          color: '#0f172a',
-        }}
-      >
+      <h2 style={{ margin: '12px 0 2px', fontSize: 24, color: '#0f172a', fontWeight: 700, letterSpacing: '-0.5px' }}>
         {value}
       </h2>
 
-      <p
-        style={{
-          margin: 0,
-          color: '#64748b',
-          fontSize: 15,
-        }}
-      >
+      <p style={{ margin: 0, color: '#64748b', fontSize: 12, fontWeight: 600 }}>
         {title}
       </p>
 
-      <div
-        style={{
-          marginTop: 18,
-          height: 6,
-          borderRadius: 999,
-          background: '#f1f5f9',
-          overflow: 'hidden',
-        }}
-      >
-        <div
-          style={{
-            width:
-              title === 'Total Cases'
-                ? '80%'
-                : title === 'Active Cases'
-                ? '65%'
-                : title === "Today's Hearings"
-                ? '45%'
-                : '30%',
-            height: '100%',
-            background: color,
-            borderRadius: 999,
-          }}
-        />
+      <div style={{ marginTop: 12, height: 4, borderRadius: 999, background: 'rgba(0,0,0,0.05)', overflow: 'hidden' }}>
+        <div style={{ width: title === 'Total Cases' ? '80%' : title === 'Active Cases' ? '65%' : title === "Today's Hearings" ? '45%' : '30%', height: '100%', background: color, borderRadius: 999 }} />
       </div>
     </div>
   )

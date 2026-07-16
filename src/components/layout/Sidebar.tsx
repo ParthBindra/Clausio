@@ -88,55 +88,57 @@ export default function Sidebar() {
 
   return (
     <aside
+      className="glass-sidebar"
       style={{
-        background: '#0f172a',
-        width: expanded ? 190 : 46,
+        width: expanded ? 220 : 64, // Slightly wider for iOS feel
         flexShrink: 0,
         overflow: 'hidden',
-        transition: 'width .25s ease',
+        transition: 'width .3s cubic-bezier(0.4, 0, 0.2, 1)', // Apple springy feel
         display: 'flex',
         flexDirection: 'column',
+        margin: '16px 0 16px 16px',
+        borderRadius: 24,
       }}
     >
       {/* Toggle */}
-
-      <button
-        onClick={toggleSidebar}
-        style={{
-          width: 30,
-          height: 30,
-          margin: expanded ? '8px 0 6px 10px' : '8px auto 6px',
-          borderRadius: 8,
-          border: 'none',
-          background: 'rgba(255,255,255,.05)',
-          color: '#94a3b8',
-          cursor: 'pointer',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <i className="ti ti-menu-2" />
-      </button>
+      <div style={{ padding: '16px 16px 8px 16px', display: 'flex', justifyContent: expanded ? 'flex-end' : 'center' }}>
+        <button
+          onClick={toggleSidebar}
+          className="glass-button"
+          style={{
+            width: 32,
+            height: 32,
+            border: 'none',
+            color: '#475569',
+            cursor: 'pointer',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <i className="ti ti-menu-2" style={{ fontSize: 18 }} />
+        </button>
+      </div>
 
       <nav
         style={{
           flex: 1,
           overflowY: 'auto',
           overflowX: 'hidden',
+          padding: '0 12px'
         }}
       >
         {NAV.map((section) => (
-          <div key={section.group}>
+          <div key={section.group} style={{ marginBottom: 16 }}>
             {expanded && (
               <div
                 style={{
-                  padding: '10px 12px 6px',
-                  fontSize: 10,
-                  letterSpacing: 1,
+                  padding: '8px 12px 4px',
+                  fontSize: 11,
+                  letterSpacing: 0.5,
                   textTransform: 'uppercase',
-                  color: '#475569',
-                  fontWeight: 700,
+                  color: '#64748b',
+                  fontWeight: 600,
                 }}
               >
                 {section.group}
@@ -155,39 +157,27 @@ export default function Sidebar() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: expanded ? 'flex-start' : 'center',
-                    gap: expanded ? 10 : 0,
-                    margin: '2px 8px',
-                    padding: expanded ? '0 10px' : 0,
-                    height: 38,
-                    borderRadius: 10,
+                    gap: expanded ? 12 : 0,
+                    margin: '4px 0',
+                    padding: expanded ? '0 12px' : 0,
+                    height: 40,
+                    borderRadius: 16,
                     position: 'relative',
                     textDecoration: 'none',
-                    transition: '.2s',
+                    transition: 'all 0.2s ease',
                     background: active
-                      ? 'rgba(37,99,235,.18)'
+                      ? 'rgba(255, 255, 255, 0.8)'
                       : 'transparent',
+                    boxShadow: active ? '0 2px 8px rgba(0,0,0,0.04)' : 'none',
                   }}
                 >
-                  {active && (
-                    <span
-                      style={{
-                        position: 'absolute',
-                        left: 0,
-                        top: 6,
-                        bottom: 6,
-                        width: 3,
-                        background: '#2563eb',
-                        borderRadius: 10,
-                      }}
-                    />
-                  )}
-
                   <i
                     className={`ti ${item.icon}`}
                     style={{
-                      fontSize: 18,
-                      color: active ? '#60a5fa' : '#64748b',
+                      fontSize: 20,
+                      color: active ? '#0f172a' : '#64748b',
                       flexShrink: 0,
+                      transition: 'color 0.2s ease',
                     }}
                   />
 
@@ -195,9 +185,9 @@ export default function Sidebar() {
                     <span
                       style={{
                         flex: 1,
-                        fontSize: 13,
+                        fontSize: 14,
                         fontWeight: active ? 600 : 500,
-                        color: active ? '#ffffff' : '#cbd5e1',
+                        color: active ? '#0f172a' : '#475569',
                       }}
                     >
                       {item.label}
@@ -207,12 +197,13 @@ export default function Sidebar() {
                   {'badge' in item && item.badge && expanded && (
                     <span
                       style={{
-                        background: '#dc2626',
+                        background: '#ef4444',
                         color: '#fff',
-                        fontSize: 10,
+                        fontSize: 11,
                         fontWeight: 700,
                         borderRadius: 999,
-                        padding: '2px 7px',
+                        padding: '2px 8px',
+                        boxShadow: '0 2px 4px rgba(239, 68, 68, 0.3)',
                       }}
                     >
                       {item.badge}
@@ -221,46 +212,38 @@ export default function Sidebar() {
                 </Link>
               )
             })}
-
-            <div
-              style={{
-                margin: expanded ? '8px 14px' : '8px 10px',
-                height: 1,
-                background: 'rgba(255,255,255,.05)',
-              }}
-            />
           </div>
         ))}
       </nav>
 
-      <div style={{ paddingBottom: 8 }}>
+      <div style={{ padding: '12px', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
         <Link
           href="/settings"
           style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: expanded ? 'flex-start' : 'center',
-            gap: expanded ? 10 : 0,
-            margin: '0 8px',
-            padding: expanded ? '0 10px' : 0,
-            height: 38,
-            borderRadius: 10,
-            color: '#cbd5e1',
+            gap: expanded ? 12 : 0,
+            padding: expanded ? '0 12px' : 0,
+            height: 40,
+            borderRadius: 16,
+            color: '#475569',
             textDecoration: 'none',
+            transition: 'background 0.2s ease',
           }}
         >
           <i
             className="ti ti-settings"
             style={{
-              fontSize: 18,
-              color: '#64748b',
+              fontSize: 20,
             }}
           />
 
           {expanded && (
             <span
               style={{
-                fontSize: 13,
+                fontSize: 14,
+                fontWeight: 500,
               }}
             >
               Settings

@@ -9,12 +9,10 @@ export default function EmergencyResponse() {
 
   return (
     <div
+      className="glass-card"
       style={{
-        background: '#fff',
-        border: '1px solid #fecaca',
-        borderRadius: 16,
+        border: '1px solid rgba(239, 68, 68, 0.2)',
         overflow: 'hidden',
-        boxShadow: '0 2px 8px rgba(15,23,42,.04)',
       }}
     >
       {/* Header */}
@@ -23,16 +21,16 @@ export default function EmergencyResponse() {
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: 10,
-          padding: '16px 20px',
-          background: '#fef2f2',
-          borderBottom: '1px solid #fecaca',
+          gap: 12,
+          padding: '12px 16px',
+          background: 'rgba(239, 68, 68, 0.05)',
+          borderBottom: '1px solid rgba(239, 68, 68, 0.1)',
         }}
       >
         <div
           style={{
-            width: 34,
-            height: 34,
+            width: 32,
+            height: 32,
             borderRadius: 10,
             background: '#dc2626',
             color: '#fff',
@@ -47,9 +45,9 @@ export default function EmergencyResponse() {
         <div>
           <div
             style={{
-              fontWeight: 700,
+              fontWeight: 600,
               color: '#991b1b',
-              fontSize: 17,
+              fontSize: 14,
             }}
           >
             Emergency Response
@@ -58,8 +56,8 @@ export default function EmergencyResponse() {
           <div
             style={{
               color: '#7f1d1d',
-              fontSize: 13,
-              marginTop: 3,
+              fontSize: 12,
+              marginTop: 2,
             }}
           >
             Generate an immediate legal response for urgent situations.
@@ -71,24 +69,26 @@ export default function EmergencyResponse() {
 
       <div
         style={{
-          padding: 20,
+          padding: 16,
         }}
       >
         <textarea
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Describe the emergency situation..."
-          rows={4}
+          rows={3}
           style={{
             width: '100%',
             resize: 'vertical',
-            padding: 14,
+            padding: 12,
             borderRadius: 10,
-            border: '1px solid #d1d5db',
+            border: '1px solid rgba(0,0,0,0.1)',
+            background: 'rgba(255,255,255,0.6)',
             outline: 'none',
-            fontSize: 14,
+            fontSize: 13,
             fontFamily: 'inherit',
             boxSizing: 'border-box',
+            color: '#0f172a'
           }}
         />
 
@@ -96,24 +96,14 @@ export default function EmergencyResponse() {
 
         <div
           style={{
-            marginTop: 16,
+            marginTop: 12,
           }}
         >
           <div
             style={{
-              fontWeight: 600,
-              color: '#334155',
-              marginBottom: 10,
-            }}
-          >
-            Quick Templates
-          </div>
-
-          <div
-            style={{
               display: 'flex',
               flexWrap: 'wrap',
-              gap: 10,
+              gap: 8,
             }}
           >
             {[
@@ -127,12 +117,14 @@ export default function EmergencyResponse() {
               <button
                 key={item}
                 style={{
-                  padding: '8px 14px',
+                  padding: '6px 12px',
                   borderRadius: 999,
-                  border: '1px solid #e2e8f0',
-                  background: '#f8fafc',
+                  border: '1px solid rgba(0,0,0,0.05)',
+                  background: 'rgba(255,255,255,0.6)',
+                  color: '#334155',
                   cursor: 'pointer',
-                  fontSize: 13,
+                  fontSize: 11,
+                  fontWeight: 500,
                 }}
               >
                 {item}
@@ -145,14 +137,14 @@ export default function EmergencyResponse() {
 
         <div
           style={{
-            marginTop: 18,
-            padding: 14,
-            background: '#eff6ff',
-            border: '1px solid #bfdbfe',
+            marginTop: 12,
+            padding: 12,
+            background: 'rgba(59, 130, 246, 0.05)',
+            border: '1px solid rgba(59, 130, 246, 0.1)',
             borderRadius: 10,
-            color: '#1d4ed8',
-            fontSize: 13,
-            lineHeight: 1.6,
+            color: '#1e40af',
+            fontSize: 12,
+            lineHeight: 1.5,
           }}
         >
           <strong>AI Notice:</strong> Clausio will prepare an emergency
@@ -165,42 +157,50 @@ export default function EmergencyResponse() {
         <div
           style={{
             display: 'flex',
-            gap: 12,
-            marginTop: 22,
+            justifyContent: 'flex-end',
+            gap: 10,
+            marginTop: 16,
           }}
         >
           <button
+            className="glass-button"
             style={{
-              flex: 1,
-              padding: '13px',
-              borderRadius: 10,
-              border: '1px solid #cbd5e1',
-              background: '#fff',
+              padding: '0 16px',
+              height: 36,
+              borderRadius: 8,
+              border: '1px solid rgba(0,0,0,0.1)',
+              background: 'rgba(255,255,255,0.6)',
               cursor: 'pointer',
               fontWeight: 600,
+              fontSize: 12,
+              color: '#0f172a'
             }}
           >
             Clear
           </button>
 
           <button
+            className="glass-button"
             style={{
-              flex: 2,
-              padding: '13px',
-              borderRadius: 10,
+              padding: '0 16px',
+              height: 36,
+              borderRadius: 8,
               border: 'none',
               background: '#dc2626',
               color: '#fff',
               cursor: 'pointer',
-              fontWeight: 700,
-              fontSize: 15,
+              fontWeight: 600,
+              fontSize: 12,
+              display: 'flex',
+              alignItems: 'center',
+              boxShadow: '0 4px 12px rgba(220, 38, 38, 0.3)'
             }}
           >
             <i
               className="ti ti-bolt"
-              style={{ marginRight: 8 }}
+              style={{ marginRight: 6 }}
             />
-            Generate Emergency Response
+            Generate Response
           </button>
         </div>
       </div>

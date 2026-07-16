@@ -8,21 +8,21 @@ const ITEMS = [
 
 export default function HearingDiary() {
   return (
-    <div style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 9, padding: '9px 11px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 11, fontWeight: 600, color: '#0f172a', marginBottom: 6 }}>
-        <i className="ti ti-notebook" style={{ fontSize: 12, color: '#94a3b8' }} />
+    <div className="glass-card" style={{ padding: '16px 20px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 14, fontWeight: 600, color: '#0f172a', marginBottom: 12 }}>
+        <i className="ti ti-notebook" style={{ fontSize: 16, color: '#64748b' }} />
         Hearing diary
-        <span style={{ marginLeft: 'auto', fontSize: 9, color: '#3b82f6', cursor: 'pointer', fontWeight: 500 }}>+ Add order</span>
+        <span style={{ marginLeft: 'auto', fontSize: 11, color: '#3b82f6', cursor: 'pointer', fontWeight: 600 }}>+ Add order</span>
       </div>
       {ITEMS.map((item, i) => (
-        <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 6, padding: '4px 0', borderBottom: i < ITEMS.length - 1 ? '1px solid #f1f5f9' : 'none' }}>
-          <div style={{ width: 6, height: 6, borderRadius: '50%', background: item.dot, flexShrink: 0, marginTop: 3 }} />
+        <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '8px 0', borderBottom: i < ITEMS.length - 1 ? '1px solid rgba(0,0,0,0.05)' : 'none' }}>
+          <div style={{ width: 8, height: 8, borderRadius: '50%', background: item.dot, flexShrink: 0, marginTop: 4, boxShadow: `0 0 8px ${item.dot}40` }} />
           <div>
-            <div style={{ fontSize: 10, color: '#0f172a', lineHeight: 1.4 }}>
+            <div style={{ fontSize: 12, color: '#0f172a', lineHeight: 1.4, fontWeight: 500 }}>
               {item.text}
-              {item.overdue && <span style={{ fontSize: 8, padding: '1px 4px', borderRadius: 4, marginLeft: 3, fontWeight: 600, background: '#fef2f2', color: '#991b1b' }}>OVERDUE</span>}
+              {item.overdue && <span className="glass-pill" style={{ fontSize: 9, padding: '2px 6px', marginLeft: 6, fontWeight: 700, background: 'rgba(239, 68, 68, 0.1)', color: '#dc2626', border: '1px solid rgba(239, 68, 68, 0.2)' }}>OVERDUE</span>}
             </div>
-            <div style={{ fontSize: 9, color: '#94a3b8', marginTop: 1 }}>{item.sub}</div>
+            <div style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>{item.sub}</div>
           </div>
         </div>
       ))}

@@ -11,59 +11,61 @@ const STRATEGY = ['Push for ex-parte maintenance at next hearing', 'Secure Dr. M
 
 export default function AIInsights() {
   return (
-    <div style={{ height: '100%', display: 'flex', flexDirection: 'column', background: '#fff' }}>
+    <div className="glass-panel" style={{ height: 'calc(100% - 16px)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
       {/* Header */}
-      <div style={{ padding: '8px 10px', borderBottom: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', gap: 5, flexShrink: 0 }}>
-        <i className="ti ti-brain" style={{ fontSize: 13, color: '#7c3aed' }} />
-        <span style={{ fontSize: 11, fontWeight: 600, color: '#0f172a', flex: 1 }}>AI insights</span>
-        <span style={{ fontSize: 8, background: '#eff6ff', color: '#1e40af', padding: '1px 5px', borderRadius: 8, fontWeight: 600 }}>5 new</span>
+      <div style={{ padding: '12px 16px', borderBottom: '1px solid rgba(255,255,255,0.4)', display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0, background: 'rgba(255,255,255,0.4)' }}>
+        <i className="ti ti-brain" style={{ fontSize: 16, color: '#7c3aed' }} />
+        <span style={{ fontSize: 14, fontWeight: 600, color: '#0f172a', flex: 1 }}>AI insights</span>
+        <span className="glass-pill" style={{ fontSize: 10, background: 'rgba(255,255,255,0.8)', color: '#7c3aed', padding: '4px 8px', fontWeight: 700, border: '1px solid rgba(124, 58, 237, 0.2)' }}>5 new</span>
       </div>
 
       {/* Body */}
-      <div style={{ flex: 1, overflowY: 'auto', padding: '8px 10px' }}>
+      <div style={{ flex: 1, overflowY: 'auto', padding: '16px' }}>
         {/* Success probability */}
-        <div style={{ background: '#f5f3ff', borderRadius: 7, padding: '7px 9px', marginBottom: 8 }}>
-          <div style={{ fontSize: 9, color: '#7c3aed', fontWeight: 600, marginBottom: 2 }}>Case success probability</div>
-          <div style={{ fontSize: 18, fontWeight: 700, color: '#0f172a' }}>78%</div>
-          <div style={{ height: 4, background: '#e2e8f0', borderRadius: 2, marginTop: 5, overflow: 'hidden' }}>
-            <div style={{ width: '78%', height: 4, background: '#10b981', borderRadius: 2 }} />
+        <div style={{ background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.9)', borderRadius: 16, padding: '12px 16px', marginBottom: 16, boxShadow: '0 4px 12px rgba(0,0,0,0.03)' }}>
+          <div style={{ fontSize: 11, color: '#7c3aed', fontWeight: 600, marginBottom: 4 }}>Case success probability</div>
+          <div style={{ fontSize: 24, fontWeight: 700, color: '#0f172a', letterSpacing: '-0.5px' }}>78%</div>
+          <div style={{ height: 6, background: 'rgba(0,0,0,0.05)', borderRadius: 4, marginTop: 8, overflow: 'hidden', boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.05)' }}>
+            <div style={{ width: '78%', height: 6, background: '#10b981', borderRadius: 4 }} />
           </div>
-          <div style={{ fontSize: 9, color: '#64748b', marginTop: 4 }}>Strong evidence · 3 SC precedents found</div>
+          <div style={{ fontSize: 11, color: '#64748b', marginTop: 8, fontWeight: 500 }}>Strong evidence · 3 SC precedents found</div>
         </div>
 
-        <p style={{ fontSize: 8, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 4, fontWeight: 600 }}>Urgent</p>
+        <p style={{ fontSize: 11, color: '#64748b', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 8, fontWeight: 700 }}>Urgent</p>
         {URGENT.map((r, i) => (
-          <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 5, padding: '5px 0', borderBottom: i < URGENT.length - 1 ? '1px solid #f8fafc' : 'none' }}>
-            <div style={{ width: 6, height: 6, borderRadius: '50%', background: r.dot, flexShrink: 0, marginTop: 3 }} />
+          <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '8px 0', borderBottom: i < URGENT.length - 1 ? '1px solid rgba(0,0,0,0.05)' : 'none' }}>
+            <div style={{ width: 8, height: 8, borderRadius: '50%', background: r.dot, flexShrink: 0, marginTop: 4, boxShadow: `0 0 8px ${r.dot}40` }} />
             <div>
-              <p style={{ fontSize: 10, color: '#374151', lineHeight: 1.5 }}>{r.text}</p>
-              <button style={{ marginTop: 3, fontSize: 9, padding: '2px 5px', borderRadius: 4, border: 'none', background: r.bBg, color: r.bClr, cursor: 'pointer', fontFamily: 'inherit', fontWeight: 500 }}>{r.btn}</button>
+              <p style={{ fontSize: 12, color: '#0f172a', lineHeight: 1.5, fontWeight: 500 }}>{r.text}</p>
+              <button className="glass-button" style={{ marginTop: 6, fontSize: 11, padding: '4px 10px', border: 'none', background: r.bBg, color: r.bClr, cursor: 'pointer', fontFamily: 'inherit', fontWeight: 600 }}>{r.btn}</button>
             </div>
           </div>
         ))}
 
-        <p style={{ fontSize: 8, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 4, fontWeight: 600, marginTop: 8 }}>Recommended</p>
+        <p style={{ fontSize: 11, color: '#64748b', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 8, fontWeight: 700, marginTop: 16 }}>Recommended</p>
         {RECS.map((r, i) => (
-          <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 5, padding: '5px 0', borderBottom: i < RECS.length - 1 ? '1px solid #f8fafc' : 'none' }}>
-            <div style={{ width: 6, height: 6, borderRadius: '50%', background: r.dot, flexShrink: 0, marginTop: 3 }} />
+          <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '8px 0', borderBottom: i < RECS.length - 1 ? '1px solid rgba(0,0,0,0.05)' : 'none' }}>
+            <div style={{ width: 8, height: 8, borderRadius: '50%', background: r.dot, flexShrink: 0, marginTop: 4, boxShadow: `0 0 8px ${r.dot}40` }} />
             <div>
-              <p style={{ fontSize: 10, color: '#374151', lineHeight: 1.5 }}>{r.text}</p>
-              <button style={{ marginTop: 3, fontSize: 9, padding: '2px 5px', borderRadius: 4, border: 'none', background: r.bBg, color: r.bClr, cursor: 'pointer', fontFamily: 'inherit', fontWeight: 500 }}>{r.btn}</button>
+              <p style={{ fontSize: 12, color: '#0f172a', lineHeight: 1.5, fontWeight: 500 }}>{r.text}</p>
+              <button className="glass-button" style={{ marginTop: 6, fontSize: 11, padding: '4px 10px', border: 'none', background: r.bBg, color: r.bClr, cursor: 'pointer', fontFamily: 'inherit', fontWeight: 600 }}>{r.btn}</button>
             </div>
           </div>
         ))}
 
-        <p style={{ fontSize: 8, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 4, fontWeight: 600, marginTop: 8 }}>Strategy</p>
+        <p style={{ fontSize: 11, color: '#64748b', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 8, fontWeight: 700, marginTop: 16 }}>Strategy</p>
         {STRATEGY.map((s, i) => (
-          <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 5, padding: '5px 0', borderBottom: i < STRATEGY.length - 1 ? '1px solid #f8fafc' : 'none' }}>
-            <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#7c3aed', flexShrink: 0, marginTop: 3 }} />
-            <p style={{ fontSize: 10, color: '#374151', lineHeight: 1.5 }}>{s}</p>
+          <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '8px 0', borderBottom: i < STRATEGY.length - 1 ? '1px solid rgba(0,0,0,0.05)' : 'none' }}>
+            <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#7c3aed', flexShrink: 0, marginTop: 4, boxShadow: '0 0 8px rgba(124, 58, 237, 0.4)' }} />
+            <p style={{ fontSize: 12, color: '#0f172a', lineHeight: 1.5, fontWeight: 500 }}>{s}</p>
           </div>
         ))}
       </div>
 
       {/* Ask AI */}
-      <input type="text" placeholder="Ask Clausio AI about this case..." style={{ width: '100%', padding: '7px 10px', borderTop: '1px solid #e2e8f0', border: 'none', borderTop: '1px solid #e2e8f0' as any, background: 'transparent', fontSize: 11, fontFamily: 'inherit', outline: 'none', flexShrink: 0 }} />
+      <div style={{ padding: '12px 16px', borderTop: '1px solid rgba(255,255,255,0.4)', background: 'rgba(255,255,255,0.5)' }}>
+        <input type="text" placeholder="Ask Clausio AI about this case..." style={{ width: '100%', padding: '10px 12px', border: '1px solid rgba(255,255,255,0.8)', background: 'rgba(255,255,255,0.7)', borderRadius: 12, fontSize: 13, fontFamily: 'inherit', outline: 'none', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.02)' }} />
+      </div>
     </div>
   )
 }

@@ -26,12 +26,9 @@ const metrics = [
 export default function ReadinessScore() {
   return (
     <div
+      className="glass-card"
       style={{
-        background: '#fff',
-        border: '1px solid #e2e8f0',
-        borderRadius: 16,
-        padding: 24,
-        boxShadow: '0 2px 8px rgba(15,23,42,.04)',
+        padding: 20,
       }}
     >
       {/* ================= HEADER ================= */}
@@ -41,15 +38,15 @@ export default function ReadinessScore() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginBottom: 22,
+          marginBottom: 16,
         }}
       >
         <div>
           <h2
             style={{
               margin: 0,
-              fontSize: 22,
-              fontWeight: 700,
+              fontSize: 16,
+              fontWeight: 600,
               color: '#0f172a',
             }}
           >
@@ -58,8 +55,8 @@ export default function ReadinessScore() {
 
           <p
             style={{
-              marginTop: 6,
-              fontSize: 14,
+              marginTop: 2,
+              fontSize: 12,
               color: '#64748b',
             }}
           >
@@ -69,12 +66,13 @@ export default function ReadinessScore() {
 
         <div
           style={{
-            background: '#dcfce7',
+            background: 'rgba(34, 197, 94, 0.1)',
+            border: '1px solid rgba(34, 197, 94, 0.2)',
             color: '#15803d',
-            padding: '8px 14px',
+            padding: '4px 10px',
             borderRadius: 20,
-            fontWeight: 700,
-            fontSize: 13,
+            fontWeight: 600,
+            fontSize: 11,
           }}
         >
           Good Shape
@@ -86,15 +84,16 @@ export default function ReadinessScore() {
       <div
         style={{
           textAlign: 'center',
-          marginBottom: 28,
+          marginBottom: 20,
         }}
       >
         <div
           style={{
-            fontSize: 74,
+            fontSize: 56,
             fontWeight: 700,
             color: '#16a34a',
             lineHeight: 1,
+            letterSpacing: '-1px'
           }}
         >
           72
@@ -102,8 +101,8 @@ export default function ReadinessScore() {
 
         <div
           style={{
-            marginTop: 10,
-            fontSize: 16,
+            marginTop: 8,
+            fontSize: 14,
             fontWeight: 600,
             color: '#334155',
           }}
@@ -113,8 +112,8 @@ export default function ReadinessScore() {
 
         <div
           style={{
-            marginTop: 6,
-            fontSize: 13,
+            marginTop: 4,
+            fontSize: 11,
             color: '#94a3b8',
           }}
         >
@@ -135,31 +134,33 @@ export default function ReadinessScore() {
 
       <div
         style={{
-          marginTop: 24,
-          background: '#eff6ff',
-          border: '1px solid #bfdbfe',
-          borderRadius: 12,
-          padding: 16,
+          marginTop: 16,
+          background: 'rgba(59, 130, 246, 0.05)',
+          border: '1px solid rgba(59, 130, 246, 0.1)',
+          borderRadius: 10,
+          padding: 12,
         }}
       >
         <div
           style={{
             display: 'flex',
-            gap: 8,
+            gap: 6,
             alignItems: 'center',
-            marginBottom: 10,
+            marginBottom: 6,
           }}
         >
           <i
             className="ti ti-sparkles"
             style={{
               color: '#2563eb',
+              fontSize: 13
             }}
           />
 
           <strong
             style={{
               color: '#2563eb',
+              fontSize: 12
             }}
           >
             AI Recommendation
@@ -168,9 +169,9 @@ export default function ReadinessScore() {
 
         <div
           style={{
-            lineHeight: 1.8,
+            lineHeight: 1.6,
             color: '#334155',
-            fontSize: 14,
+            fontSize: 12,
           }}
         >
           Overall case preparation is strong.

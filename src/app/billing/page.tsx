@@ -56,88 +56,32 @@ export default function BillingPage() {
 
   return (
     <>
-      <div
-        style={{
-          height: '100%',
-          background: '#f8fafc',
-          overflowY: 'auto',
-          padding: 24,
-        }}
-      >
+      <div className="glass-panel" style={{ flex: 1, overflowY: 'auto', margin: '16px', padding: 20, borderRadius: 24 }}>
         {/* ================= HEADER ================= */}
-
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginBottom: 24,
-          }}
-        >
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
           <div>
-            <h1
-              style={{
-                margin: 0,
-                fontSize: 28,
-                fontWeight: 700,
-                color: '#0f172a',
-              }}
-            >
+            <h1 style={{ margin: 0, fontSize: 24, fontWeight: 700, color: '#0f172a', letterSpacing: '-0.5px' }}>
               Billing & Finance
             </h1>
-
-            <p
-              style={{
-                marginTop: 6,
-                color: '#64748b',
-                fontSize: 14,
-              }}
-            >
+            <p style={{ marginTop: 4, color: '#64748b', fontSize: 13, fontWeight: 500 }}>
               Manage invoices, payments, subscriptions and law firm finances.
             </p>
           </div>
 
-          <div
-            style={{
-              display: 'flex',
-              gap: 12,
-            }}
-          >
+          <div style={{ display: 'flex', gap: 12 }}>
             <button
-              style={{
-                background: '#fff',
-                border: '1px solid #dbe3ef',
-                borderRadius: 10,
-                padding: '11px 18px',
-                cursor: 'pointer',
-                fontWeight: 600,
-              }}
+              className="glass-button"
+              style={{ height: 38, padding: '0 16px', background: 'rgba(255,255,255,0.6)', border: '1px solid rgba(0,0,0,0.1)', borderRadius: 10, cursor: 'pointer', fontWeight: 600, fontSize: 13, color: '#0f172a', display: 'flex', alignItems: 'center', gap: 6 }}
             >
-              <i
-                className="ti ti-download"
-                style={{ marginRight: 8 }}
-              />
-
+              <i className="ti ti-download" />
               Export
             </button>
-
             <button
+              className="glass-button"
               onClick={() => setShowModal(true)}
-              style={{
-                background: '#2563eb',
-                color: '#fff',
-                border: 'none',
-                borderRadius: 10,
-                padding: '11px 18px',
-                cursor: 'pointer',
-                fontWeight: 600,
-              }}
+              style={{ height: 38, padding: '0 16px', background: '#3b82f6', color: '#fff', border: 'none', borderRadius: 10, cursor: 'pointer', fontWeight: 600, fontSize: 13, display: 'flex', alignItems: 'center', gap: 6, boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)' }}
             >
-              <i
-                className="ti ti-plus"
-                style={{ marginRight: 8 }}
-              />
-
+              <i className="ti ti-plus" />
               Generate Invoice
             </button>
           </div>

@@ -34,12 +34,9 @@ const gaps: Gap[] = [
 export default function GapAnalysis() {
   return (
     <div
+      className="glass-card"
       style={{
-        background: '#fff',
-        border: '1px solid #e2e8f0',
-        borderRadius: 16,
-        padding: 22,
-        boxShadow: '0 2px 8px rgba(15,23,42,.04)',
+        padding: 20,
       }}
     >
       {/* Header */}
@@ -49,15 +46,15 @@ export default function GapAnalysis() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginBottom: 20,
+          marginBottom: 16,
         }}
       >
         <div>
           <h2
             style={{
               margin: 0,
-              fontSize: 20,
-              fontWeight: 700,
+              fontSize: 16,
+              fontWeight: 600,
               color: '#0f172a',
             }}
           >
@@ -66,9 +63,9 @@ export default function GapAnalysis() {
 
           <p
             style={{
-              marginTop: 6,
+              marginTop: 2,
               color: '#64748b',
-              fontSize: 13,
+              fontSize: 12,
             }}
           >
             Issues requiring attention before the next hearing.
@@ -77,12 +74,13 @@ export default function GapAnalysis() {
 
         <div
           style={{
-            background: '#fef2f2',
+            background: 'rgba(220, 38, 38, 0.1)',
+            border: '1px solid rgba(220, 38, 38, 0.2)',
             color: '#dc2626',
-            padding: '7px 14px',
-            borderRadius: 999,
-            fontWeight: 700,
-            fontSize: 12,
+            padding: '4px 10px',
+            borderRadius: 20,
+            fontWeight: 600,
+            fontSize: 11,
           }}
         >
           3 Critical
@@ -100,31 +98,33 @@ export default function GapAnalysis() {
 
       <div
         style={{
-          marginTop: 18,
-          background: '#eff6ff',
-          border: '1px solid #bfdbfe',
-          borderRadius: 12,
-          padding: 16,
+          marginTop: 16,
+          background: 'rgba(59, 130, 246, 0.05)',
+          border: '1px solid rgba(59, 130, 246, 0.1)',
+          borderRadius: 10,
+          padding: 12,
         }}
       >
         <div
           style={{
             display: 'flex',
-            gap: 8,
+            gap: 6,
             alignItems: 'center',
-            marginBottom: 8,
+            marginBottom: 6,
           }}
         >
           <i
             className="ti ti-sparkles"
             style={{
               color: '#2563eb',
+              fontSize: 13
             }}
           />
 
           <strong
             style={{
               color: '#2563eb',
+              fontSize: 12
             }}
           >
             AI Insight
@@ -133,9 +133,9 @@ export default function GapAnalysis() {
 
         <div
           style={{
-            fontSize: 14,
+            fontSize: 12,
             color: '#334155',
-            lineHeight: 1.7,
+            lineHeight: 1.6,
           }}
         >
           Resolving these three issues is estimated to improve your
@@ -157,26 +157,30 @@ function GapCard({
   const badge =
     gap.severity === 'High'
       ? {
-          bg: '#fef2f2',
+          bg: 'rgba(239, 68, 68, 0.1)',
+          border: 'rgba(239, 68, 68, 0.2)',
           color: '#dc2626',
         }
       : gap.severity === 'Medium'
       ? {
-          bg: '#fff7ed',
+          bg: 'rgba(245, 158, 11, 0.1)',
+          border: 'rgba(245, 158, 11, 0.2)',
           color: '#d97706',
         }
       : {
-          bg: '#f0fdf4',
+          bg: 'rgba(34, 197, 94, 0.1)',
+          border: 'rgba(34, 197, 94, 0.2)',
           color: '#16a34a',
         }
 
   return (
     <div
       style={{
-        border: '1px solid #e2e8f0',
+        border: '1px solid rgba(0,0,0,0.05)',
+        background: 'rgba(255,255,255,0.4)',
         borderRadius: 12,
-        padding: 16,
-        marginBottom: 14,
+        padding: 14,
+        marginBottom: 10,
       }}
     >
       <div
@@ -184,14 +188,14 @@ function GapCard({
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginBottom: 10,
+          marginBottom: 6,
         }}
       >
         <div
           style={{
-            fontWeight: 700,
+            fontWeight: 600,
             color: '#0f172a',
-            fontSize: 15,
+            fontSize: 13,
           }}
         >
           {gap.title}
@@ -200,11 +204,12 @@ function GapCard({
         <span
           style={{
             background: badge.bg,
+            border: `1px solid ${badge.border}`,
             color: badge.color,
-            padding: '5px 10px',
-            borderRadius: 999,
-            fontSize: 11,
-            fontWeight: 700,
+            padding: '2px 8px',
+            borderRadius: 10,
+            fontSize: 10,
+            fontWeight: 600,
           }}
         >
           {gap.severity}
@@ -214,8 +219,8 @@ function GapCard({
       <div
         style={{
           color: '#64748b',
-          fontSize: 13,
-          lineHeight: 1.7,
+          fontSize: 12,
+          lineHeight: 1.5,
         }}
       >
         {gap.description}
@@ -226,28 +231,30 @@ function GapCard({
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginTop: 16,
+          marginTop: 12,
         }}
       >
         <span
           style={{
-            fontSize: 12,
+            fontSize: 11,
             color: '#475569',
           }}
         >
-          Estimated effort: <strong>{gap.effort}</strong>
+          Effort: <strong>{gap.effort}</strong>
         </span>
 
         <button
+          className="glass-button"
           style={{
-            padding: '8px 14px',
+            padding: '4px 12px',
             borderRadius: 8,
             border: 'none',
-            background: '#2563eb',
+            background: '#3b82f6',
             color: '#fff',
             cursor: 'pointer',
             fontWeight: 600,
-            fontSize: 12,
+            fontSize: 11,
+            boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)'
           }}
         >
           Resolve

@@ -23,8 +23,8 @@ export default function ReadinessTabs({
         display: 'flex',
         alignItems: 'center',
         gap: 28,
-        borderBottom: '1px solid #e2e8f0',
-        marginBottom: 24,
+        borderBottom: '1px solid rgba(0,0,0,0.06)',
+        marginBottom: 20,
         overflowX: 'auto',
       }}
     >
@@ -37,14 +37,14 @@ export default function ReadinessTabs({
             onClick={() => onChange(tab)}
             style={{
               position: 'relative',
-              padding: '12px 0',
+              padding: '10px 0',
               background: 'transparent',
               border: 'none',
               cursor: 'pointer',
               fontFamily: 'inherit',
               fontSize: 13,
               fontWeight: active ? 600 : 500,
-              color: active ? '#2563eb' : '#64748b',
+              color: active ? '#0f172a' : '#64748b',
               transition: '.2s',
               whiteSpace: 'nowrap',
             }}
@@ -60,7 +60,7 @@ export default function ReadinessTabs({
                   bottom: -1,
                   height: 2,
                   borderRadius: 10,
-                  background: '#2563eb',
+                  background: '#0f172a',
                 }}
               />
             )}

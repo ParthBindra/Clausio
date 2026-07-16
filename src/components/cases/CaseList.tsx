@@ -17,24 +17,27 @@ export default function CaseList() {
   const [sel, setSel] = useState(0)
 
   return (
-    <div style={{ height: '100%', display: 'flex', flexDirection: 'column', background: '#fff' }}>
-      <div style={{ padding: '7px 9px', borderBottom: '1px solid #e2e8f0', flexShrink: 0 }}>
-        <input type="text" placeholder="Search cases..." style={{ width: '100%', padding: '5px 8px', border: '1px solid #e8ecf0', borderRadius: 5, fontSize: 11, fontFamily: 'inherit', outline: 'none' }} />
-        <div style={{ display: 'flex', gap: 2, marginTop: 5, flexWrap: 'wrap' }}>
+    <div className="glass-panel" style={{ height: 'calc(100% - 16px)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+      <div style={{ padding: '12px', borderBottom: '1px solid rgba(255,255,255,0.4)', flexShrink: 0, background: 'rgba(255,255,255,0.4)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', background: 'rgba(255,255,255,0.6)', border: '1px solid rgba(255,255,255,0.8)', borderRadius: 12, padding: '6px 10px', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.02)' }}>
+          <i className="ti ti-search" style={{ fontSize: 13, color: '#64748b', marginRight: 6 }} />
+          <input type="text" placeholder="Search cases..." style={{ width: '100%', border: 'none', background: 'transparent', fontSize: 13, fontFamily: 'inherit', outline: 'none', color: '#0f172a' }} />
+        </div>
+        <div style={{ display: 'flex', gap: 4, marginTop: 8, flexWrap: 'wrap' }}>
           {FILTERS.map(f => (
-            <button key={f} onClick={() => setFilter(f)} style={{ fontSize: 9, padding: '2px 6px', borderRadius: 20, cursor: 'pointer', border: `1px solid ${filter === f ? '#bfdbfe' : '#e2e8f0'}`, background: filter === f ? '#eff6ff' : '#f8fafc', color: filter === f ? '#1e40af' : '#64748b', fontFamily: 'inherit' }}>{f}</button>
+            <button key={f} onClick={() => setFilter(f)} className={filter === f ? 'glass-pill' : ''} style={{ fontSize: 10, padding: '4px 8px', borderRadius: 20, cursor: 'pointer', border: filter === f ? '1px solid rgba(0,0,0,0.05)' : '1px solid transparent', background: filter === f ? 'rgba(255,255,255,0.9)' : 'transparent', color: filter === f ? '#0f172a' : '#64748b', fontFamily: 'inherit', fontWeight: filter === f ? 600 : 500, transition: 'all 0.2s ease' }}>{f}</button>
           ))}
         </div>
       </div>
-      <div style={{ flex: 1, overflowY: 'auto' }}>
+      <div style={{ flex: 1, overflowY: 'auto', padding: '8px' }}>
         {CASES.map((c, i) => (
-          <div key={i} onClick={() => setSel(i)} style={{ padding: '7px 9px', borderBottom: '1px solid #f1f5f9', cursor: 'pointer', background: sel === i ? '#eff6ff' : '#fff', borderRight: sel === i ? '2px solid #3b82f6' : '2px solid transparent' }}>
-            <div style={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
-              <div style={{ width: 7, height: 7, borderRadius: '50%', background: c.dot, flexShrink: 0, marginTop: 3 }} />
+          <div key={i} onClick={() => setSel(i)} style={{ padding: '10px', borderRadius: 16, cursor: 'pointer', background: sel === i ? 'rgba(255,255,255,0.8)' : 'transparent', boxShadow: sel === i ? '0 2px 8px rgba(0,0,0,0.04)' : 'none', border: sel === i ? '1px solid rgba(255,255,255,0.9)' : '1px solid transparent', transition: 'all 0.2s ease', marginBottom: 4 }}>
+            <div style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
+              <div style={{ width: 8, height: 8, borderRadius: '50%', background: c.dot, flexShrink: 0, marginTop: 4, boxShadow: `0 0 8px ${c.dot}40` }} />
               <div style={{ minWidth: 0 }}>
-                <div style={{ fontSize: 11, fontWeight: 500, color: '#0f172a', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: 152 }}>{c.name}</div>
-                <div style={{ fontSize: 9, color: '#94a3b8', marginTop: 1 }}>{c.num} · {c.type}</div>
-                <span style={{ display: 'inline-block', fontSize: 8, fontWeight: 600, padding: '1px 5px', borderRadius: 5, marginTop: 2, background: c.sBg, color: c.sClr }}>{c.status}</span>
+                <div style={{ fontSize: 13, fontWeight: 600, color: '#0f172a', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{c.name}</div>
+                <div style={{ fontSize: 11, color: '#64748b', marginTop: 2, fontWeight: 500 }}>{c.num} · {c.type}</div>
+                <span style={{ display: 'inline-block', fontSize: 10, fontWeight: 600, padding: '2px 8px', borderRadius: 8, marginTop: 4, background: c.sBg, color: c.sClr, border: `1px solid ${c.sClr}30` }}>{c.status}</span>
               </div>
             </div>
           </div>

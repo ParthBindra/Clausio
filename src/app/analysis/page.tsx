@@ -123,114 +123,98 @@ export default function AnalysisPage() {
   const activeData = MOCK_ANALYSIS_DATA[selectedCategory] || MOCK_ANALYSIS_DATA['Family & Matrimonial']
 
   return (
-    <div style={{ height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden', background: '#f8fafc' }}>
-      
-      {/* ── BREADCRUMB ── */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '4px 14px', background: '#fff', borderBottom: '1px solid #e2e8f0', fontSize: 10, color: '#94a3b8', flexShrink: 0 }}>
-        <span style={{ cursor: 'pointer' }}>Dashboard</span>
-        <span style={{ color: '#cbd5e1' }}>›</span>
-        <span style={{ color: '#0f172a', fontWeight: 500 }}>Analysis Workspace</span>
-      </div>
-
-      {/* ── TOOLBAR ── */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 14px', background: '#fff', borderBottom: '1px solid #e2e8f0', flexShrink: 0, flexWrap: 'wrap' }}>
-        <span style={{ fontSize: 14, fontWeight: 600, color: '#0f172a' }}>Analysis</span>
-
-        {/* Practice Area Category Selector Dropdown */}
-        <div ref={dropdownRef} style={{ position: 'relative' }}>
-          <button 
-            onClick={() => setCategoryDropdownOpen(!categoryDropdownOpen)}
-            style={{
-              fontSize: 10, padding: '4px 10px', borderRadius: 20, cursor: 'pointer',
-              border: '1px solid #bfdbfe', background: '#eff6ff', color: '#1e40af',
-              fontFamily: 'inherit', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 4
-            }}
-          >
-            {selectedCategory}
-            <i className="ti ti-chevron-down" style={{ fontSize: 9 }} />
-          </button>
-          
-          {categoryDropdownOpen && (
-            <div style={{
-              position: 'absolute', top: '100%', left: 0, marginTop: 4, zIndex: 100,
-              background: '#fff', border: '1px solid #e2e8f0', borderRadius: 8,
-              boxShadow: '0 4px 12px rgba(0,0,0,0.08)', width: 220, padding: '4px 0'
-            }}>
-              {Object.keys(MOCK_ANALYSIS_DATA).map(catName => (
-                <button
-                  key={catName}
-                  onClick={() => {
-                    setSelectedCategory(catName)
-                    setCategoryDropdownOpen(false)
-                  }}
-                  style={{
-                    width: '100%', padding: '6px 12px', fontSize: 11, textAlign: 'left',
-                    background: selectedCategory === catName ? '#f1f5f9' : 'transparent',
-                    border: 'none', color: '#334155', cursor: 'pointer', fontFamily: 'inherit',
-                    display: 'flex', alignItems: 'center', justifyContent: 'space-between'
-                  }}
-                >
-                  {catName}
-                  {selectedCategory === catName && <i className="ti ti-check" style={{ color: '#3b82f6', fontSize: 11 }} />}
-                </button>
-              ))}
-            </div>
-          )}
+    <div className="glass-panel" style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', margin: '16px', padding: 16, borderRadius: 24 }}>
+      {/* ── HEADER ── */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
+        <div>
+          <h1 style={{ margin: 0, fontSize: 24, fontWeight: 700, color: '#0f172a', letterSpacing: '-0.5px' }}>
+            Analysis
+          </h1>
+          <p style={{ marginTop: 4, color: '#64748b', fontSize: 13, fontWeight: 500 }}>
+            Upload documents or paste text to analyze.
+          </p>
         </div>
 
-        {/* Hidden File Input */}
-        <input 
-          type="file" 
-          ref={fileInputRef} 
-          onChange={handleFileChange} 
-          style={{ display: 'none' }} 
-          multiple
-          accept=".pdf,.doc,.docx,.txt"
-        />
+        <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+          {/* Practice Area Category Selector Dropdown */}
+          <div ref={dropdownRef} style={{ position: 'relative' }}>
+            <button 
+              onClick={() => setCategoryDropdownOpen(!categoryDropdownOpen)}
+              style={{ padding: '4px 10px', borderRadius: 999, background: 'rgba(59, 130, 246, 0.1)', color: '#2563eb', fontWeight: 600, fontSize: 11, border: '1px solid rgba(59, 130, 246, 0.2)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4 }}
+            >
+              {selectedCategory}
+              <i className="ti ti-chevron-down" style={{ fontSize: 9 }} />
+            </button>
+            
+            {categoryDropdownOpen && (
+              <div style={{
+                position: 'absolute', top: '100%', right: 0, marginTop: 4, zIndex: 100,
+                background: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(20px)', border: '1px solid rgba(0,0,0,0.1)', borderRadius: 12,
+                boxShadow: '0 8px 32px rgba(0,0,0,0.1)', width: 220, padding: '4px 0'
+              }}>
+                {Object.keys(MOCK_ANALYSIS_DATA).map(catName => (
+                  <button
+                    key={catName}
+                    onClick={() => {
+                      setSelectedCategory(catName)
+                      setCategoryDropdownOpen(false)
+                    }}
+                    style={{
+                      width: '100%', padding: '8px 12px', fontSize: 12, textAlign: 'left',
+                      background: selectedCategory === catName ? 'rgba(59, 130, 246, 0.1)' : 'transparent',
+                      border: 'none', color: selectedCategory === catName ? '#2563eb' : '#334155', cursor: 'pointer', fontFamily: 'inherit',
+                      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                      fontWeight: selectedCategory === catName ? 600 : 500
+                    }}
+                  >
+                    {catName}
+                    {selectedCategory === catName && <i className="ti ti-check" style={{ fontSize: 12 }} />}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
 
-        {/* Top actions */}
-        <div style={{ marginLeft: 'auto', display: 'flex', gap: 5 }}>
+          {/* Hidden File Input */}
+          <input 
+            type="file" 
+            ref={fileInputRef} 
+            onChange={handleFileChange} 
+            style={{ display: 'none' }} 
+            multiple
+            accept=".pdf,.doc,.docx,.txt"
+          />
+
+          {/* Top actions */}
           {status === 'completed' && (
             <button
+              className="glass-button"
               onClick={handleReset}
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: 5,
-                padding: '5px 10px', borderRadius: 7, fontSize: 11,
-                fontWeight: 500, cursor: 'pointer', fontFamily: 'inherit',
-                border: '1px solid #e2e8f0', background: '#f8fafc', color: '#64748b'
-              }}
+              style={{ height: 38, padding: '0 16px', background: 'rgba(255,255,255,0.6)', border: '1px solid rgba(0,0,0,0.1)', borderRadius: 10, cursor: 'pointer', fontWeight: 600, fontSize: 13, color: '#0f172a', display: 'flex', alignItems: 'center', gap: 6 }}
             >
-              <i className="ti ti-refresh" style={{ fontSize: 12 }} />
-              Reset analysis
+              <i className="ti ti-refresh" style={{ fontSize: 14 }} />
+              Reset
             </button>
           )}
 
           {status === 'idle' && (
             <button
+              className="glass-button"
               onClick={triggerBrowse}
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: 5,
-                padding: '5px 10px', borderRadius: 7, fontSize: 11,
-                fontWeight: 500, cursor: 'pointer', fontFamily: 'inherit',
-                border: '1px solid #e2e8f0', background: '#f8fafc', color: '#64748b'
-              }}
+              style={{ height: 38, padding: '0 16px', background: 'rgba(255,255,255,0.6)', border: '1px solid rgba(0,0,0,0.1)', borderRadius: 10, cursor: 'pointer', fontWeight: 600, fontSize: 13, color: '#0f172a', display: 'flex', alignItems: 'center', gap: 6 }}
             >
-              <i className="ti ti-upload" style={{ fontSize: 12 }} />
-              Upload document
+              <i className="ti ti-upload" style={{ fontSize: 14 }} />
+              Upload
             </button>
           )}
 
           {status === 'idle' && (
             <button
+              className="glass-button"
               onClick={handleRunAnalysis}
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: 5,
-                padding: '5px 10px', borderRadius: 7, fontSize: 11,
-                fontWeight: 500, cursor: 'pointer', fontFamily: 'inherit',
-                border: '1px solid #1e3a8a', background: '#1e3a8a', color: '#fff'
-              }}
+              style={{ height: 38, padding: '0 16px', background: '#3b82f6', color: '#fff', border: 'none', borderRadius: 10, cursor: 'pointer', fontWeight: 600, fontSize: 13, display: 'flex', alignItems: 'center', gap: 6, boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)' }}
             >
-              <i className="ti ti-brain" style={{ fontSize: 12 }} />
+              <i className="ti ti-brain" style={{ fontSize: 14 }} />
               Run analysis
             </button>
           )}
@@ -238,63 +222,59 @@ export default function AnalysisPage() {
       </div>
 
       {/* ── CORE VIEWS ── */}
-      <div style={{ flex: 1, overflowY: 'auto', padding: '12px 14px' }}>
+      <div style={{ flex: 1, overflowY: 'auto' }}>
         
         {/* ── STATE 1: IDLE / UPLOAD AREA ── */}
         {status === 'idle' && (
-          <div style={{ maxWidth: 760, margin: '10px auto 0', display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <div style={{ maxWidth: 760, margin: '20px auto 0', display: 'flex', flexDirection: 'column', gap: 16 }}>
             
             {/* Drag & Drop Container */}
             <div 
               onDragOver={handleDragOver}
               onDrop={handleDrop}
               onClick={triggerBrowse}
+              className="glass-card"
               style={{
-                background: '#fff', border: '2px dashed #cbd5e1', borderRadius: 10,
-                padding: '36px 20px', textAlign: 'center', cursor: 'pointer',
-                transition: 'border-color 0.15s, background-color 0.15s',
-                display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
+                border: '2px dashed rgba(0,0,0,0.1)', padding: '40px 20px', textAlign: 'center', cursor: 'pointer',
+                transition: 'all 0.2s', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#94a3b8'
-                e.currentTarget.style.backgroundColor = '#f8fafc'
+                e.currentTarget.style.borderColor = 'rgba(59,130,246,0.5)'
+                e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.8)'
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = '#cbd5e1'
-                e.currentTarget.style.backgroundColor = '#fff'
+                e.currentTarget.style.borderColor = 'rgba(0,0,0,0.1)'
+                e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.6)'
               }}
             >
-              <div style={{
-                width: 44, height: 44, borderRadius: '50%', background: '#f1f5f9',
-                display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12
-              }}>
-                <i className="ti ti-file-upload" style={{ fontSize: 20, color: '#64748b' }} />
+              <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(59, 130, 246, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
+                <i className="ti ti-file-upload" style={{ fontSize: 24, color: '#3b82f6' }} />
               </div>
-              <p style={{ fontSize: 12, fontWeight: 600, color: '#334155', marginBottom: 3 }}>
-                Drag and drop your case document or <span style={{ color: '#2563eb', textDecoration: 'underline' }}>click to browse</span>
+              <p style={{ fontSize: 14, fontWeight: 600, color: '#0f172a', marginBottom: 4 }}>
+                Drag and drop your case document or <span style={{ color: '#2563eb' }}>click to browse</span>
               </p>
-              <p style={{ fontSize: 10, color: '#94a3b8' }}>
+              <p style={{ fontSize: 12, color: '#64748b' }}>
                 Supports PDF, DOC, DOCX, TXT · Max size 20MB
               </p>
             </div>
 
             {/* Selected Files List */}
             {uploadedFiles.length > 0 && (
-              <div style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 8, padding: 8 }}>
-                <p style={{ fontSize: 9, fontWeight: 600, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 6, paddingLeft: 4 }}>Uploaded files ({uploadedFiles.length})</p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              <div className="glass-card" style={{ padding: 12 }}>
+                <p style={{ fontSize: 11, fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 8, paddingLeft: 4 }}>Uploaded files ({uploadedFiles.length})</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                   {uploadedFiles.map((file, idx) => (
-                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '5px 8px', background: '#f8fafc', borderRadius: 6, border: '1px solid #f1f5f9' }}>
-                      <i className="ti ti-file-type-pdf" style={{ fontSize: 14, color: '#ef4444' }} />
-                      <span style={{ fontSize: 11, color: '#334155', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{file.name}</span>
-                      <span style={{ fontSize: 9, color: '#94a3b8' }}>{file.size}</span>
+                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', background: 'rgba(255,255,255,0.6)', borderRadius: 8, border: '1px solid rgba(0,0,0,0.05)' }}>
+                      <i className="ti ti-file-type-pdf" style={{ fontSize: 16, color: '#ef4444' }} />
+                      <span style={{ fontSize: 13, fontWeight: 500, color: '#0f172a', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{file.name}</span>
+                      <span style={{ fontSize: 12, color: '#64748b' }}>{file.size}</span>
                       <button 
                         onClick={(e) => { e.stopPropagation(); handleRemoveFile(idx); }}
-                        style={{ border: 'none', background: 'transparent', color: '#94a3b8', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 2 }}
+                        style={{ border: 'none', background: 'transparent', color: '#94a3b8', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 4 }}
                         onMouseEnter={(e) => e.currentTarget.style.color = '#ef4444'}
                         onMouseLeave={(e) => e.currentTarget.style.color = '#94a3b8'}
                       >
-                        ✕
+                        <i className="ti ti-x" style={{ fontSize: 14 }} />
                       </button>
                     </div>
                   ))}
@@ -303,8 +283,8 @@ export default function AnalysisPage() {
             )}
 
             {/* Paste Text Area */}
-            <div style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 8, padding: 12 }}>
-              <label style={{ fontSize: 10, fontWeight: 600, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', marginBottom: 6 }}>
+            <div className="glass-card" style={{ padding: 16 }}>
+              <label style={{ fontSize: 11, fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', marginBottom: 10 }}>
                 Or paste case petition / text facts below
               </label>
               <textarea
@@ -312,9 +292,9 @@ export default function AnalysisPage() {
                 onChange={(e) => setPastedText(e.target.value)}
                 placeholder="Paste raw statements, court orders, case histories, or contract clauses here to analyze them..."
                 style={{
-                  width: '100%', minHeight: 120, border: '1px solid #e2e8f0', borderRadius: 6,
-                  padding: 10, fontSize: 11, fontFamily: 'inherit', outline: 'none', resize: 'vertical',
-                  background: '#f8fafc'
+                  width: '100%', minHeight: 140, border: '1px solid rgba(0,0,0,0.1)', borderRadius: 10,
+                  padding: 14, fontSize: 13, fontFamily: 'inherit', outline: 'none', resize: 'vertical',
+                  background: 'rgba(255,255,255,0.6)', color: '#0f172a', boxSizing: 'border-box'
                 }}
               />
             </div>

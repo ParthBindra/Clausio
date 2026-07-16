@@ -15,82 +15,26 @@ export default function ReadinessPage() {
 
   return (
     <>
-      <div
-        style={{
-          height: '100%',
-          background: '#f8fafc',
-          overflowY: 'auto',
-          padding: 24,
-        }}
-      >
+      <div className="glass-panel" style={{ flex: 1, overflowY: 'auto', margin: '16px', padding: 20, borderRadius: 24 }}>
         {/* ================= HEADER ================= */}
-
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginBottom: 24,
-          }}
-        >
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
           <div>
-            <h1
-              style={{
-                margin: 0,
-                fontSize: 28,
-                fontWeight: 700,
-                color: '#0f172a',
-              }}
-            >
+            <h1 style={{ margin: 0, fontSize: 24, fontWeight: 700, color: '#0f172a', letterSpacing: '-0.5px' }}>
               Case Readiness
             </h1>
-
-            <p
-              style={{
-                marginTop: 6,
-                color: '#64748b',
-                fontSize: 14,
-              }}
-            >
+            <p style={{ marginTop: 4, color: '#64748b', fontSize: 13, fontWeight: 500 }}>
               AI readiness assessment before your next hearing.
             </p>
           </div>
 
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 14,
-            }}
-          >
-            <div
-              style={{
-                padding: '10px 18px',
-                borderRadius: 999,
-                background: '#eff6ff',
-                color: '#2563eb',
-                fontWeight: 600,
-                fontSize: 14,
-              }}
-            >
+          <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+            <div style={{ padding: '4px 10px', borderRadius: 999, background: 'rgba(59, 130, 246, 0.1)', color: '#2563eb', fontWeight: 600, fontSize: 11, border: '1px solid rgba(59, 130, 246, 0.2)' }}>
               Family & Matrimonial
             </div>
-
             <button
+              className="glass-button"
               onClick={() => setShowModal(true)}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 8,
-                padding: '11px 18px',
-                border: 'none',
-                borderRadius: 10,
-                background: '#2563eb',
-                color: '#fff',
-                fontWeight: 600,
-                cursor: 'pointer',
-                fontSize: 14,
-              }}
+              style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '0 16px', height: 38, border: 'none', borderRadius: 10, cursor: 'pointer', background: '#3b82f6', color: '#fff', fontWeight: 600, fontSize: 13, boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)' }}
             >
               <i className="ti ti-sparkles" />
               Generate AI Report
@@ -199,27 +143,29 @@ function ComingSoonCard({
 }) {
   return (
     <div
+      className="glass-card"
       style={{
         marginTop: 24,
-        background: '#fff',
-        border: '1px solid #e2e8f0',
-        borderRadius: 16,
-        padding: 50,
+        padding: '60px 40px',
         textAlign: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}
     >
       <div
         style={{
-          width: 70,
-          height: 70,
-          margin: '0 auto',
-          borderRadius: 18,
-          background: '#eff6ff',
-          color: '#2563eb',
+          width: 56,
+          height: 56,
+          borderRadius: 16,
+          background: 'rgba(59, 130, 246, 0.1)',
+          color: '#3b82f6',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontSize: 34,
+          fontSize: 28,
+          marginBottom: 16,
         }}
       >
         <i className={`ti ${icon}`} />
@@ -227,8 +173,11 @@ function ComingSoonCard({
 
       <h2
         style={{
-          marginTop: 20,
+          margin: 0,
+          fontSize: 18,
+          fontWeight: 600,
           color: '#0f172a',
+          letterSpacing: '-0.3px',
         }}
       >
         {title}
@@ -236,10 +185,11 @@ function ComingSoonCard({
 
       <p
         style={{
-          maxWidth: 600,
-          margin: '12px auto 0',
+          maxWidth: 420,
+          margin: '8px auto 0',
           color: '#64748b',
-          lineHeight: 1.8,
+          fontSize: 13,
+          lineHeight: 1.6,
         }}
       >
         {description}

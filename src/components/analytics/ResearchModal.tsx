@@ -32,7 +32,7 @@ export default function ResearchModal({
           maxWidth: '100%',
           maxHeight: '92vh',
           overflowY: 'auto',
-          background: '#fff',
+          background: 'rgba(255,255,255,0.4)',
           borderRadius: 18,
           boxShadow: '0 25px 60px rgba(0,0,0,.18)',
         }}
@@ -42,7 +42,7 @@ export default function ResearchModal({
         <div
           style={{
             padding: '24px 28px',
-            borderBottom: '1px solid #e2e8f0',
+            borderBottom: '1px solid rgba(0,0,0,0.05)',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
@@ -52,7 +52,7 @@ export default function ResearchModal({
             <h2
               style={{
                 margin: 0,
-                fontSize: 24,
+                fontSize: 18,
                 fontWeight: 700,
               }}
             >
@@ -270,7 +270,7 @@ export default function ResearchModal({
               display: 'flex',
               justifyContent: 'space-between',
               marginTop: 28,
-              borderTop: '1px solid #e2e8f0',
+              borderTop: '1px solid rgba(0,0,0,0.05)',
               paddingTop: 22,
             }}
           >
@@ -314,7 +314,7 @@ function StatCard({
   return (
     <div
       style={{
-        background:'#f8fafc',
+        background: 'rgba(255,255,255,0.6)',
         borderRadius:12,
         padding:16,
       }}
@@ -333,7 +333,7 @@ function StatCard({
           marginTop:8,
           fontSize:24,
           fontWeight:700,
-          color:'#2563eb',
+          color: '#3b82f6',
         }}
       >
         {value}
@@ -345,8 +345,8 @@ function StatCard({
 /* ---------- STYLES ---------- */
 
 const card:React.CSSProperties={
-  background:'#fff',
-  border:'1px solid #e2e8f0',
+  background: 'rgba(255,255,255,0.4)',
+  border: '1px solid rgba(0,0,0,0.05)',
   borderRadius:16,
   padding:24,
 }
@@ -361,13 +361,13 @@ const row:React.CSSProperties={
   justifyContent:'space-between',
   alignItems:'center',
   padding:'16px 0',
-  borderBottom:'1px solid #e2e8f0',
+  borderBottom: '1px solid rgba(0,0,0,0.05)',
 }
 
 const inputStyle:React.CSSProperties={
   width:'100%',
   height:44,
-  border:'1px solid #dbe3ef',
+  border: '1px solid rgba(0,0,0,0.05)',
   borderRadius:10,
   padding:'0 14px',
   outline:'none',
@@ -377,7 +377,7 @@ const inputStyle:React.CSSProperties={
 
 const primaryButton:React.CSSProperties={
   border:'none',
-  background:'#2563eb',
+  background: '#3b82f6',
   color:'#fff',
   borderRadius:10,
   padding:'10px 18px',
@@ -386,8 +386,8 @@ const primaryButton:React.CSSProperties={
 }
 
 const secondaryButton:React.CSSProperties={
-  border:'1px solid #dbe3ef',
-  background:'#fff',
+  border: '1px solid rgba(0,0,0,0.05)',
+  background: 'rgba(255,255,255,0.4)',
   color:'#334155',
   borderRadius:10,
   padding:'10px 18px',

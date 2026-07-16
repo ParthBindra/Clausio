@@ -7,7 +7,7 @@ const stats = [
     title: 'Documents',
     value: '8,426',
     icon: 'ti-files',
-    color: '#2563eb',
+    color: '#3b82f6',
   },
   {
     title: 'Case Laws',
@@ -34,7 +34,7 @@ const categories = [
     icon: 'ti-scale',
     title: 'Family Law',
     docs: '1,246 Documents',
-    color: '#2563eb',
+    color: '#3b82f6',
   },
   {
     icon: 'ti-building-bank',
@@ -86,9 +86,9 @@ export default function KnowledgeBase() {
           <h2
             style={{
               margin: 0,
-              fontSize: 28,
+              fontSize: 18,
               fontWeight: 700,
-              color: '#0f172a',
+              letterSpacing: '-0.3px', color: '#0f172a',
             }}
           >
             AI Knowledge Base
@@ -109,7 +109,7 @@ export default function KnowledgeBase() {
         <button
           style={{
             border: 'none',
-            background: '#2563eb',
+            background: '#3b82f6',
             color: '#fff',
             borderRadius: 10,
             padding: '12px 20px',
@@ -128,9 +128,10 @@ export default function KnowledgeBase() {
       {/* ================= SEARCH ================= */}
 
       <div
-        style={{
-          background: '#fff',
-          border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius: 16,
           padding: 24,
           marginBottom: 28,
@@ -167,7 +168,7 @@ export default function KnowledgeBase() {
           <button
             style={{
               border: 'none',
-              background: '#2563eb',
+              background: '#3b82f6',
               color: '#fff',
               borderRadius: 10,
               padding: '0 24px',
@@ -194,8 +195,8 @@ export default function KnowledgeBase() {
           <div
             key={item.title}
             style={{
-              background: '#fff',
-              border: '1px solid #e2e8f0',
+              background: 'rgba(255,255,255,0.4)',
+              border: '1px solid rgba(0,0,0,0.05)',
               borderRadius: 16,
               padding: 20,
             }}
@@ -294,7 +295,7 @@ export default function KnowledgeBase() {
           <button
             style={{
               border: 'none',
-              background: '#2563eb',
+              background: '#3b82f6',
               color: '#fff',
               borderRadius: 10,
               padding: '10px 18px',
@@ -307,9 +308,10 @@ export default function KnowledgeBase() {
         </div>
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             overflow: 'hidden',
           }}
@@ -355,9 +357,10 @@ export default function KnowledgeBase() {
         }}
       >
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -383,7 +386,7 @@ export default function KnowledgeBase() {
               key={item}
               style={{
                 padding: '12px 0',
-                borderBottom: '1px solid #e2e8f0',
+                borderBottom: '1px solid rgba(0,0,0,0.05)',
               }}
             >
               {item}
@@ -392,9 +395,10 @@ export default function KnowledgeBase() {
         </div>
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -419,7 +423,7 @@ export default function KnowledgeBase() {
               key={item}
               style={{
                 padding: '12px 0',
-                borderBottom: '1px solid #e2e8f0',
+                borderBottom: '1px solid rgba(0,0,0,0.05)',
               }}
             >
               {item}
@@ -431,9 +435,10 @@ export default function KnowledgeBase() {
       {/* ================= BOOKMARKS ================= */}
 
       <div
-        style={{
-          background: '#fff',
-          border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius: 16,
           padding: 22,
           marginBottom: 30,
@@ -457,8 +462,8 @@ export default function KnowledgeBase() {
 
           <button
             style={{
-              border: '1px solid #dbe3ef',
-              background: '#fff',
+              border: '1px solid rgba(0,0,0,0.05)',
+              background: 'rgba(255,255,255,0.4)',
               borderRadius: 10,
               padding: '8px 16px',
               cursor: 'pointer',
@@ -517,7 +522,7 @@ export default function KnowledgeBase() {
           <button
             style={{
               border: 'none',
-              background: '#2563eb',
+              background: '#3b82f6',
               color: '#fff',
               borderRadius: 10,
               padding: '10px 18px',
@@ -559,9 +564,10 @@ export default function KnowledgeBase() {
       {/* ================= RECENT UPLOADS ================= */}
 
       <div
-        style={{
-          background: '#fff',
-          border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius: 16,
           padding: 22,
           marginBottom: 30,
@@ -649,9 +655,10 @@ export default function KnowledgeBase() {
         }}
       >
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -689,9 +696,10 @@ export default function KnowledgeBase() {
         {/* ================= UPLOAD ================= */}
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -743,9 +751,10 @@ export default function KnowledgeBase() {
         }}
       >
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -791,9 +800,10 @@ export default function KnowledgeBase() {
         </div>
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -843,8 +853,8 @@ export default function KnowledgeBase() {
 
       <div
         style={{
-          background: '#eff6ff',
-          border: '1px solid #bfdbfe',
+          background: 'rgba(59, 130, 246, 0.05)',
+          border: '1px solid rgba(59, 130, 246, 0.1)',
           borderRadius: 16,
           padding: 22,
           marginBottom: 30,
@@ -893,9 +903,10 @@ function CategoryCard({
 }) {
   return (
     <div
+      className="glass-card"
       style={{
-        background: '#fff',
-        border: '1px solid #e2e8f0',
+        background: 'rgba(255,255,255,0.4)',
+        border: '1px solid rgba(0,0,0,0.05)',
         borderRadius: 16,
         padding: 22,
       }}
@@ -939,7 +950,7 @@ function LibraryRow({
         display: 'grid',
         gridTemplateColumns: '2fr 1fr .8fr auto',
         padding: 18,
-        borderBottom: '1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
         alignItems: 'center',
       }}
     >
@@ -950,8 +961,8 @@ function LibraryRow({
       <button
         style={{
           border: 'none',
-          background: '#eff6ff',
-          color: '#2563eb',
+          background: 'rgba(59, 130, 246, 0.05)',
+          color: '#3b82f6',
           padding: '6px 12px',
           borderRadius: 8,
           cursor: 'pointer',
@@ -973,7 +984,7 @@ function BookmarkCard({
   return (
     <div
       style={{
-        background: '#f8fafc',
+        background: 'rgba(255,255,255,0.6)',
         borderRadius: 14,
         padding: 20,
       }}
@@ -1000,9 +1011,10 @@ function RecentDocumentCard({
 }) {
   return (
     <div
+      className="glass-card"
       style={{
-        background: '#fff',
-        border: '1px solid #e2e8f0',
+        background: 'rgba(255,255,255,0.4)',
+        border: '1px solid rgba(0,0,0,0.05)',
         borderRadius: 14,
         padding: 20,
       }}
@@ -1039,7 +1051,7 @@ function AIInsightCard({
     <div
       style={{
         padding: '12px 0',
-        borderBottom: '1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
       }}
     >
       <div
@@ -1064,14 +1076,14 @@ function UploadCard() {
         borderRadius: 12,
         padding: 36,
         textAlign: 'center',
-        background: '#f8fafc',
+        background: 'rgba(255,255,255,0.6)',
       }}
     >
       <i
         className="ti ti-cloud-upload"
         style={{
           fontSize: 42,
-          color: '#2563eb',
+          color: '#3b82f6',
         }}
       />
 
@@ -1092,7 +1104,7 @@ function UploadCard() {
 const inputStyle: React.CSSProperties = {
   width: '100%',
   height: 44,
-  border: '1px solid #dbe3ef',
+  border: '1px solid rgba(0,0,0,0.05)',
   borderRadius: 10,
   padding: '0 14px',
   outline: 'none',
@@ -1103,19 +1115,19 @@ const inputStyle: React.CSSProperties = {
 const tableHeader: React.CSSProperties = {
   textAlign: 'left',
   padding: 14,
-  background: '#f8fafc',
-  borderBottom: '1px solid #e2e8f0',
+  background: 'rgba(255,255,255,0.6)',
+  borderBottom: '1px solid rgba(0,0,0,0.05)',
   color: '#475569',
 }
 
 const tableCell: React.CSSProperties = {
   padding: 14,
-  borderBottom: '1px solid #e2e8f0',
+  borderBottom: '1px solid rgba(0,0,0,0.05)',
 }
 
 const primaryButton: React.CSSProperties = {
   border: 'none',
-  background: '#2563eb',
+  background: '#3b82f6',
   color: '#fff',
   borderRadius: 10,
   padding: '10px 18px',
@@ -1124,8 +1136,8 @@ const primaryButton: React.CSSProperties = {
 }
 
 const secondaryButton: React.CSSProperties = {
-  border: '1px solid #dbe3ef',
-  background: '#fff',
+  border: '1px solid rgba(0,0,0,0.05)',
+  background: 'rgba(255,255,255,0.4)',
   borderRadius: 10,
   padding: '10px 18px',
   cursor: 'pointer',

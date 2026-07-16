@@ -5,7 +5,7 @@ const stats = [
     title: 'AI Tools',
     value: '28',
     icon: 'ti-tool',
-    color: '#2563eb',
+    color: '#3b82f6',
   },
   {
     title: 'Tools Used Today',
@@ -78,9 +78,9 @@ export default function AITools() {
           <h2
             style={{
               margin: 0,
-              fontSize: 24,
+              fontSize: 18,
               fontWeight: 700,
-              color: '#0f172a',
+              letterSpacing: '-0.3px', color: '#0f172a',
             }}
           >
             AI Tools
@@ -99,7 +99,7 @@ export default function AITools() {
         <button
           style={{
             border: 'none',
-            background: '#2563eb',
+            background: '#3b82f6',
             color: '#fff',
             borderRadius: 10,
             padding: '11px 20px',
@@ -129,8 +129,8 @@ export default function AITools() {
           <div
             key={card.title}
             style={{
-              background: '#fff',
-              border: '1px solid #e2e8f0',
+              background: 'rgba(255,255,255,0.4)',
+              border: '1px solid rgba(0,0,0,0.05)',
               borderRadius: 16,
               padding: 20,
             }}
@@ -176,9 +176,10 @@ export default function AITools() {
       {/* ================= SEARCH ================= */}
 
       <div
-        style={{
-          background: '#fff',
-          border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius: 16,
           padding: 20,
           marginBottom: 28,
@@ -205,7 +206,7 @@ export default function AITools() {
               width: '100%',
               height: 46,
               borderRadius: 10,
-              border: '1px solid #dbe3ef',
+              border: '1px solid rgba(0,0,0,0.05)',
               paddingLeft: 46,
               paddingRight: 16,
               outline: 'none',
@@ -243,8 +244,8 @@ export default function AITools() {
             <div
               key={tool.title}
               style={{
-                background: '#fff',
-                border: '1px solid #e2e8f0',
+                background: 'rgba(255,255,255,0.4)',
+                border: '1px solid rgba(0,0,0,0.05)',
                 borderRadius: 16,
                 padding: 22,
                 cursor: 'pointer',
@@ -254,8 +255,8 @@ export default function AITools() {
               <i
                 className={`ti ${tool.icon}`}
                 style={{
-                  fontSize: 28,
-                  color: '#2563eb',
+                  fontSize: 18,
+                  color: '#3b82f6',
                 }}
               />
 
@@ -286,8 +287,8 @@ export default function AITools() {
                   marginTop: 20,
                   width: '100%',
                   border: 'none',
-                  background: '#eff6ff',
-                  color: '#2563eb',
+                  background: 'rgba(59, 130, 246, 0.05)',
+                  color: '#3b82f6',
                   borderRadius: 10,
                   padding: '10px 0',
                   cursor: 'pointer',
@@ -515,9 +516,10 @@ function ToolCard({
 }) {
   return (
     <div
+      className="glass-card"
       style={{
-        background: '#fff',
-        border: '1px solid #e2e8f0',
+        background: 'rgba(255,255,255,0.4)',
+        border: '1px solid rgba(0,0,0,0.05)',
         borderRadius: 16,
         padding: 22,
         cursor: 'pointer',
@@ -527,8 +529,8 @@ function ToolCard({
       <i
         className={`ti ${icon}`}
         style={{
-          fontSize: 28,
-          color: '#2563eb',
+          fontSize: 18,
+          color: '#3b82f6',
         }}
       />
 
@@ -559,8 +561,8 @@ function ToolCard({
           marginTop: 20,
           width: '100%',
           border: 'none',
-          background: '#eff6ff',
-          color: '#2563eb',
+          background: 'rgba(59, 130, 246, 0.05)',
+          color: '#3b82f6',
           borderRadius: 10,
           padding: '10px 0',
           cursor: 'pointer',
@@ -645,9 +647,10 @@ function ToolCard({
         }}
       >
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -696,9 +699,10 @@ function ToolCard({
         </div>
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -742,9 +746,10 @@ function ToolCard({
       {/* ================= FOOTER ================= */}
 
       <div
-        style={{
-          background: '#fff',
-          border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius: 16,
           padding: 22,
           display: 'flex',
@@ -781,8 +786,8 @@ function ToolCard({
         >
           <button
             style={{
-              border: '1px solid #dbe3ef',
-              background: '#fff',
+              border: '1px solid rgba(0,0,0,0.05)',
+              background: 'rgba(255,255,255,0.4)',
               borderRadius: 10,
               padding: '11px 18px',
               cursor: 'pointer',
@@ -795,7 +800,7 @@ function ToolCard({
           <button
             style={{
               border: 'none',
-              background: '#2563eb',
+              background: '#3b82f6',
               color: '#fff',
               borderRadius: 10,
               padding: '11px 18px',
@@ -825,9 +830,10 @@ function ToolCard({
 }) {
   return (
     <div
+      className="glass-card"
       style={{
-        background: '#fff',
-        border: '1px solid #e2e8f0',
+        background: 'rgba(255,255,255,0.4)',
+        border: '1px solid rgba(0,0,0,0.05)',
         borderRadius: 16,
         padding: 22,
         cursor: 'pointer',
@@ -837,8 +843,8 @@ function ToolCard({
       <i
         className={`ti ${icon}`}
         style={{
-          fontSize: 28,
-          color: '#2563eb',
+          fontSize: 18,
+          color: '#3b82f6',
         }}
       />
 
@@ -869,8 +875,8 @@ function ToolCard({
           marginTop: 20,
           width: '100%',
           border: 'none',
-          background: '#eff6ff',
-          color: '#2563eb',
+          background: 'rgba(59, 130, 246, 0.05)',
+          color: '#3b82f6',
           borderRadius: 10,
           padding: '10px 0',
           cursor: 'pointer',
