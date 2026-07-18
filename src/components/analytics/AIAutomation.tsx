@@ -7,7 +7,7 @@ const stats = [
     title: 'Active Automations',
     value: '18',
     icon: 'ti-robot',
-    color: '#2563eb',
+    color: '#3b82f6',
   },
   {
     title: 'TodayExecutions',
@@ -47,7 +47,7 @@ export default function AIAutomation() {
           <h2
             style={{
               margin: 0,
-              fontSize: 28,
+              fontSize: 18,
               fontWeight: 700,
             }}
           >
@@ -89,8 +89,8 @@ export default function AIAutomation() {
           <div
             key={item.title}
             style={{
-              background: '#fff',
-              border: '1px solid #e2e8f0',
+              background: 'rgba(255,255,255,0.4)',
+              border: '1px solid rgba(0,0,0,0.05)',
               borderRadius: 16,
               padding: 20,
             }}
@@ -162,9 +162,10 @@ export default function AIAutomation() {
         </div>
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             overflow: 'hidden',
           }}
@@ -349,9 +350,10 @@ export default function AIAutomation() {
         {/* Workflow */}
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 24,
           }}
@@ -403,9 +405,10 @@ export default function AIAutomation() {
         {/* Trigger Builder */}
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 24,
           }}
@@ -465,9 +468,10 @@ export default function AIAutomation() {
       {/* ================= AI ACTIONS ================= */}
 
       <div
-        style={{
-          background: '#fff',
-          border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius: 16,
           padding: 24,
           marginBottom: 30,
@@ -559,9 +563,10 @@ export default function AIAutomation() {
         </div>
 
         <div
-          style={{
-            background:'#fff',
-            border:'1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius:16,
             overflow:'hidden',
           }}
@@ -666,9 +671,10 @@ export default function AIAutomation() {
         }}
       >
         <div
-          style={{
-            background:'#fff',
-            border:'1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius:16,
             padding:24,
           }}
@@ -709,9 +715,10 @@ export default function AIAutomation() {
         </div>
 
         <div
-          style={{
-            background:'#fff',
-            border:'1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius:16,
             padding:24,
           }}
@@ -839,7 +846,7 @@ export default function AIAutomation() {
           display:'flex',
           justifyContent:'space-between',
           alignItems:'center',
-          borderTop:'1px solid #e2e8f0',
+          borderTop: '1px solid rgba(0,0,0,0.05)',
           paddingTop:24,
         }}
       >
@@ -888,7 +895,7 @@ function AutomationRow({
         display:'grid',
         gridTemplateColumns:'2fr 1.5fr 2fr 1fr',
         padding:18,
-        borderBottom:'1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
         alignItems:'center',
       }}
     >
@@ -982,7 +989,7 @@ function WorkflowCard({
   return (
     <div
       style={{
-        border:'1px solid #e2e8f0',
+        border: '1px solid rgba(0,0,0,0.05)',
         borderRadius:14,
         padding:18,
       }}
@@ -1045,7 +1052,7 @@ function TriggerItem({
         display:'flex',
         justifyContent:'space-between',
         padding:'12px 0',
-        borderBottom:'1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
       }}
     >
       <span>{title}</span>
@@ -1071,13 +1078,13 @@ function ActionTile({
   return (
     <div
       style={{
-        background:'#f8fafc',
+        background: 'rgba(255,255,255,0.6)',
         borderRadius:14,
         padding:18,
         textAlign:'center',
       }}
     >
-      <i className={`ti ${icon}`} style={{fontSize:28,color:'#2563eb'}} />
+      <i className={`ti ${icon}`} style={{fontSize:28,color: '#3b82f6'}} />
       <div style={{marginTop:12,fontWeight:600}}>
         {title}
       </div>
@@ -1102,7 +1109,7 @@ function HistoryRow({
         display:'grid',
         gridTemplateColumns:'2fr 1fr 1fr',
         padding:18,
-        borderBottom:'1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
       }}
     >
       <strong>{automation}</strong>
@@ -1145,7 +1152,7 @@ function NotificationRow({
     <div
       style={{
         padding:'14px 0',
-        borderBottom:'1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
       }}
     >
       <strong>{title}</strong>
@@ -1167,7 +1174,7 @@ function ScheduleCard({
     <div
       style={{
         padding:'14px 0',
-        borderBottom:'1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
       }}
     >
       <strong>{title}</strong>
@@ -1192,7 +1199,7 @@ function SettingRow({
         justifyContent:'space-between',
         alignItems:'center',
         padding:'14px 0',
-        borderBottom:'1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
       }}
     >
       <div>
@@ -1218,8 +1225,8 @@ function SettingRow({
 /* ================= STYLES ================= */
 
 const card: React.CSSProperties = {
-  background:'#fff',
-  border:'1px solid #e2e8f0',
+  background: 'rgba(255,255,255,0.4)',
+  border: '1px solid rgba(0,0,0,0.05)',
   borderRadius:16,
   padding:24,
 }
@@ -1231,7 +1238,7 @@ const heading: React.CSSProperties = {
 
 const primaryButton: React.CSSProperties = {
   border:'none',
-  background:'#2563eb',
+  background: '#3b82f6',
   color:'#fff',
   borderRadius:10,
   padding:'10px 18px',
@@ -1240,8 +1247,8 @@ const primaryButton: React.CSSProperties = {
 }
 
 const secondaryButton: React.CSSProperties = {
-  border:'1px solid #dbe3ef',
-  background:'#fff',
+  border: '1px solid rgba(0,0,0,0.05)',
+  background: 'rgba(255,255,255,0.4)',
   color:'#334155',
   borderRadius:10,
   padding:'10px 18px',

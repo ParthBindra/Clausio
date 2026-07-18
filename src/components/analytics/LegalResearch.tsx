@@ -7,7 +7,7 @@ const stats = [
     title: 'Judgments',
     value: '2,84,000+',
     icon: 'ti-scale',
-    color: '#2563eb',
+    color: '#3b82f6',
   },
   {
     title: 'Bare Acts',
@@ -47,9 +47,9 @@ export default function LegalResearch() {
           <h2
             style={{
               margin: 0,
-              fontSize: 28,
+              fontSize: 18,
               fontWeight: 700,
-              color: '#0f172a',
+              letterSpacing: '-0.3px', color: '#0f172a',
             }}
           >
             AI Legal Research
@@ -70,7 +70,7 @@ export default function LegalResearch() {
         <button
           style={{
             border: 'none',
-            background: '#2563eb',
+            background: '#3b82f6',
             color: '#fff',
             borderRadius: 10,
             padding: '12px 20px',
@@ -91,9 +91,10 @@ export default function LegalResearch() {
       {/* ================= AI SEARCH ================= */}
 
       <div
-        style={{
-          background: '#fff',
-          border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius: 16,
           padding: 24,
           marginBottom: 28,
@@ -139,7 +140,7 @@ export default function LegalResearch() {
           <button
             style={{
               border: 'none',
-              background: '#2563eb',
+              background: '#3b82f6',
               color: '#fff',
               borderRadius: 10,
               padding: '0 24px',
@@ -166,8 +167,8 @@ export default function LegalResearch() {
           <div
             key={item.title}
             style={{
-              background: '#fff',
-              border: '1px solid #e2e8f0',
+              background: 'rgba(255,255,255,0.4)',
+              border: '1px solid rgba(0,0,0,0.05)',
               borderRadius: 16,
               padding: 20,
             }}
@@ -213,9 +214,10 @@ export default function LegalResearch() {
       {/* ================= RESEARCH FILTERS ================= */}
 
       <div
-        style={{
-          background: '#fff',
-          border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius: 16,
           padding: 24,
           marginBottom: 30,
@@ -292,7 +294,7 @@ export default function LegalResearch() {
           <button
             style={{
               border: 'none',
-              background: '#2563eb',
+              background: '#3b82f6',
               color: '#fff',
               borderRadius: 10,
               padding: '10px 18px',
@@ -305,9 +307,10 @@ export default function LegalResearch() {
         </div>
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             overflow: 'hidden',
           }}
@@ -346,9 +349,10 @@ export default function LegalResearch() {
         }}
       >
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -374,7 +378,7 @@ export default function LegalResearch() {
               key={item}
               style={{
                 padding: '12px 0',
-                borderBottom: '1px solid #e2e8f0',
+                borderBottom: '1px solid rgba(0,0,0,0.05)',
               }}
             >
               {item}
@@ -383,9 +387,10 @@ export default function LegalResearch() {
         </div>
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -411,7 +416,7 @@ export default function LegalResearch() {
               key={item}
               style={{
                 padding: '12px 0',
-                borderBottom: '1px solid #e2e8f0',
+                borderBottom: '1px solid rgba(0,0,0,0.05)',
               }}
             >
               {item}
@@ -423,9 +428,10 @@ export default function LegalResearch() {
       {/* ================= SIMILAR CASES ================= */}
 
       <div
-        style={{
-          background: '#fff',
-          border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius: 16,
           padding: 22,
           marginBottom: 30,
@@ -479,9 +485,10 @@ export default function LegalResearch() {
         {/* AI Summary */}
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 24,
           }}
@@ -551,9 +558,10 @@ export default function LegalResearch() {
         {/* AI Recommendation */}
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 24,
           }}
@@ -599,9 +607,10 @@ export default function LegalResearch() {
       {/* ================= CITATION ANALYSIS ================= */}
 
       <div
-        style={{
-          background: '#fff',
-          border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius: 16,
           padding: 22,
           marginBottom: 30,
@@ -660,9 +669,10 @@ export default function LegalResearch() {
         }}
       >
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -688,7 +698,7 @@ export default function LegalResearch() {
               key={item}
               style={{
                 padding: '12px 0',
-                borderBottom: '1px solid #e2e8f0',
+                borderBottom: '1px solid rgba(0,0,0,0.05)',
               }}
             >
               {item}
@@ -699,9 +709,10 @@ export default function LegalResearch() {
         {/* Research Notes */}
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -790,9 +801,10 @@ export default function LegalResearch() {
         }}
       >
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -837,9 +849,10 @@ export default function LegalResearch() {
         </div>
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -900,9 +913,10 @@ function FilterCard({
 }) {
   return (
     <div
+      className="glass-card"
       style={{
-        background:'#fff',
-        border:'1px solid #e2e8f0',
+        background: 'rgba(255,255,255,0.4)',
+        border: '1px solid rgba(0,0,0,0.05)',
         borderRadius:16,
         padding:20,
       }}
@@ -946,7 +960,7 @@ function ResearchResult({
     <div
       style={{
         padding:22,
-        borderBottom:'1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
       }}
     >
       <div
@@ -959,7 +973,7 @@ function ResearchResult({
 
         <span
           style={{
-            color:'#2563eb',
+            color: '#3b82f6',
             fontWeight:700,
           }}
         >
@@ -1000,9 +1014,10 @@ function CaseCard({
 }) {
   return (
     <div
+      className="glass-card"
       style={{
-        background:'#fff',
-        border:'1px solid #e2e8f0',
+        background: 'rgba(255,255,255,0.4)',
+        border: '1px solid rgba(0,0,0,0.05)',
         borderRadius:14,
         padding:20,
       }}
@@ -1013,7 +1028,7 @@ function CaseCard({
 
       <strong
         style={{
-          color:'#2563eb',
+          color: '#3b82f6',
         }}
       >
         {similarity} Match
@@ -1053,7 +1068,7 @@ function RecommendationCard({
   return (
     <div
       style={{
-        borderBottom:'1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
         paddingBottom:12,
       }}
     >
@@ -1083,7 +1098,7 @@ function CitationCard({
   return (
     <div
       style={{
-        background:'#f8fafc',
+        background: 'rgba(255,255,255,0.6)',
         borderRadius:12,
         padding:18,
       }}
@@ -1120,9 +1135,10 @@ function SavedResearchCard({
 }) {
   return (
     <div
+      className="glass-card"
       style={{
-        background:'#fff',
-        border:'1px solid #e2e8f0',
+        background: 'rgba(255,255,255,0.4)',
+        border: '1px solid rgba(0,0,0,0.05)',
         borderRadius:14,
         padding:20,
       }}
@@ -1151,7 +1167,7 @@ function SavedResearchCard({
 const inputStyle:React.CSSProperties={
   width:'100%',
   height:44,
-  border:'1px solid #dbe3ef',
+  border: '1px solid rgba(0,0,0,0.05)',
   borderRadius:10,
   padding:'0 14px',
   outline:'none',
@@ -1161,7 +1177,7 @@ const inputStyle:React.CSSProperties={
 
 const primaryButton:React.CSSProperties={
   border:'none',
-  background:'#2563eb',
+  background: '#3b82f6',
   color:'#fff',
   borderRadius:10,
   padding:'10px 18px',

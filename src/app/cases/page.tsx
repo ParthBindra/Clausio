@@ -7,13 +7,7 @@ import PracticeAreas from '@/components/cases/PracticeAreas'
 
 export default function CasesPage() {
   return (
-    <div
-      style={{
-        padding: 32,
-        background: '#f8fafc',
-        minHeight: '100vh',
-      }}
-    >
+    <div className="glass-panel" style={{ flex: 1, overflowY: 'auto', margin: '16px', padding: 20, borderRadius: 24 }}>
       {/* Header */}
 
       <CasesHeader />

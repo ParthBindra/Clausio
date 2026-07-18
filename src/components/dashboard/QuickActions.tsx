@@ -11,12 +11,12 @@ const ACTIONS = [
 
 export default function QuickActions() {
   return (
-    <div style={{ marginBottom: 8 }}>
-      <p style={{ fontSize: 9, fontWeight: 600, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 5 }}>Quick actions</p>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 4 }}>
+    <div style={{ marginBottom: 16 }}>
+      <p style={{ fontSize: 11, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 8, paddingLeft: 4 }}>Quick actions</p>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
         {ACTIONS.map((a, i) => (
-          <button key={i} style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '6px 8px', background: a.danger ? '#fff5f5' : '#f8fafc', border: a.danger ? '1.5px solid #fca5a5' : '1px solid #e2e8f0', borderRadius: 7, fontSize: 10, color: a.danger ? '#991b1b' : '#64748b', cursor: 'pointer', fontFamily: 'inherit', fontWeight: a.danger ? 500 : 400, textAlign: 'left' }}>
-            <i className={`ti ${a.icon}`} style={{ fontSize: a.danger ? 14 : 12, flexShrink: 0, color: a.danger ? '#dc2626' : 'inherit' }} />
+          <button key={i} className="glass-button" style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '12px 16px', background: a.danger ? 'rgba(239, 68, 68, 0.1)' : 'rgba(255,255,255,0.6)', border: a.danger ? '1px solid rgba(239, 68, 68, 0.3)' : '1px solid rgba(255,255,255,0.8)', borderRadius: 16, fontSize: 13, color: a.danger ? '#dc2626' : '#0f172a', cursor: 'pointer', fontFamily: 'inherit', fontWeight: a.danger ? 700 : 600, textAlign: 'left', boxShadow: '0 2px 8px rgba(0,0,0,0.02)' }}>
+            <i className={`ti ${a.icon}`} style={{ fontSize: 16, flexShrink: 0, color: a.danger ? '#dc2626' : '#64748b' }} />
             {a.label}
           </button>
         ))}

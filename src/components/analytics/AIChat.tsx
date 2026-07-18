@@ -33,132 +33,67 @@ export default function AIChat() {
     <div>
 
       {/* ================= HEADER ================= */}
-
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: 24,
-        }}
-      >
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
         <div>
-          <h2
-            style={{
-              margin: 0,
-              fontSize: 24,
-              fontWeight: 700,
-              color: '#0f172a',
-            }}
-          >
+          <h2 style={{ margin: 0, fontSize: 18, fontWeight: 700, color: '#0f172a', letterSpacing: '-0.3px' }}>
             AI Chat
           </h2>
-
-          <p
-            style={{
-              marginTop: 6,
-              color: '#64748b',
-              fontSize: 14,
-            }}
-          >
+          <p style={{ marginTop: 2, color: '#64748b', fontSize: 13, fontWeight: 500 }}>
             Ask Clausio anything about your cases, legal research or court documents.
           </p>
         </div>
 
         <button
-          style={{
-            background: '#2563eb',
-            color: '#fff',
-            border: 'none',
-            borderRadius: 10,
-            padding: '11px 18px',
-            cursor: 'pointer',
-            fontWeight: 600,
-          }}
+          className="glass-button"
+          style={{ height: 38, padding: '0 16px', background: '#3b82f6', color: '#fff', border: 'none', borderRadius: 10, cursor: 'pointer', fontWeight: 600, fontSize: 13, display: 'flex', alignItems: 'center', gap: 6, boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)' }}
         >
-          <i
-            className="ti ti-plus"
-            style={{ marginRight: 8 }}
-          />
+          <i className="ti ti-plus" />
           New Conversation
         </button>
       </div>
 
       {/* ================= SUGGESTED PROMPTS ================= */}
 
-      <div
-        style={{
-          marginBottom: 28,
-        }}
-      >
-        <h3
-          style={{
-            marginBottom: 16,
-            color: '#0f172a',
-          }}
-        >
+      <div style={{ marginBottom: 24 }}>
+        <h3 style={{ marginBottom: 12, color: '#0f172a', fontSize: 14, fontWeight: 600 }}>
           Suggested Prompts
         </h3>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(5,1fr)',
-            gap: 16,
-          }}
-        >
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: 12 }}>
           {prompts.map((item) => (
             <div
               key={item.title}
+              className="glass-card"
               style={{
-                background: '#fff',
-                border: '1px solid #e2e8f0',
-                borderRadius: 14,
-                padding: 18,
+                padding: 14,
                 cursor: 'pointer',
-                transition: '.2s',
+                transition: 'all 0.2s',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 8,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(59,130,246,0.3)'
+                e.currentTarget.style.background = 'rgba(255,255,255,0.8)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(0,0,0,0.05)'
+                e.currentTarget.style.background = 'rgba(255,255,255,0.4)'
               }}
             >
-              <i
-                className={`ti ${item.icon}`}
-                style={{
-                  fontSize: 24,
-                  color: '#2563eb',
-                }}
-              />
-
-              <div
-                style={{
-                  marginTop: 14,
-                  fontWeight: 600,
-                  color: '#0f172a',
-                }}
-              >
-                {item.title}
-              </div>
-
-              <div
-                style={{
-                  marginTop: 6,
-                  fontSize: 13,
-                  color: '#64748b',
-                }}
-              >
-                {item.description}
-              </div>
+              <i className={`ti ${item.icon}`} style={{ fontSize: 20, color: '#3b82f6' }} />
+              <div style={{ fontWeight: 600, color: '#0f172a', fontSize: 13 }}>{item.title}</div>
+              <div style={{ fontSize: 11, color: '#64748b', lineHeight: 1.4 }}>{item.description}</div>
             </div>
           ))}
         </div>
       </div>
 
       {/* ================= CONVERSATION ================= */}
-
       <div
+        className="glass-card"
         style={{
-          background: '#fff',
-          border: '1px solid #e2e8f0',
-          borderRadius: 18,
-          padding: 24,
+          padding: 20,
           minHeight: 420,
         }}
       >
@@ -242,77 +177,19 @@ export default function AIChat() {
             </div>
           </div>
         </div>
-                {/* ================= AI RESPONSE CARDS ================= */}
-
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3,1fr)',
-            gap: 18,
-            marginBottom: 28,
-          }}
-        >
+        {/* ================= AI RESPONSE CARDS ================= */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 12, marginBottom: 24 }}>
           {[
-            {
-              icon: 'ti-file-text',
-              title: 'Case Summary',
-              value: 'Generated',
-              color: '#2563eb',
-            },
-            {
-              icon: 'ti-scale',
-              title: 'Relevant Judgments',
-              value: '18 Found',
-              color: '#16a34a',
-            },
-            {
-              icon: 'ti-alert-triangle',
-              title: 'Risk Score',
-              value: 'Medium',
-              color: '#f59e0b',
-            },
+            { icon: 'ti-file-text', title: 'Case Summary', value: 'Generated', color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.1)', border: 'rgba(59, 130, 246, 0.2)' },
+            { icon: 'ti-scale', title: 'Relevant Judgments', value: '18 Found', color: '#16a34a', bg: 'rgba(34, 197, 94, 0.1)', border: 'rgba(34, 197, 94, 0.2)' },
+            { icon: 'ti-alert-triangle', title: 'Risk Score', value: 'Medium', color: '#d97706', bg: 'rgba(245, 158, 11, 0.1)', border: 'rgba(245, 158, 11, 0.2)' },
           ].map((card) => (
-            <div
-              key={card.title}
-              style={{
-                background: '#f8fafc',
-                border: '1px solid #e2e8f0',
-                borderRadius: 14,
-                padding: 18,
-              }}
-            >
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                }}
-              >
-                <span
-                  style={{
-                    color: '#64748b',
-                    fontSize: 13,
-                  }}
-                >
-                  {card.title}
-                </span>
-
-                <i
-                  className={`ti ${card.icon}`}
-                  style={{
-                    color: card.color,
-                    fontSize: 20,
-                  }}
-                />
+            <div key={card.title} style={{ background: card.bg, border: `1px solid ${card.border}`, borderRadius: 12, padding: 14 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <span style={{ color: card.color, fontSize: 11, fontWeight: 600 }}>{card.title}</span>
+                <i className={`ti ${card.icon}`} style={{ color: card.color, fontSize: 16 }} />
               </div>
-
-              <div
-                style={{
-                  marginTop: 16,
-                  fontSize: 24,
-                  fontWeight: 700,
-                  color: '#0f172a',
-                }}
-              >
+              <div style={{ marginTop: 10, fontSize: 18, fontWeight: 700, color: '#0f172a' }}>
                 {card.value}
               </div>
             </div>
@@ -320,28 +197,12 @@ export default function AIChat() {
         </div>
 
         {/* ================= FOLLOW-UP QUESTIONS ================= */}
-
-        <div
-          style={{
-            marginBottom: 28,
-          }}
-        >
-          <h3
-            style={{
-              marginBottom: 14,
-              color: '#0f172a',
-            }}
-          >
+        <div style={{ marginBottom: 24 }}>
+          <h3 style={{ marginBottom: 12, color: '#0f172a', fontSize: 13, fontWeight: 600 }}>
             Suggested Follow-up Questions
           </h3>
 
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: 12,
-            }}
-          >
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             {[
               'Summarize this petition',
               'Find contradictory statements',
@@ -353,13 +214,14 @@ export default function AIChat() {
               <button
                 key={question}
                 style={{
-                  padding: '10px 16px',
+                  padding: '6px 12px',
                   borderRadius: 999,
-                  border: '1px solid #dbe3ef',
-                  background: '#fff',
+                  border: '1px solid rgba(0,0,0,0.05)',
+                  background: 'rgba(255,255,255,0.6)',
                   cursor: 'pointer',
                   fontWeight: 500,
                   color: '#334155',
+                  fontSize: 11
                 }}
               >
                 {question}
@@ -369,58 +231,31 @@ export default function AIChat() {
         </div>
 
         {/* ================= RECENT CONVERSATIONS ================= */}
-
         <div>
-          <h3
-            style={{
-              marginBottom: 14,
-              color: '#0f172a',
-            }}
-          >
+          <h3 style={{ marginBottom: 12, color: '#0f172a', fontSize: 13, fontWeight: 600 }}>
             Recent Conversations
           </h3>
 
           {[
-            {
-              title: 'Divorce Petition Summary',
-              time: 'Today • 10:42 AM',
-            },
-            {
-              title: 'Maintenance Case Research',
-              time: 'Yesterday • 4:18 PM',
-            },
-            {
-              title: 'Cross Examination Preparation',
-              time: 'Yesterday • 11:25 AM',
-            },
-          ].map((chat) => (
+            { title: 'Divorce Petition Summary', time: 'Today • 10:42 AM' },
+            { title: 'Maintenance Case Research', time: 'Yesterday • 4:18 PM' },
+            { title: 'Cross Examination Preparation', time: 'Yesterday • 11:25 AM' },
+          ].map((chat, idx) => (
             <div
               key={chat.title}
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                padding: '16px 18px',
-                borderBottom: '1px solid #e2e8f0',
+                padding: '12px 14px',
+                borderBottom: idx < 2 ? '1px solid rgba(0,0,0,0.05)' : 'none',
               }}
             >
               <div>
-                <div
-                  style={{
-                    fontWeight: 600,
-                    color: '#0f172a',
-                  }}
-                >
+                <div style={{ fontWeight: 600, color: '#0f172a', fontSize: 13 }}>
                   {chat.title}
                 </div>
-
-                <div
-                  style={{
-                    marginTop: 4,
-                    color: '#64748b',
-                    fontSize: 13,
-                  }}
-                >
+                <div style={{ marginTop: 2, color: '#64748b', fontSize: 11 }}>
                   {chat.time}
                 </div>
               </div>
@@ -428,12 +263,13 @@ export default function AIChat() {
               <button
                 style={{
                   border: 'none',
-                  background: '#eff6ff',
+                  background: 'rgba(59, 130, 246, 0.1)',
                   color: '#2563eb',
                   borderRadius: 8,
-                  padding: '8px 14px',
+                  padding: '6px 12px',
                   cursor: 'pointer',
                   fontWeight: 600,
+                  fontSize: 11
                 }}
               >
                 Open
@@ -442,92 +278,35 @@ export default function AIChat() {
           ))}
         </div>
                 {/* ================= INPUT AREA ================= */}
-
-        <div
-          style={{
-            marginTop: 32,
-            borderTop: '1px solid #e2e8f0',
-            paddingTop: 24,
-          }}
-        >
+        <div style={{ marginTop: 24, borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: 16 }}>
           {/* Quick Actions */}
-
-          <div
-            style={{
-              display: 'flex',
-              gap: 12,
-              marginBottom: 18,
-              flexWrap: 'wrap',
-            }}
-          >
-            <button style={actionButton}>
-              <i className="ti ti-paperclip" />
-              Attach PDF
-            </button>
-
-            <button style={actionButton}>
-              <i className="ti ti-photo" />
-              Upload Image
-            </button>
-
-            <button style={actionButton}>
-              <i className="ti ti-microphone" />
-              Voice
-            </button>
-
-            <button style={actionButton}>
-              <i className="ti ti-world-search" />
-              Research
-            </button>
-
-            <button style={actionButton}>
-              <i className="ti ti-download" />
-              Export Chat
-            </button>
-
-            <button style={actionButton}>
-              <i className="ti ti-trash" />
-              Clear
-            </button>
+          <div style={{ display: 'flex', gap: 8, marginBottom: 12, flexWrap: 'wrap' }}>
+            <button style={actionButton}><i className="ti ti-paperclip" />Attach PDF</button>
+            <button style={actionButton}><i className="ti ti-photo" />Upload Image</button>
+            <button style={actionButton}><i className="ti ti-microphone" />Voice</button>
+            <button style={actionButton}><i className="ti ti-world-search" />Research</button>
+            <button style={actionButton}><i className="ti ti-download" />Export Chat</button>
+            <button style={actionButton}><i className="ti ti-trash" />Clear</button>
           </div>
 
           {/* Chat Input */}
-
-          <div
-            style={{
-              display: 'flex',
-              gap: 12,
-              alignItems: 'flex-end',
-            }}
-          >
+          <div style={{ display: 'flex', gap: 10, alignItems: 'flex-end' }}>
             <textarea
               placeholder="Ask Clausio anything... (e.g. Summarize this petition, find relevant judgments, generate cross-examination questions...)"
-              rows={4}
+              rows={3}
               style={{
-                flex: 1,
-                resize: 'none',
-                border: '1px solid #dbe3ef',
-                borderRadius: 12,
-                padding: 16,
-                fontSize: 14,
-                fontFamily: 'inherit',
-                outline: 'none',
+                flex: 1, resize: 'none', border: '1px solid rgba(0,0,0,0.1)', borderRadius: 10,
+                padding: 12, fontSize: 13, fontFamily: 'inherit', outline: 'none', background: 'rgba(255,255,255,0.6)',
+                color: '#0f172a', boxSizing: 'border-box'
               }}
             />
 
             <button
+              className="glass-button"
               style={{
-                height: 56,
-                padding: '0 24px',
-                border: 'none',
-                borderRadius: 12,
-                background: '#2563eb',
-                color: '#fff',
-                fontWeight: 600,
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: 8,
+                height: 48, padding: '0 20px', border: 'none', borderRadius: 10, background: '#3b82f6', color: '#fff',
+                fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6, fontSize: 13,
+                boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)'
               }}
             >
               <i className="ti ti-send" />
@@ -546,13 +325,13 @@ export default function AIChat() {
 const actionButton: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
-  gap: 8,
-  padding: '10px 16px',
-  background: '#fff',
-  border: '1px solid #dbe3ef',
-  borderRadius: 10,
+  gap: 6,
+  padding: '6px 12px',
+  background: 'rgba(255,255,255,0.6)',
+  border: '1px solid rgba(0,0,0,0.05)',
+  borderRadius: 8,
   cursor: 'pointer',
-  fontWeight: 600,
+  fontWeight: 500,
   color: '#334155',
-  fontSize: 14,
+  fontSize: 11,
 }

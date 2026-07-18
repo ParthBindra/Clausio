@@ -32,7 +32,7 @@ export default function PromptModal({
           maxWidth: '100%',
           maxHeight: '90vh',
           overflowY: 'auto',
-          background: '#fff',
+          background: 'rgba(255,255,255,0.4)',
           borderRadius: 18,
           boxShadow: '0 25px 60px rgba(0,0,0,.18)',
         }}
@@ -42,7 +42,7 @@ export default function PromptModal({
         <div
           style={{
             padding: '22px 28px',
-            borderBottom: '1px solid #e2e8f0',
+            borderBottom: '1px solid rgba(0,0,0,0.05)',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
@@ -52,7 +52,7 @@ export default function PromptModal({
             <h2
               style={{
                 margin: 0,
-                fontSize: 24,
+                fontSize: 18,
                 fontWeight: 700,
               }}
             >
@@ -97,9 +97,10 @@ export default function PromptModal({
           {/* ================= BASIC INFO ================= */}
 
           <div
-            style={{
-              background: '#fff',
-              border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+              border: '1px solid rgba(0,0,0,0.05)',
               borderRadius: 16,
               padding: 24,
               marginBottom: 24,
@@ -181,9 +182,10 @@ export default function PromptModal({
           {/* ================= PROMPT DETAILS ================= */}
 
           <div
-            style={{
-              background: '#fff',
-              border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+              border: '1px solid rgba(0,0,0,0.05)',
               borderRadius: 16,
               padding: 24,
               marginBottom: 24,
@@ -247,9 +249,10 @@ export default function PromptModal({
             {/* Editor */}
 
             <div
-              style={{
-                background: '#fff',
-                border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+                border: '1px solid rgba(0,0,0,0.05)',
                 borderRadius: 16,
                 padding: 24,
               }}
@@ -318,9 +321,10 @@ Generate professional legal drafting with proper sections.`}
             {/* Variables */}
 
             <div
-              style={{
-                background: '#fff',
-                border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+                border: '1px solid rgba(0,0,0,0.05)',
                 borderRadius: 16,
                 padding: 24,
               }}
@@ -376,9 +380,10 @@ Generate professional legal drafting with proper sections.`}
           {/* ================= AI PREVIEW ================= */}
 
           <div
-            style={{
-              background: '#fff',
-              border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+              border: '1px solid rgba(0,0,0,0.05)',
               borderRadius: 16,
               padding: 24,
               marginBottom: 24,
@@ -395,10 +400,10 @@ Generate professional legal drafting with proper sections.`}
 
             <div
               style={{
-                background: '#f8fafc',
+                background: 'rgba(255,255,255,0.6)',
                 borderRadius: 12,
                 padding: 22,
-                border: '1px solid #e2e8f0',
+                border: '1px solid rgba(0,0,0,0.05)',
               }}
             >
               <div
@@ -465,9 +470,10 @@ Generate professional legal drafting with proper sections.`}
             {/* Left */}
 
             <div
-              style={{
-                background: '#fff',
-                border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+                border: '1px solid rgba(0,0,0,0.05)',
                 borderRadius: 16,
                 padding: 24,
               }}
@@ -522,9 +528,10 @@ Generate professional legal drafting with proper sections.`}
             {/* Right */}
 
             <div
-              style={{
-                background: '#fff',
-                border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+                border: '1px solid rgba(0,0,0,0.05)',
                 borderRadius: 16,
                 padding: 24,
               }}
@@ -563,9 +570,10 @@ Generate professional legal drafting with proper sections.`}
           {/* ================= TAGS ================= */}
 
           <div
-            style={{
-              background: '#fff',
-              border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+              border: '1px solid rgba(0,0,0,0.05)',
               borderRadius: 16,
               padding: 24,
               marginBottom: 24,
@@ -616,7 +624,7 @@ Generate professional legal drafting with proper sections.`}
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              borderTop: '1px solid #e2e8f0',
+              borderTop: '1px solid rgba(0,0,0,0.05)',
               paddingTop: 24,
             }}
           >
@@ -689,7 +697,7 @@ function InfoCard({
   return (
     <div
       style={{
-        background: '#f8fafc',
+        background: 'rgba(255,255,255,0.6)',
         borderRadius: 12,
         padding: 18,
       }}
@@ -731,9 +739,9 @@ function VariableChip({
     <div
       style={{
         padding: '10px 14px',
-        background: '#eff6ff',
+        background: 'rgba(59, 130, 246, 0.05)',
         borderRadius: 10,
-        color: '#2563eb',
+        color: '#3b82f6',
         fontWeight: 600,
         fontFamily: 'monospace',
       }}
@@ -754,8 +762,9 @@ function PreviewCard({
 }) {
   return (
     <div
+      className="glass-card"
       style={{
-        background: '#fff',
+        background: 'rgba(255,255,255,0.4)',
         borderRadius: 10,
         padding: 16,
         textAlign: 'center',
@@ -798,7 +807,7 @@ function ToggleRow({
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '14px 0',
-        borderBottom: '1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
       }}
     >
       <div>
@@ -827,8 +836,8 @@ function Tag({
     <span
       style={{
         padding: '10px 16px',
-        background: '#eff6ff',
-        color: '#2563eb',
+        background: 'rgba(59, 130, 246, 0.05)',
+        color: '#3b82f6',
         borderRadius: 999,
         fontWeight: 600,
         fontSize: 14,
@@ -844,7 +853,7 @@ function Tag({
 const inputStyle: React.CSSProperties = {
   width: '100%',
   height: 44,
-  border: '1px solid #dbe3ef',
+  border: '1px solid rgba(0,0,0,0.05)',
   borderRadius: 10,
   padding: '0 14px',
   fontSize: 14,
@@ -854,7 +863,7 @@ const inputStyle: React.CSSProperties = {
 
 const primaryButton: React.CSSProperties = {
   border: 'none',
-  background: '#2563eb',
+  background: '#3b82f6',
   color: '#fff',
   borderRadius: 10,
   padding: '10px 20px',
@@ -863,8 +872,8 @@ const primaryButton: React.CSSProperties = {
 }
 
 const secondaryButton: React.CSSProperties = {
-  border: '1px solid #dbe3ef',
-  background: '#fff',
+  border: '1px solid rgba(0,0,0,0.05)',
+  background: 'rgba(255,255,255,0.4)',
   color: '#334155',
   borderRadius: 10,
   padding: '10px 20px',

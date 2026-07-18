@@ -7,7 +7,7 @@ const stats = [
     title: 'Total Prompts',
     value: '486',
     icon: 'ti-message-chatbot',
-    color: '#2563eb',
+    color: '#3b82f6',
   },
   {
     title: 'My Prompts',
@@ -34,7 +34,7 @@ const categories = [
     title: 'Drafting',
     subtitle: 'Petitions & Applications',
     icon: 'ti-file-pencil',
-    color: '#2563eb',
+    color: '#3b82f6',
   },
   {
     title: 'Legal Research',
@@ -88,7 +88,7 @@ export default function PromptLibrary() {
               margin:0,
               fontSize:28,
               fontWeight:700,
-              color:'#0f172a',
+              letterSpacing: '-0.3px', color:'#0f172a',
             }}
           >
             AI Prompt Library
@@ -109,7 +109,7 @@ export default function PromptLibrary() {
         <button
           style={{
             border:'none',
-            background:'#2563eb',
+            background: '#3b82f6',
             color:'#fff',
             borderRadius:10,
             padding:'12px 20px',
@@ -128,9 +128,10 @@ export default function PromptLibrary() {
       {/* ================= SEARCH ================= */}
 
       <div
-        style={{
-          background:'#fff',
-          border:'1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius:16,
           padding:24,
           marginBottom:28,
@@ -175,7 +176,7 @@ export default function PromptLibrary() {
           <button
             style={{
               border:'none',
-              background:'#2563eb',
+              background: '#3b82f6',
               color:'#fff',
               borderRadius:10,
               padding:'0 24px',
@@ -202,8 +203,8 @@ export default function PromptLibrary() {
           <div
             key={item.title}
             style={{
-              background:'#fff',
-              border:'1px solid #e2e8f0',
+              background: 'rgba(255,255,255,0.4)',
+              border: '1px solid rgba(0,0,0,0.05)',
               borderRadius:16,
               padding:20,
             }}
@@ -357,9 +358,10 @@ export default function PromptLibrary() {
         </h3>
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             overflow: 'hidden',
           }}
@@ -409,9 +411,10 @@ export default function PromptLibrary() {
         {/* Favourite */}
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -436,7 +439,7 @@ export default function PromptLibrary() {
               key={item}
               style={{
                 padding: '12px 0',
-                borderBottom: '1px solid #e2e8f0',
+                borderBottom: '1px solid rgba(0,0,0,0.05)',
               }}
             >
               ⭐ {item}
@@ -447,9 +450,10 @@ export default function PromptLibrary() {
         {/* Most Used */}
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -506,9 +510,10 @@ export default function PromptLibrary() {
         {/* Generator */}
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 24,
           }}
@@ -552,7 +557,7 @@ export default function PromptLibrary() {
           <div
             style={{
               marginTop: 24,
-              background: '#f8fafc',
+              background: 'rgba(255,255,255,0.6)',
               borderRadius: 12,
               padding: 18,
             }}
@@ -672,9 +677,10 @@ export default function PromptLibrary() {
         }}
       >
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -713,9 +719,10 @@ export default function PromptLibrary() {
         {/* Recent */}
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -768,9 +775,10 @@ export default function PromptLibrary() {
         {/* Export */}
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -817,9 +825,10 @@ export default function PromptLibrary() {
         {/* AI Suggestions */}
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -865,8 +874,8 @@ export default function PromptLibrary() {
 
       <div
         style={{
-          background: '#eff6ff',
-          border: '1px solid #bfdbfe',
+          background: 'rgba(59, 130, 246, 0.05)',
+          border: '1px solid rgba(59, 130, 246, 0.1)',
           borderRadius: 16,
           padding: 22,
           marginBottom: 30,
@@ -915,9 +924,10 @@ function CategoryCard({
 }) {
   return (
     <div
+      className="glass-card"
       style={{
-        background: '#fff',
-        border: '1px solid #e2e8f0',
+        background: 'rgba(255,255,255,0.4)',
+        border: '1px solid rgba(0,0,0,0.05)',
         borderRadius: 16,
         padding: 20,
       }}
@@ -959,9 +969,10 @@ function PromptCard({
 }) {
   return (
     <div
+      className="glass-card"
       style={{
-        background: '#fff',
-        border: '1px solid #e2e8f0',
+        background: 'rgba(255,255,255,0.4)',
+        border: '1px solid rgba(0,0,0,0.05)',
         borderRadius: 16,
         padding: 20,
       }}
@@ -1001,7 +1012,7 @@ function PromptRow({
         display: 'grid',
         gridTemplateColumns: '2fr 1fr 1fr auto',
         padding: 18,
-        borderBottom: '1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
       }}
     >
       <strong>{title}</strong>
@@ -1011,8 +1022,8 @@ function PromptRow({
       <button
         style={{
           border: 'none',
-          background: '#eff6ff',
-          color: '#2563eb',
+          background: 'rgba(59, 130, 246, 0.05)',
+          color: '#3b82f6',
           borderRadius: 8,
           padding: '6px 12px',
           cursor: 'pointer',
@@ -1037,7 +1048,7 @@ function MostUsedCard({
         display: 'flex',
         justifyContent: 'space-between',
         padding: '12px 0',
-        borderBottom: '1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
       }}
     >
       <span>{title}</span>
@@ -1057,9 +1068,10 @@ function GeneratorCard({
 }) {
   return (
     <div
+      className="glass-card"
       style={{
-        background: '#fff',
-        border: '1px solid #e2e8f0',
+        background: 'rgba(255,255,255,0.4)',
+        border: '1px solid rgba(0,0,0,0.05)',
         borderRadius: 14,
         padding: 18,
       }}
@@ -1075,7 +1087,7 @@ function GeneratorCard({
       <div
         style={{
           marginTop: 12,
-          fontSize: 24,
+          fontSize: 18,
           fontWeight: 700,
           color,
         }}
@@ -1095,9 +1107,10 @@ function TeamPromptCard({
 }) {
   return (
     <div
+      className="glass-card"
       style={{
-        background: '#fff',
-        border: '1px solid #e2e8f0',
+        background: 'rgba(255,255,255,0.4)',
+        border: '1px solid rgba(0,0,0,0.05)',
         borderRadius: 14,
         padding: 20,
       }}
@@ -1118,7 +1131,7 @@ function VariableCard({
   return (
     <div
       style={{
-        background: '#f8fafc',
+        background: 'rgba(255,255,255,0.6)',
         borderRadius: 10,
         padding: 14,
         fontFamily: 'monospace',
@@ -1143,7 +1156,7 @@ function RecentPromptCard({
         display: 'flex',
         justifyContent: 'space-between',
         padding: '12px 0',
-        borderBottom: '1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
       }}
     >
       <span>{title}</span>
@@ -1164,7 +1177,7 @@ function RecommendationCard({
   return (
     <div
       style={{
-        borderBottom: '1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
         paddingBottom: 12,
       }}
     >
@@ -1187,7 +1200,7 @@ function RecommendationCard({
 const inputStyle: React.CSSProperties = {
   width: '100%',
   height: 44,
-  border: '1px solid #dbe3ef',
+  border: '1px solid rgba(0,0,0,0.05)',
   borderRadius: 10,
   padding: '0 14px',
   outline: 'none',
@@ -1197,7 +1210,7 @@ const inputStyle: React.CSSProperties = {
 
 const primaryButton: React.CSSProperties = {
   border: 'none',
-  background: '#2563eb',
+  background: '#3b82f6',
   color: '#fff',
   borderRadius: 10,
   padding: '10px 18px',
@@ -1206,8 +1219,8 @@ const primaryButton: React.CSSProperties = {
 }
 
 const secondaryButton: React.CSSProperties = {
-  border: '1px solid #dbe3ef',
-  background: '#fff',
+  border: '1px solid rgba(0,0,0,0.05)',
+  background: 'rgba(255,255,255,0.4)',
   color: '#334155',
   borderRadius: 10,
   padding: '10px 18px',

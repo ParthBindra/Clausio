@@ -5,7 +5,7 @@ const stats = [
     title: 'Total Conversations',
     value: '486',
     icon: 'ti-message-chatbot',
-    color: '#2563eb',
+    color: '#3b82f6',
   },
   {
     title: 'Research Sessions',
@@ -45,9 +45,9 @@ export default function AIHistory() {
           <h2
             style={{
               margin: 0,
-              fontSize: 24,
+              fontSize: 18,
               fontWeight: 700,
-              color: '#0f172a',
+              letterSpacing: '-0.3px', color: '#0f172a',
             }}
           >
             AI History
@@ -72,8 +72,8 @@ export default function AIHistory() {
         >
           <button
             style={{
-              background: '#fff',
-              border: '1px solid #dbe3ef',
+              background: 'rgba(255,255,255,0.4)',
+              border: '1px solid rgba(0,0,0,0.05)',
               borderRadius: 10,
               padding: '11px 18px',
               cursor: 'pointer',
@@ -89,7 +89,7 @@ export default function AIHistory() {
 
           <button
             style={{
-              background: '#2563eb',
+              background: '#3b82f6',
               color: '#fff',
               border: 'none',
               borderRadius: 10,
@@ -121,8 +121,8 @@ export default function AIHistory() {
           <div
             key={card.title}
             style={{
-              background: '#fff',
-              border: '1px solid #e2e8f0',
+              background: 'rgba(255,255,255,0.4)',
+              border: '1px solid rgba(0,0,0,0.05)',
               borderRadius: 16,
               padding: 20,
             }}
@@ -168,9 +168,10 @@ export default function AIHistory() {
       {/* ================= SEARCH & FILTER ================= */}
 
       <div
-        style={{
-          background: '#fff',
-          border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius: 16,
           padding: 20,
           marginBottom: 24,
@@ -207,7 +208,7 @@ export default function AIHistory() {
                 width: '100%',
                 height: 44,
                 borderRadius: 10,
-                border: '1px solid #dbe3ef',
+                border: '1px solid rgba(0,0,0,0.05)',
                 paddingLeft: 42,
                 paddingRight: 14,
                 fontSize: 14,
@@ -251,7 +252,7 @@ export default function AIHistory() {
             date: 'Today • 10:42 AM',
             credits: '42 Credits',
             icon: 'ti-message-chatbot',
-            color: '#2563eb',
+            color: '#3b82f6',
           },
           {
             title: 'Maintenance Case Research',
@@ -289,8 +290,8 @@ export default function AIHistory() {
           <div
             key={item.title}
             style={{
-              background: '#fff',
-              border: '1px solid #e2e8f0',
+              background: 'rgba(255,255,255,0.4)',
+              border: '1px solid rgba(0,0,0,0.05)',
               borderRadius: 16,
               padding: 22,
               display: 'flex',
@@ -319,7 +320,7 @@ export default function AIHistory() {
                 <i
                   className={`ti ${item.icon}`}
                   style={{
-                    fontSize: 24,
+                    fontSize: 18,
                     color: item.color,
                   }}
                 />
@@ -349,8 +350,8 @@ export default function AIHistory() {
                     style={{
                       padding: '4px 10px',
                       borderRadius: 999,
-                      background: '#eff6ff',
-                      color: '#2563eb',
+                      background: 'rgba(59, 130, 246, 0.05)',
+                      color: '#3b82f6',
                       fontSize: 12,
                       fontWeight: 600,
                     }}
@@ -404,7 +405,7 @@ export default function AIHistory() {
               <button
                 style={{
                   border: 'none',
-                  background: '#2563eb',
+                  background: '#3b82f6',
                   color: '#fff',
                   padding: '10px 18px',
                   borderRadius: 10,
@@ -431,9 +432,10 @@ export default function AIHistory() {
         {/* Weekly Activity */}
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -489,7 +491,7 @@ export default function AIHistory() {
                   style={{
                     width: `${Number(value) * 3}%`,
                     height: '100%',
-                    background: '#2563eb',
+                    background: '#3b82f6',
                   }}
                 />
               </div>
@@ -508,9 +510,10 @@ export default function AIHistory() {
         {/* Most Used */}
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -558,8 +561,8 @@ export default function AIHistory() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          background: '#fff',
-          border: '1px solid #e2e8f0',
+          background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius: 16,
           padding: 22,
         }}
@@ -593,8 +596,8 @@ export default function AIHistory() {
         >
           <button
             style={{
-              border: '1px solid #dbe3ef',
-              background: '#fff',
+              border: '1px solid rgba(0,0,0,0.05)',
+              background: 'rgba(255,255,255,0.4)',
               borderRadius: 10,
               padding: '11px 18px',
               cursor: 'pointer',
@@ -636,11 +639,11 @@ export default function AIHistory() {
 
 const selectStyle: React.CSSProperties = {
   height: 44,
-  border: '1px solid #dbe3ef',
+  border: '1px solid rgba(0,0,0,0.05)',
   borderRadius: 10,
   padding: '0 14px',
   fontSize: 14,
-  background: '#fff',
+  background: 'rgba(255,255,255,0.4)',
   outline: 'none',
   fontFamily: 'inherit',
 }
@@ -649,8 +652,8 @@ const iconButton: React.CSSProperties = {
   width: 40,
   height: 40,
   borderRadius: 10,
-  border: '1px solid #dbe3ef',
-  background: '#fff',
+  border: '1px solid rgba(0,0,0,0.05)',
+  background: 'rgba(255,255,255,0.4)',
   cursor: 'pointer',
   color: '#475569',
 }

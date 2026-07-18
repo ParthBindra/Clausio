@@ -7,7 +7,7 @@ const stats = [
     title: 'Strategy Score',
     value: '92%',
     icon: 'ti-target-arrow',
-    color: '#2563eb',
+    color: '#3b82f6',
   },
   {
     title: 'Win Probability',
@@ -128,8 +128,8 @@ export default function StrategyAssistant() {
           <div
             key={item.title}
             style={{
-              background:'#fff',
-              border:'1px solid #e2e8f0',
+              background: 'rgba(255,255,255,0.4)',
+              border: '1px solid rgba(0,0,0,0.05)',
               borderRadius:16,
               padding:20,
             }}
@@ -409,7 +409,7 @@ export default function StrategyAssistant() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          borderTop: '1px solid #e2e8f0',
+          borderTop: '1px solid rgba(0,0,0,0.05)',
           paddingTop: 24,
         }}
       >
@@ -448,7 +448,7 @@ function StrategyItem({
     <div
       style={{
         padding:'12px 0',
-        borderBottom:'1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
       }}
     >
       ✓ {text}
@@ -471,7 +471,7 @@ function RiskCard({
         display:'flex',
         justifyContent:'space-between',
         padding:'14px 0',
-        borderBottom:'1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
       }}
     >
       <span>{title}</span>
@@ -499,7 +499,7 @@ function ActionCard({
   return (
     <div
       style={{
-        background:'#f8fafc',
+        background: 'rgba(255,255,255,0.6)',
         borderRadius:14,
         padding:18,
         textAlign:'center',
@@ -510,7 +510,7 @@ function ActionCard({
           width:40,
           height:40,
           borderRadius:'50%',
-          background:'#2563eb',
+          background: '#3b82f6',
           color:'#fff',
           display:'flex',
           justifyContent:'center',
@@ -546,8 +546,8 @@ function ActionCard({
 /* ================= STYLES ================= */
 
 const card:React.CSSProperties={
-  background:'#fff',
-  border:'1px solid #e2e8f0',
+  background: 'rgba(255,255,255,0.4)',
+  border: '1px solid rgba(0,0,0,0.05)',
   borderRadius:16,
   padding:24,
 }
@@ -560,7 +560,7 @@ const heading:React.CSSProperties={
 const inputStyle:React.CSSProperties={
   width:'100%',
   height:44,
-  border:'1px solid #dbe3ef',
+  border: '1px solid rgba(0,0,0,0.05)',
   borderRadius:10,
   padding:'0 14px',
   outline:'none',
@@ -570,7 +570,7 @@ const inputStyle:React.CSSProperties={
 
 const primaryButton:React.CSSProperties={
   border:'none',
-  background:'#2563eb',
+  background: '#3b82f6',
   color:'#fff',
   borderRadius:10,
   padding:'10px 18px',
@@ -579,8 +579,8 @@ const primaryButton:React.CSSProperties={
 }
 
 const secondaryButton:React.CSSProperties={
-  border:'1px solid #dbe3ef',
-  background:'#fff',
+  border: '1px solid rgba(0,0,0,0.05)',
+  background: 'rgba(255,255,255,0.4)',
   color:'#334155',
   borderRadius:10,
   padding:'10px 18px',

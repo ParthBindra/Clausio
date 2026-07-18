@@ -64,14 +64,7 @@ export default function SettingsPage() {
   }
 
   return (
-    <div
-      style={{
-        height: '100%',
-        background: '#f8fafc',
-        overflowY: 'auto',
-        padding: 24,
-      }}
-    >
+    <div className="glass-panel" style={{ flex: 1, overflowY: 'auto', margin: '16px', padding: 20, borderRadius: 24 }}>
       {/* ================= HEADER ================= */}
 
       <div

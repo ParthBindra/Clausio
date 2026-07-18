@@ -20,99 +20,36 @@ export default function AnalyticsPage() {
   const [activeTab, setActiveTab] = useState('AI Chat')
 
   return (
-    <div
-      style={{
-        height: '100%',
-        background: '#f8fafc',
-        overflowY: 'auto',
-        padding: 24,
-      }}
-    >
+    <div className="glass-panel" style={{ flex: 1, overflowY: 'auto', margin: '16px', padding: 20, borderRadius: 24 }}>
       {/* ================= HEADER ================= */}
-
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: 24,
-        }}
-      >
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
         <div>
-          <h1
-            style={{
-              margin: 0,
-              fontSize: 30,
-              fontWeight: 700,
-              color: '#0f172a',
-            }}
-          >
+          <h1 style={{ margin: 0, fontSize: 24, fontWeight: 700, color: '#0f172a', letterSpacing: '-0.5px' }}>
             AI Analytics
           </h1>
-
-          <p
-            style={{
-              marginTop: 8,
-              fontSize: 14,
-              color: '#64748b',
-            }}
-          >
+          <p style={{ marginTop: 4, color: '#64748b', fontSize: 13, fontWeight: 500 }}>
             Your AI legal operating system for research, analysis and automation.
           </p>
         </div>
 
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 14,
-          }}
-        >
-          <div
-            style={{
-              padding: '10px 18px',
-              borderRadius: 999,
-              background: '#eff6ff',
-              color: '#2563eb',
-              fontWeight: 600,
-              fontSize: 14,
-            }}
-          >
+        <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+          <div style={{ padding: '4px 10px', borderRadius: 999, background: 'rgba(59, 130, 246, 0.1)', color: '#2563eb', fontWeight: 600, fontSize: 11, border: '1px solid rgba(59, 130, 246, 0.2)' }}>
             AI Credits : 842
           </div>
 
           <button
-            style={{
-              border: '1px solid #cbd5e1',
-              background: '#fff',
-              borderRadius: 10,
-              padding: '11px 18px',
-              cursor: 'pointer',
-              fontWeight: 600,
-            }}
+            className="glass-button"
+            style={{ height: 38, padding: '0 16px', background: 'rgba(255,255,255,0.6)', border: '1px solid rgba(0,0,0,0.1)', borderRadius: 10, cursor: 'pointer', fontWeight: 600, fontSize: 13, color: '#0f172a', display: 'flex', alignItems: 'center', gap: 6 }}
           >
-            <i
-              className="ti ti-upload"
-              style={{ marginRight: 8 }}
-            />
+            <i className="ti ti-upload" />
             Upload Knowledge
           </button>
 
           <button
-            style={{
-              border: 'none',
-              background: '#2563eb',
-              color: '#fff',
-              borderRadius: 10,
-              padding: '11px 18px',
-              cursor: 'pointer',
-              fontWeight: 600,
-            }}
+            className="glass-button"
+            style={{ height: 38, padding: '0 16px', background: '#3b82f6', color: '#fff', border: 'none', borderRadius: 10, cursor: 'pointer', fontWeight: 600, fontSize: 13, display: 'flex', alignItems: 'center', gap: 6, boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)' }}
           >
-            <i
-              className="ti ti-message-chatbot"
-              style={{ marginRight: 8 }}
-            />
+            <i className="ti ti-message-chatbot" />
             New Chat
           </button>
         </div>

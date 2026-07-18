@@ -7,7 +7,7 @@ const stats = [
     title: 'Witnesses',
     value: '4',
     icon: 'ti-users',
-    color: '#2563eb',
+    color: '#3b82f6',
   },
   {
     title: 'Contradictions',
@@ -49,7 +49,7 @@ export default function CrossExamination() {
               margin: 0,
               fontSize: 26,
               fontWeight: 700,
-              color: '#0f172a',
+              letterSpacing: '-0.3px', color: '#0f172a',
             }}
           >
             AI Cross Examination
@@ -70,7 +70,7 @@ export default function CrossExamination() {
         <button
           style={{
             border: 'none',
-            background: '#2563eb',
+            background: '#3b82f6',
             color: '#fff',
             padding: '12px 20px',
             borderRadius: 10,
@@ -100,8 +100,8 @@ export default function CrossExamination() {
           <div
             key={item.title}
             style={{
-              background: '#fff',
-              border: '1px solid #e2e8f0',
+              background: 'rgba(255,255,255,0.4)',
+              border: '1px solid rgba(0,0,0,0.05)',
               borderRadius: 16,
               padding: 20,
             }}
@@ -155,9 +155,10 @@ export default function CrossExamination() {
         }}
       >
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 24,
           }}
@@ -218,9 +219,10 @@ export default function CrossExamination() {
         {/* ================= UPLOAD ================= */}
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 24,
           }}
@@ -240,14 +242,14 @@ export default function CrossExamination() {
               borderRadius: 14,
               padding: 45,
               textAlign: 'center',
-              background: '#f8fafc',
+              background: 'rgba(255,255,255,0.6)',
             }}
           >
             <i
               className="ti ti-cloud-upload"
               style={{
                 fontSize: 48,
-                color: '#2563eb',
+                color: '#3b82f6',
               }}
             />
 
@@ -274,7 +276,7 @@ export default function CrossExamination() {
               style={{
                 marginTop: 18,
                 border: 'none',
-                background: '#2563eb',
+                background: '#3b82f6',
                 color: '#fff',
                 padding: '12px 22px',
                 borderRadius: 10,
@@ -300,9 +302,10 @@ export default function CrossExamination() {
         {/* Contradictions */}
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             overflow: 'hidden',
           }}
@@ -310,7 +313,7 @@ export default function CrossExamination() {
           <div
             style={{
               padding: '18px 22px',
-              borderBottom: '1px solid #e2e8f0',
+              borderBottom: '1px solid rgba(0,0,0,0.05)',
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
@@ -368,7 +371,7 @@ export default function CrossExamination() {
               key={item.title}
               style={{
                 padding: 22,
-                borderBottom: '1px solid #e2e8f0',
+                borderBottom: '1px solid rgba(0,0,0,0.05)',
               }}
             >
               <div
@@ -432,9 +435,10 @@ export default function CrossExamination() {
           }}
         >
           <div
-            style={{
-              background: '#fff',
-              border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+              border: '1px solid rgba(0,0,0,0.05)',
               borderRadius: 16,
               padding: 22,
             }}
@@ -509,9 +513,10 @@ export default function CrossExamination() {
           </div>
 
           <div
-            style={{
-              background: '#fff',
-              border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+              border: '1px solid rgba(0,0,0,0.05)',
               borderRadius: 16,
               padding: 22,
             }}
@@ -563,9 +568,10 @@ export default function CrossExamination() {
       {/* ================= RISK ANALYSIS ================= */}
 
       <div
-        style={{
-          background: '#fff',
-          border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius: 16,
           padding: 22,
           marginBottom: 30,
@@ -638,7 +644,7 @@ export default function CrossExamination() {
           <button
             style={{
               border: 'none',
-              background: '#2563eb',
+              background: '#3b82f6',
               color: '#fff',
               borderRadius: 10,
               padding: '10px 18px',
@@ -651,9 +657,10 @@ export default function CrossExamination() {
         </div>
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             overflow: 'hidden',
           }}
@@ -704,8 +711,8 @@ export default function CrossExamination() {
               >
                 <span
                   style={{
-                    background: '#eff6ff',
-                    color: '#2563eb',
+                    background: 'rgba(59, 130, 246, 0.05)',
+                    color: '#3b82f6',
                     padding: '5px 12px',
                     borderRadius: 999,
                     fontSize: 12,
@@ -717,8 +724,8 @@ export default function CrossExamination() {
 
                 <button
                   style={{
-                    border: '1px solid #dbe3ef',
-                    background: '#fff',
+                    border: '1px solid rgba(0,0,0,0.05)',
+                    background: 'rgba(255,255,255,0.4)',
                     borderRadius: 8,
                     padding: '6px 12px',
                     cursor: 'pointer',
@@ -753,9 +760,10 @@ export default function CrossExamination() {
         }}
       >
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -780,7 +788,7 @@ export default function CrossExamination() {
               key={question}
               style={{
                 padding: '12px 0',
-                borderBottom: '1px solid #e2e8f0',
+                borderBottom: '1px solid rgba(0,0,0,0.05)',
               }}
             >
               {question}
@@ -789,9 +797,10 @@ export default function CrossExamination() {
         </div>
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -816,7 +825,7 @@ export default function CrossExamination() {
               key={question}
               style={{
                 padding: '12px 0',
-                borderBottom: '1px solid #e2e8f0',
+                borderBottom: '1px solid rgba(0,0,0,0.05)',
               }}
             >
               {question}
@@ -828,9 +837,10 @@ export default function CrossExamination() {
       {/* ================= EVIDENCE MAPPING ================= */}
 
       <div
-        style={{
-          background: '#fff',
-          border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius: 16,
           padding: 22,
           marginBottom: 30,
@@ -912,9 +922,10 @@ export default function CrossExamination() {
         }}
       >
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -946,9 +957,10 @@ export default function CrossExamination() {
         </div>
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -989,7 +1001,7 @@ export default function CrossExamination() {
                   width: 30,
                   height: 30,
                   borderRadius: '50%',
-                  background: '#2563eb',
+                  background: '#3b82f6',
                   color: '#fff',
                   display: 'flex',
                   justifyContent: 'center',
@@ -1010,8 +1022,8 @@ export default function CrossExamination() {
 
       <div
         style={{
-          background: '#eff6ff',
-          border: '1px solid #bfdbfe',
+          background: 'rgba(59, 130, 246, 0.05)',
+          border: '1px solid rgba(59, 130, 246, 0.1)',
           borderRadius: 16,
           padding: 22,
           marginBottom: 30,
@@ -1047,8 +1059,8 @@ export default function CrossExamination() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          background: '#fff',
-          border: '1px solid #e2e8f0',
+          background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius: 16,
           padding: 22,
           marginBottom: 30,
@@ -1164,7 +1176,7 @@ function Insight({
   return (
     <div
       style={{
-        borderBottom: '1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
         paddingBottom: 12,
       }}
     >
@@ -1194,7 +1206,7 @@ function RiskCard({
   return (
     <div
       style={{
-        background: '#f8fafc',
+        background: 'rgba(255,255,255,0.6)',
         borderRadius: 12,
         padding: 18,
       }}
@@ -1227,7 +1239,7 @@ function RiskCard({
 const inputStyle: React.CSSProperties = {
   width: '100%',
   height: 44,
-  border: '1px solid #dbe3ef',
+  border: '1px solid rgba(0,0,0,0.05)',
   borderRadius: 10,
   padding: '0 14px',
   outline: 'none',
@@ -1239,15 +1251,15 @@ const inputStyle: React.CSSProperties = {
 const tableHeader: React.CSSProperties = {
   textAlign: 'left',
   padding: 14,
-  background: '#f8fafc',
-  borderBottom: '1px solid #e2e8f0',
+  background: 'rgba(255,255,255,0.6)',
+  borderBottom: '1px solid rgba(0,0,0,0.05)',
   color: '#475569',
   fontWeight: 600,
 }
 
 const tableCell: React.CSSProperties = {
   padding: 14,
-  borderBottom: '1px solid #e2e8f0',
+  borderBottom: '1px solid rgba(0,0,0,0.05)',
 }
 
 const primaryButton: React.CSSProperties = {
@@ -1255,7 +1267,7 @@ const primaryButton: React.CSSProperties = {
   alignItems: 'center',
   gap: 8,
   border: 'none',
-  background: '#2563eb',
+  background: '#3b82f6',
   color: '#fff',
   borderRadius: 10,
   padding: '10px 18px',

@@ -1,5 +1,6 @@
 'use client'
 
+import { motion } from 'framer-motion'
 interface AnalyticsTabsProps {
   activeTab: string
   onChange: (tab: string) => void
@@ -29,7 +30,8 @@ export default function AnalyticsTabs({
         gap: 12,
         overflowX: 'auto',
         paddingBottom: 10,
-        borderBottom: '1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.06)',
+        marginBottom: 20
       }}
     >
       {tabs.map((tab) => (
@@ -37,33 +39,51 @@ export default function AnalyticsTabs({
           key={tab}
           onClick={() => onChange(tab)}
           style={{
-            padding: '10px 18px',
+            position: 'relative',
+            padding: '8px 16px',
             border: 'none',
-            borderRadius: 10,
+            borderRadius: 999,
             cursor: 'pointer',
-            transition: '.2s',
-            fontSize: 14,
+            transition: 'color 0.2s ease',
+            fontSize: 13,
             fontWeight: 600,
             fontFamily: 'inherit',
             whiteSpace: 'nowrap',
-
-            background:
-              activeTab === tab
-                ? '#2563eb'
-                : '#f8fafc',
-
-            color:
-              activeTab === tab
-                ? '#ffffff'
-                : '#64748b',
-
-            boxShadow:
-              activeTab === tab
-                ? '0 6px 16px rgba(37,99,235,.25)'
-                : 'none',
+            background: 'transparent',
+            color: activeTab === tab ? '#ffffff' : '#64748b',
+          }}
+          onMouseEnter={(e) => {
+            if (activeTab !== tab) {
+              e.currentTarget.style.color = '#0f172a'
+            }
+          }}
+          onMouseLeave={(e) => {
+            if (activeTab !== tab) {
+              e.currentTarget.style.color = '#64748b'
+            }
           }}
         >
-          {tab}
+          {activeTab === tab && (
+            <motion.div
+              layoutId="activeAnalyticsTab"
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: '#0f172a',
+                borderRadius: 999,
+                zIndex: -1,
+              }}
+              transition={{
+                type: 'spring',
+                stiffness: 400,
+                damping: 30,
+              }}
+            />
+          )}
+          <span style={{ position: 'relative', zIndex: 1 }}>{tab}</span>
         </button>
       ))}
     </div>

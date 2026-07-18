@@ -72,151 +72,46 @@ const practiceAreas = [
 export default function PracticeAreas() {
   return (
     <div>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: 24,
-        }}
-      >
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
         <div>
-          <h2
-            style={{
-              margin: 0,
-              fontSize: 28,
-              color: '#0f172a',
-            }}
-          >
+          <h2 style={{ margin: 0, fontSize: 18, color: '#0f172a', fontWeight: 700, letterSpacing: '-0.3px' }}>
             Practice Areas
           </h2>
-
-          <p
-            style={{
-              marginTop: 8,
-              color: '#64748b',
-            }}
-          >
+          <p style={{ marginTop: 4, color: '#64748b', fontSize: 12 }}>
             Select a practice area to view all related matters.
           </p>
         </div>
       </div>
 
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4,1fr)',
-          gap: 22,
-        }}
-      >
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 12 }}>
         {practiceAreas.map((area) => (
-          <PracticeCard
-            key={area.title}
-            {...area}
-          />
+          <PracticeCard key={area.title} {...area} />
         ))}
       </div>
     </div>
   )
 }
 
-function PracticeCard({
-  title,
-  description,
-  cases,
-  color,
-  icon,
-  route,
-}: {
-  title: string
-  description: string
-  cases: number
-  color: string
-  icon: string
-  route: string
-}) {
+function PracticeCard({ title, description, cases, color, icon, route }: { title: string, description: string, cases: number, color: string, icon: string, route: string }) {
   const router = useRouter()
-
   return (
-    <div
-      onClick={() => router.push(route)}
-      style={{
-        background: '#fff',
-        borderRadius: 22,
-        border: '1px solid #e2e8f0',
-        padding: 24,
-        cursor: 'pointer',
-        transition: '.25s',
-        boxShadow: '0 10px 25px rgba(15,23,42,.05)',
-      }}
-    >
-      <div
-        style={{
-          width: 60,
-          height: 60,
-          borderRadius: 18,
-          background: color,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginBottom: 18,
-        }}
-      >
-        <i
-          className={icon}
-          style={{
-            color: '#fff',
-            fontSize: 28,
-          }}
-        />
+    <div className="glass-card" onClick={() => router.push(route)} style={{ padding: 16, cursor: 'pointer', transition: '.25s', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ width: 42, height: 42, borderRadius: 12, background: color, display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 12, boxShadow: `0 4px 12px ${color}40` }}>
+        <i className={icon} style={{ color: '#fff', fontSize: 20 }} />
       </div>
 
-      <h3
-        style={{
-          margin: 0,
-          color: '#0f172a',
-          fontSize: 22,
-        }}
-      >
+      <h3 style={{ margin: 0, color: '#0f172a', fontSize: 15, fontWeight: 700 }}>
         {title}
       </h3>
-
-      <p
-        style={{
-          marginTop: 12,
-          color: '#64748b',
-          lineHeight: 1.6,
-          minHeight: 55,
-          fontSize: 14,
-        }}
-      >
+      <p style={{ marginTop: 6, color: '#64748b', lineHeight: 1.4, minHeight: 40, fontSize: 11, fontWeight: 500 }}>
         {description}
       </p>
 
-      <div
-        style={{
-          marginTop: 20,
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
-        <span
-          style={{
-            color,
-            fontWeight: 700,
-            fontSize: 20,
-          }}
-        >
+      <div style={{ marginTop: 12, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <span style={{ color, fontWeight: 700, fontSize: 14 }}>
           {cases} Cases
         </span>
-
-        <div
-          style={{
-            color,
-            fontWeight: 600,
-          }}
-        >
+        <div style={{ color, fontWeight: 600, fontSize: 12, padding: '4px 8px', background: `${color}15`, borderRadius: 8 }}>
           View →
         </div>
       </div>

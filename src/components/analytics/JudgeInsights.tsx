@@ -7,7 +7,7 @@ const stats = [
     title: 'Cases Analysed',
     value: '1,248',
     icon: 'ti-scale',
-    color: '#2563eb',
+    color: '#3b82f6',
   },
   {
     title: 'Success Rate',
@@ -47,9 +47,9 @@ export default function JudgeInsights() {
           <h2
             style={{
               margin: 0,
-              fontSize: 28,
+              fontSize: 18,
               fontWeight: 700,
-              color: '#0f172a',
+              letterSpacing: '-0.3px', color: '#0f172a',
             }}
           >
             AI Judge Insights
@@ -70,7 +70,7 @@ export default function JudgeInsights() {
         <button
           style={{
             border: 'none',
-            background: '#2563eb',
+            background: '#3b82f6',
             color: '#fff',
             borderRadius: 10,
             padding: '12px 20px',
@@ -100,8 +100,8 @@ export default function JudgeInsights() {
           <div
             key={item.title}
             style={{
-              background: '#fff',
-              border: '1px solid #e2e8f0',
+              background: 'rgba(255,255,255,0.4)',
+              border: '1px solid rgba(0,0,0,0.05)',
               borderRadius: 16,
               padding: 20,
             }}
@@ -147,9 +147,10 @@ export default function JudgeInsights() {
       {/* ================= SEARCH ================= */}
 
       <div
-        style={{
-          background: '#fff',
-          border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius: 16,
           padding: 24,
           marginBottom: 30,
@@ -193,7 +194,7 @@ export default function JudgeInsights() {
           <button
             style={{
               border: 'none',
-              background: '#2563eb',
+              background: '#3b82f6',
               color: '#fff',
               borderRadius: 10,
               padding: '0 24px',
@@ -217,9 +218,10 @@ export default function JudgeInsights() {
         }}
       >
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 24,
             textAlign: 'center',
@@ -230,7 +232,7 @@ export default function JudgeInsights() {
               width: 110,
               height: 110,
               borderRadius: '50%',
-              background: '#eff6ff',
+              background: 'rgba(59, 130, 246, 0.05)',
               margin: '0 auto',
               display: 'flex',
               justifyContent: 'center',
@@ -241,7 +243,7 @@ export default function JudgeInsights() {
               className="ti ti-scale"
               style={{
                 fontSize: 48,
-                color: '#2563eb',
+                color: '#3b82f6',
               }}
             />
           </div>
@@ -293,9 +295,10 @@ export default function JudgeInsights() {
         </div>
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 24,
           }}
@@ -362,9 +365,10 @@ export default function JudgeInsights() {
         {/* Decision Trends */}
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             overflow: 'hidden',
           }}
@@ -372,7 +376,7 @@ export default function JudgeInsights() {
           <div
             style={{
               padding: '18px 22px',
-              borderBottom: '1px solid #e2e8f0',
+              borderBottom: '1px solid rgba(0,0,0,0.05)',
             }}
           >
             <h3
@@ -388,7 +392,7 @@ export default function JudgeInsights() {
             {
               title: 'Interim Maintenance',
               percentage: '68%',
-              color: '#2563eb',
+              color: '#3b82f6',
             },
             {
               title: 'Child Custody',
@@ -424,9 +428,10 @@ export default function JudgeInsights() {
           }}
         >
           <div
-            style={{
-              background: '#fff',
-              border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+              border: '1px solid rgba(0,0,0,0.05)',
               borderRadius: 16,
               padding: 22,
             }}
@@ -513,9 +518,10 @@ export default function JudgeInsights() {
         }}
       >
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -561,9 +567,10 @@ export default function JudgeInsights() {
         </div>
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -641,7 +648,7 @@ export default function JudgeInsights() {
           <button
             style={{
               border: 'none',
-              background: '#2563eb',
+              background: '#3b82f6',
               color: '#fff',
               borderRadius: 10,
               padding: '10px 18px',
@@ -654,9 +661,10 @@ export default function JudgeInsights() {
         </div>
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             overflow: 'hidden',
           }}
@@ -706,9 +714,10 @@ export default function JudgeInsights() {
         }}
       >
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -733,7 +742,7 @@ export default function JudgeInsights() {
               key={item}
               style={{
                 padding: '12px 0',
-                borderBottom: '1px solid #e2e8f0',
+                borderBottom: '1px solid rgba(0,0,0,0.05)',
               }}
             >
               {item}
@@ -742,9 +751,10 @@ export default function JudgeInsights() {
         </div>
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -792,9 +802,10 @@ export default function JudgeInsights() {
       {/* ================= HEARING ANALYTICS ================= */}
 
       <div
-        style={{
-          background: '#fff',
-          border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius: 16,
           padding: 22,
           marginBottom: 30,
@@ -846,8 +857,8 @@ export default function JudgeInsights() {
             marginTop: 24,
             padding: 18,
             borderRadius: 12,
-            background: '#eff6ff',
-            border: '1px solid #bfdbfe',
+            background: 'rgba(59, 130, 246, 0.05)',
+            border: '1px solid rgba(59, 130, 246, 0.1)',
           }}
         >
           <strong
@@ -884,9 +895,10 @@ export default function JudgeInsights() {
         }}
       >
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -918,9 +930,10 @@ export default function JudgeInsights() {
         </div>
 
         <div
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
+      className="glass-card"
+      style={{
+        background: 'rgba(255,255,255,0.4)',
+            border: '1px solid rgba(0,0,0,0.05)',
             borderRadius: 16,
             padding: 22,
           }}
@@ -946,7 +959,7 @@ export default function JudgeInsights() {
               key={item}
               style={{
                 padding: '12px 0',
-                borderBottom: '1px solid #e2e8f0',
+                borderBottom: '1px solid rgba(0,0,0,0.05)',
               }}
             >
               {item}
@@ -959,8 +972,8 @@ export default function JudgeInsights() {
 
       <div
         style={{
-          background: '#eff6ff',
-          border: '1px solid #bfdbfe',
+          background: 'rgba(59, 130, 246, 0.05)',
+          border: '1px solid rgba(59, 130, 246, 0.1)',
           borderRadius: 16,
           padding: 22,
           marginBottom: 30,
@@ -996,8 +1009,8 @@ export default function JudgeInsights() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          background: '#fff',
-          border: '1px solid #e2e8f0',
+          background: 'rgba(255,255,255,0.4)',
+          border: '1px solid rgba(0,0,0,0.05)',
           borderRadius: 16,
           padding: 22,
         }}
@@ -1078,7 +1091,7 @@ function OverviewCard({
   return (
     <div
       style={{
-        background: '#f8fafc',
+        background: 'rgba(255,255,255,0.6)',
         borderRadius: 12,
         padding: 18,
         textAlign: 'center',
@@ -1096,9 +1109,9 @@ function OverviewCard({
       <div
         style={{
           marginTop: 10,
-          fontSize: 24,
+          fontSize: 18,
           fontWeight: 700,
-          color: '#2563eb',
+          color: '#3b82f6',
         }}
       >
         {value}
@@ -1120,7 +1133,7 @@ function TrendCard({
     <div
       style={{
         padding: 20,
-        borderBottom: '1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
       }}
     >
       <div
@@ -1195,7 +1208,7 @@ function PreferenceItem({
         display: 'flex',
         justifyContent: 'space-between',
         padding: '12px 0',
-        borderBottom: '1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
       }}
     >
       <span>{title}</span>
@@ -1214,7 +1227,7 @@ function BehaviourCard({
   return (
     <div
       style={{
-        borderBottom: '1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
         paddingBottom: 12,
       }}
     >
@@ -1249,7 +1262,7 @@ function CaseRow({
         display: 'grid',
         gridTemplateColumns: '1.2fr 1.5fr 1fr .8fr',
         padding: 18,
-        borderBottom: '1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
       }}
     >
       <strong>{caseNo}</strong>
@@ -1273,7 +1286,7 @@ function ActRow({
         display: 'flex',
         justifyContent: 'space-between',
         padding: '12px 0',
-        borderBottom: '1px solid #e2e8f0',
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
       }}
     >
       <span>{act}</span>
@@ -1294,7 +1307,7 @@ function AnalyticsCard({
   return (
     <div
       style={{
-        background: '#f8fafc',
+        background: 'rgba(255,255,255,0.6)',
         borderRadius: 12,
         padding: 18,
       }}
@@ -1311,7 +1324,7 @@ function AnalyticsCard({
       <div
         style={{
           marginTop: 10,
-          fontSize: 24,
+          fontSize: 18,
           fontWeight: 700,
           color,
         }}
@@ -1327,7 +1340,7 @@ function AnalyticsCard({
 const inputStyle: React.CSSProperties = {
   width: '100%',
   height: 44,
-  border: '1px solid #dbe3ef',
+  border: '1px solid rgba(0,0,0,0.05)',
   borderRadius: 10,
   padding: '0 14px',
   fontSize: 14,
@@ -1338,7 +1351,7 @@ const inputStyle: React.CSSProperties = {
 
 const primaryButton: React.CSSProperties = {
   border: 'none',
-  background: '#2563eb',
+  background: '#3b82f6',
   color: '#fff',
   borderRadius: 10,
   padding: '10px 18px',

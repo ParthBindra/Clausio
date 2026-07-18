@@ -25,7 +25,7 @@ export default function AutomationModal({
           maxWidth: '95%',
           maxHeight: '90vh',
           overflowY: 'auto',
-          background: '#fff',
+          background: 'rgba(255,255,255,0.4)',
           borderRadius: 18,
           boxShadow: '0 25px 60px rgba(0,0,0,.25)',
         }}
@@ -35,7 +35,7 @@ export default function AutomationModal({
         <div
           style={{
             padding: '22px 26px',
-            borderBottom: '1px solid #e2e8f0',
+            borderBottom: '1px solid rgba(0,0,0,0.05)',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
@@ -45,9 +45,9 @@ export default function AutomationModal({
             <h2
               style={{
                 margin: 0,
-                fontSize: 24,
+                fontSize: 18,
                 fontWeight: 700,
-                color: '#0f172a',
+                letterSpacing: '-0.3px', color: '#0f172a',
               }}
             >
               Create AI Automation
@@ -69,7 +69,7 @@ export default function AutomationModal({
             style={{
               border: 'none',
               background: 'transparent',
-              fontSize: 28,
+              fontSize: 18,
               cursor: 'pointer',
               color: '#94a3b8',
             }}
@@ -165,8 +165,8 @@ export default function AutomationModal({
 
           <div
             style={{
-              background: '#eff6ff',
-              border: '1px solid #bfdbfe',
+              background: 'rgba(59, 130, 246, 0.05)',
+              border: '1px solid rgba(59, 130, 246, 0.1)',
               borderRadius: 14,
               padding: 20,
               marginBottom: 30,
@@ -288,7 +288,7 @@ export default function AutomationModal({
                     alignItems: 'center',
                     gap: 10,
                     padding: 16,
-                    border: '1px solid #dbe3ef',
+                    border: '1px solid rgba(0,0,0,0.05)',
                     borderRadius: 12,
                     cursor: 'pointer',
                   }}
@@ -339,8 +339,8 @@ export default function AutomationModal({
               <button
                 style={{
                   border: 'none',
-                  background: '#eff6ff',
-                  color: '#2563eb',
+                  background: 'rgba(59, 130, 246, 0.05)',
+                  color: '#3b82f6',
                   borderRadius: 10,
                   cursor: 'pointer',
                   fontWeight: 600,
@@ -368,7 +368,7 @@ export default function AutomationModal({
 
             <div
               style={{
-                border: '1px solid #e2e8f0',
+                border: '1px solid rgba(0,0,0,0.05)',
                 borderRadius: 14,
                 overflow: 'hidden',
               }}
@@ -404,8 +404,8 @@ export default function AutomationModal({
                     <button
                       style={{
                         border: 'none',
-                        background: '#eff6ff',
-                        color: '#2563eb',
+                        background: 'rgba(59, 130, 246, 0.05)',
+                        color: '#3b82f6',
                         borderRadius: 8,
                         padding: '8px 12px',
                         cursor: 'pointer',
@@ -469,7 +469,7 @@ export default function AutomationModal({
                     alignItems: 'center',
                     gap: 10,
                     padding: 14,
-                    border: '1px solid #e2e8f0',
+                    border: '1px solid rgba(0,0,0,0.05)',
                     borderRadius: 10,
                     cursor: 'pointer',
                   }}
@@ -528,8 +528,8 @@ export default function AutomationModal({
 
           <div
             style={{
-              background: '#eff6ff',
-              border: '1px solid #bfdbfe',
+              background: 'rgba(59, 130, 246, 0.05)',
+              border: '1px solid rgba(59, 130, 246, 0.1)',
               borderRadius: 14,
               padding: 20,
               marginBottom: 30,
@@ -567,7 +567,7 @@ export default function AutomationModal({
         <div
           style={{
             padding: 24,
-            borderTop: '1px solid #e2e8f0',
+            borderTop: '1px solid rgba(0,0,0,0.05)',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
@@ -575,8 +575,8 @@ export default function AutomationModal({
         >
           <button
             style={{
-              border: '1px solid #dbe3ef',
-              background: '#fff',
+              border: '1px solid rgba(0,0,0,0.05)',
+              background: 'rgba(255,255,255,0.4)',
               borderRadius: 10,
               padding: '11px 22px',
               cursor: 'pointer',
@@ -595,8 +595,8 @@ export default function AutomationModal({
             <button
               onClick={onClose}
               style={{
-                border: '1px solid #dbe3ef',
-                background: '#fff',
+                border: '1px solid rgba(0,0,0,0.05)',
+                background: 'rgba(255,255,255,0.4)',
                 borderRadius: 10,
                 padding: '11px 22px',
                 cursor: 'pointer',
@@ -609,7 +609,7 @@ export default function AutomationModal({
             <button
               style={{
                 border: 'none',
-                background: '#2563eb',
+                background: '#3b82f6',
                 color: '#fff',
                 borderRadius: 10,
                 padding: '11px 24px',
@@ -636,7 +636,7 @@ export default function AutomationModal({
 const inputStyle: React.CSSProperties = {
   width: '100%',
   height: 44,
-  border: '1px solid #dbe3ef',
+  border: '1px solid rgba(0,0,0,0.05)',
   borderRadius: 10,
   padding: '0 14px',
   fontSize: 14,
@@ -680,10 +680,10 @@ function Step({
     <div
       style={{
         padding: '10px 18px',
-        background: '#fff',
-        border: '1px solid #bfdbfe',
+        background: 'rgba(255,255,255,0.4)',
+        border: '1px solid rgba(59, 130, 246, 0.1)',
         borderRadius: 10,
-        color: '#2563eb',
+        color: '#3b82f6',
         fontWeight: 600,
       }}
     >
@@ -697,8 +697,8 @@ function Arrow() {
     <i
       className="ti ti-arrow-right"
       style={{
-        color: '#2563eb',
-        fontSize: 20,
+        color: '#3b82f6',
+        fontSize: 14,
       }}
     />
   )
